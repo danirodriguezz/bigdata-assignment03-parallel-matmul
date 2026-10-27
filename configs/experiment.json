@@ -1,0 +1,31 @@
+{
+  "_comment": "Assignment 3 experiment configuration (read by scripts/run_experiments.py and scripts/gen_inputs.py). inproc_reps: n -> [in-process warm-ups, measured reps] per process run; rounds: number of interleaved process runs per configuration.",
+  "seed": 42,
+  "all_input_sizes": [256, 512, 1024, 2048, 3072],
+  "hardware": {"cpu": "Intel Core i7-9750H", "physical_cores": 6, "logical_cpus": 12,
+               "core_to_cpus": "core k = logical CPUs {k, k+6}"},
+  "budgets": {"timeout_s": 600, "memory_gb": 8, "total_machine_minutes": 90},
+  "bs": 64,
+  "rounds": 5,
+  "inproc_reps": {"256": [1, 30], "512": [1, 10], "1024": [1, 3], "2048": [0, 1], "3072": [0, 1]},
+  "common_env": {"OPENBLAS_NUM_THREADS": "1", "MKL_NUM_THREADS": "1", "OMP_DYNAMIC": "false"},
+  "affinity": {"OMP_PLACES": "cores", "OMP_PROC_BIND": "close"},
+  "seq_cpus": "0,6",
+  "experiments": [
+    {"name": "scaling", "kernel": "blocked", "baseline": true,
+     "sizes": [256, 512, 1024, 2048, 3072],
+     "threads": [1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 24],
+     "pilot_sizes": [256, 512], "pilot_threads": [1, 2, 6, 12, 24]},
+    {"name": "scaling_ikj", "kernel": "ikj", "baseline": true,
+     "sizes": [1024, 2048],
+     "threads": [1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 24],
+     "pilot_sizes": [256], "pilot_threads": [1, 6]},
+    {"name": "vectorisation", "kernel": "blocked", "baseline": false,
+     "variants": ["omp_scalar", "omp_avx2", "omp_fma"],
+     "sizes": [1024, 2048], "threads": [1, 6],
+     "pilot_sizes": [256], "pilot_threads": [1, 6]},
+    {"name": "freq_probe", "kernel": "blocked", "baseline": true, "rounds": 2,
+     "sizes": [2048], "threads": [1, 2, 3, 4, 6, 8, 12],
+     "pilot_sizes": [512], "pilot_threads": [1, 6]}
+  ]
+}

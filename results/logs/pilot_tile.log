@@ -1,0 +1,38 @@
+[run_measured] measured run 0: status=ok wall=3.961s peak_rss=26068 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile.csv
+[run_measured] waiting for benchmark lock /home/daniel/.cache/bigdata_bench.lock (another assignment is benchmarking)...
+[run_measured] measured run 0: status=ok wall=4.040s peak_rss=26068 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile.csv
+[run_measured] waiting for benchmark lock /home/daniel/.cache/bigdata_bench.lock (another assignment is benchmarking)...
+[run_measured] measured run 0: status=ok wall=3.776s peak_rss=26068 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile.csv
+[run_measured] waiting for benchmark lock /home/daniel/.cache/bigdata_bench.lock (another assignment is benchmarking)...
+[run_measured] measured run 0: status=ok wall=3.453s peak_rss=26068 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile.csv
+[run_measured] measured run 0: status=ok wall=3.142s peak_rss=26068 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile.csv
+[run_measured] measured run 0: status=ok wall=0.804s peak_rss=26376 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile.csv
+[run_measured] measured run 0: status=ok wall=0.845s peak_rss=26384 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile.csv
+[run_measured] waiting for benchmark lock /home/daniel/.cache/bigdata_bench.lock (another assignment is benchmarking)...
+[run_measured] measured run 0: status=ok wall=30.126s peak_rss=99796 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile.csv
+[run_measured] waiting for benchmark lock /home/daniel/.cache/bigdata_bench.lock (another assignment is benchmarking)...
+[run_measured] measured run 0: status=ok wall=29.607s peak_rss=99796 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile.csv
+[run_measured] waiting for benchmark lock /home/daniel/.cache/bigdata_bench.lock (another assignment is benchmarking)...
+[run_measured] measured run 0: status=ok wall=29.973s peak_rss=99796 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile.csv
+[run_measured] waiting for benchmark lock /home/daniel/.cache/bigdata_bench.lock (another assignment is benchmarking)...
+[run_measured] measured run 0: status=ok wall=27.752s peak_rss=99796 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile.csv
+[run_measured] waiting for benchmark lock /home/daniel/.cache/bigdata_bench.lock (another assignment is benchmarking)...
+[run_measured] measured run 0: status=ok wall=25.480s peak_rss=99796 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile.csv
+[run_measured] waiting for benchmark lock /home/daniel/.cache/bigdata_bench.lock (another assignment is benchmarking)...
+[run_measured] measured run 0: status=ok wall=6.141s peak_rss=100148 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile.csv
+[run_measured] waiting for benchmark lock /home/daniel/.cache/bigdata_bench.lock (another assignment is benchmarking)...
+[run_measured] measured run 0: status=ok wall=7.526s peak_rss=100144 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile.csv

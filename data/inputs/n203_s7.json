@@ -1,0 +1,12 @@
+{
+  "n": 203,
+  "seed": 7,
+  "generator": "numpy 2.5.4 default_rng (PCG64)",
+  "distribution": "uniform[-1.0, 1.0)",
+  "dtype": "float64 little-endian, row-major",
+  "order": "A drawn first, then B, from the same generator",
+  "file_A": "n203_s7_A.bin",
+  "file_B": "n203_s7_B.bin",
+  "sha256_A": "0e53775c7bc1382a5d28d9b3ac6d37901f8982465e0c70ce8070a6bdd38da25b",
+  "sha256_B": "9a80a1a191c685d14278cab9482b3e5ef562d2e60eea313f889d1d2973766193"
+}

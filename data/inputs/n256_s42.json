@@ -1,0 +1,12 @@
+{
+  "n": 256,
+  "seed": 42,
+  "generator": "numpy 2.5.4 default_rng (PCG64)",
+  "distribution": "uniform[-1.0, 1.0)",
+  "dtype": "float64 little-endian, row-major",
+  "order": "A drawn first, then B, from the same generator",
+  "file_A": "n256_s42_A.bin",
+  "file_B": "n256_s42_B.bin",
+  "sha256_A": "f05752a5bfeab58feeb029667f1aa6f0de2a2ccc6cf0f04766e385f1ae4ca8a1",
+  "sha256_B": "6ab154e22f5f8d42313a6bf55fb2c7c8880e64b447bbde793ff5b5b28036e88b"
+}
