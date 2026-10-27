@@ -23,3 +23,8 @@
 [run_measured] measured run 0: status=ok wall=3.806s peak_rss=26068 KiB
 [run_measured] wrote 4 rows to results/raw/pilot_diag.csv
 [run_measured] waiting for benchmark lock /home/daniel/.cache/bigdata_bench.lock (another assignment is benchmarking)...
+[run_measured] measured run 0: status=ok wall=2.734s peak_rss=26012 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_diag.csv
+[run_measured] waiting for benchmark lock /home/daniel/.cache/bigdata_bench.lock (another assignment is benchmarking)...
+[run_measured] measured run 0: status=ok wall=2.717s peak_rss=26136 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_diag.csv

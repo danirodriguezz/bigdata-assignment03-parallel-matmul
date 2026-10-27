@@ -24,3 +24,31 @@
 | seed, checksum | input seed; sum of result (consumes the output) | – |
 | loadavg_1m | 1-minute load average when the run started | – |
 | cmd, extra_json | exact command; additional program fields (JSON) | – |
+
+## Files of this assignment
+| File | Content |
+|---|---|
+| `raw/scaling.csv` | main thread sweep, blocked kernel: `seq_blocked` (p=1, sequential binary) and `omp_blocked` (p threads) |
+| `raw/scaling_ikj.csv` | same sweep for the un-tiled i-k-j kernel (`seq_ikj`, `omp_ikj`) |
+| `raw/vectorisation.csv` | `omp_scalar_blocked`, `omp_avx2_blocked`, `omp_fma_blocked` at p = 1 and 6 |
+| `raw/freq_probe.csv` | separate runs with the cpufreq sampler (`scripts/freq_probe.py`); used only for frequency evidence |
+| `raw/pilot_*.csv` | pilot runs (tile size, pinning diagnostic, pipeline smoke test); not used in the report's results except where stated (tile-size choice) |
+| `evidence/` | vectorisation reports, disassembly, linkage, affinity display, ThreadSanitizer output, test logs |
+| `logs/` | stdout/stderr of the benchmark driver |
+
+## Fields inside `extra_json` (written by `bin/matmul_*`)
+| Key | Meaning |
+|---|---|
+| `kernel`, `bs` | `blocked` (tile size bs) or `ikj` (bs = 0) |
+| `variant`, `build_flags`, `openmp` | binary variant, exact gcc flags, 1 if compiled with OpenMP |
+| `threads_actual` | team size reported by `omp_get_num_threads()` (1 for the sequential binary) |
+| `cpus` | logical CPU on which each thread ran (`sched_getcpu`, probe region before timing) |
+| `gflops` | 2n³ / time_s / 1e9 |
+| `cpu_util` | process CPU time (user+sys) / wall time of the repetition |
+| `other_busy_cpus` | CPU time of all other processes during the repetition / wall time (from `/proc/stat`, 10 ms resolution) |
+| `round` | interleaving round of the driver |
+| `omp_*` | values of OMP_NUM_THREADS, OMP_PROC_BIND, OMP_PLACES, OMP_DYNAMIC seen by the process |
+| `freq_busy_mhz_*`, `busy_cpus_median`, `freq_samples` | (freq_probe only) frequency of busy logical CPUs sampled every 0.1 s |
+
+`memory_metric = array_storage_estimate`, `memory_bytes = 3·8·n²` (analytical storage of A, B, C);
+`peak_rss_kib` is the measured peak resident set size (GNU time `%M`). They are different metrics.
