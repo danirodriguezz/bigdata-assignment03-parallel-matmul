@@ -16,8 +16,11 @@ Usage
   python scripts/run_experiments.py --config configs/experiment.json            # everything
   python scripts/run_experiments.py --pilot                                      # smoke test
   python scripts/run_experiments.py --experiments scaling --sizes 3072 --rounds 6 7
+  python scripts/run_experiments.py --resume            # skip (config, round) already in results/raw
+  python scripts/run_experiments.py --resume --dry-run  # only count what would run
 """
 import argparse
+import csv
 import json
 import random
 import subprocess
@@ -86,6 +89,22 @@ def run_job(job, cfg, rnd, pilot, out_dir):
     return rc, time.monotonic() - t0
 
 
+def done_set(out_dir, pilot):
+    """(experiment, method, n, threads, round) of every process run already in the raw CSVs."""
+    done = set()
+    for f in out_dir.glob("pilot_*.csv" if pilot else "*.csv"):
+        if not pilot and f.name.startswith("pilot_"):
+            continue
+        with open(f, newline="") as fh:
+            for row in csv.DictReader(fh):
+                try:
+                    rnd = json.loads(row["extra_json"]).get("round")
+                except (json.JSONDecodeError, KeyError):
+                    continue
+                done.add((row["experiment"], row["method"], int(row["n"]), int(row["threads"]), rnd))
+    return done
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--config", default=str(ROOT / "configs/experiment.json"))
@@ -94,6 +113,9 @@ def main():
     ap.add_argument("--sizes", type=int, nargs="*", help="subset of sizes")
     ap.add_argument("--threads", type=int, nargs="*", help="subset of thread counts")
     ap.add_argument("--rounds", type=int, nargs="*", help="explicit round numbers (default 1..R)")
+    ap.add_argument("--resume", action="store_true",
+                    help="skip process runs whose (experiment, method, n, threads, round) is already recorded")
+    ap.add_argument("--dry-run", action="store_true", help="print what would run, run nothing")
     args = ap.parse_args()
 
     cfg = json.loads(Path(args.config).read_text())
@@ -109,6 +131,7 @@ def main():
         jobs = [j for j in jobs if j["threads"] in args.threads or j["variant"] == "seq"]
     rounds = [1] if args.pilot else (args.rounds or list(range(1, cfg["rounds"] + 1)))
 
+    already = done_set(out_dir, args.pilot) if args.resume else set()
     failed = {}  # (experiment, method, threads) -> smallest n that failed
     total = len(jobs) * len(rounds)
     done = 0
@@ -122,6 +145,11 @@ def main():
             done += 1
             if job["rounds"] and rnd > job["rounds"] and not args.pilot:
                 continue  # this experiment uses fewer rounds than the global setting
+            if (job["experiment"], job["method"], job["n"], job["threads"], rnd) in already:
+                continue  # --resume: this process run is already in results/raw
+            if args.dry_run:
+                print(f"[dry-run] round {rnd} {job['experiment']} {job['method']} n={job['n']} p={job['threads']}")
+                continue
             if key in failed and job["n"] >= failed[key]:
                 print(f"[driver] skip {job} (failed earlier at this or a smaller n)", flush=True)
                 continue

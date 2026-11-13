@@ -127,54 +127,63 @@ def overhead(timed):
     return pd.DataFrame(ov_rows)
 
 
-def alignment_artifact(ov2, num):
-    """Compare T_par(1)/T_seq of run 1 (default loop alignment) with run 2 (-falign-loops=32).
+def alignment_artifact(ov3, num):
+    """Code-placement artefact: T_par(1)/T_seq in the two runs WITHOUT loop alignment and in the
+    main run (all builds with -falign-loops=32).
 
-    Run 1 raw data: results/raw/run1_default_alignment/*.csv (kept unchanged). Also uses the
-    omp_scalar build of run 1 (same kernel machine code as omp, different code placement).
+    Raw data kept unchanged in results/raw/run1_default_alignment/ (run 1) and
+    results/raw/run2_default_alignment_replicate/ (run 2: same binaries as run 1, because the
+    Makefile did not rebuild them -> an independent replicate). Also uses the omp_scalar build of
+    runs 1-2 (same kernel machine code as omp, but a different placement of the inner loop).
     """
-    r1dir = RAW / "run1_default_alignment"
-    if not r1dir.exists():
+    runs = {"run1": "run1_default_alignment", "run2": "run2_default_alignment_replicate"}
+    if not all((RAW / d).exists() for d in runs.values()):
         return None
-    m1 = measured(load("run1_default_alignment/"))
-    t1 = m1[m1["experiment"] != "freq_probe"]
-    ov1 = overhead(t1)
-    rows = ov1.merge(ov2, on=["kernel", "n"], suffixes=("_run1", "_run2"))
-    # omp_scalar (p=1, vectorisation experiment of run 1) vs the run-1 sequential baseline
-    vec = t1[t1["experiment"] == "vectorisation"]
-    seq = t1[(t1["experiment"] == "scaling") & (t1["method"] == "seq_blocked")]
-    for n in sorted(vec["n"].unique()):
-        a = vec[(vec["n"] == n) & (vec["method"] == "omp_scalar_blocked") & (vec["threads"] == 1)]["time_s"].to_numpy()
-        b = seq[seq["n"] == n]["time_s"].to_numpy()
-        if len(a) and len(b):
-            lo, hi = boot_ratio(a, b)
-            r = np.median(a) / np.median(b)
-            num.add(f"RunOneScalarRatioN{word(int(n))}", f"{r:.3f}")
-            num.add(f"RunOneScalarRatioLoN{word(int(n))}", f"{lo:.3f}")
-            num.add(f"RunOneScalarRatioHiN{word(int(n))}", f"{hi:.3f}")
-    rows.to_csv(SUM / "alignment_run1_vs_run2.csv", index=False)
-    b1 = rows[rows["kernel"] == "blocked"]
-    i1 = rows[rows["kernel"] == "ikj"]
-    num.add("RunOneOverheadMinPct", f"{100 * (b1['ratio_run1'].min() - 1):+.0f}")
-    num.add("RunOneOverheadMaxPct", f"{100 * (b1['ratio_run1'].max() - 1):+.0f}")
-    num.add("RunOneIkjMinPct", f"{100 * (i1['ratio_run1'].min() - 1):+.0f}")
-    num.add("RunOneIkjMaxPct", f"{100 * (i1['ratio_run1'].max() - 1):+.0f}")
-    # speedup of run 1 at the largest n and p = 6 (to show how much the artefact biased S)
-    sp1 = speedups(t1, "scaling", "blocked", "seq_blocked", "omp_blocked")
-    nmax = int(sp1["n"].max())
-    g = sp1[sp1["n"] == nmax].set_index("threads")
-    if 6 in g.index:
-        num.add("RunOneSLargeSix", f"{g.loc[6, 'speedup']:.2f}")
+    rows = ov3[["kernel", "n", "ratio", "ci_low", "ci_high"]].rename(
+        columns={"ratio": "ratio_main", "ci_low": "ci_low_main", "ci_high": "ci_high_main"})
+    scal = []
+    for tag, d in runs.items():
+        t = measured(load(d + "/"))
+        t = t[t["experiment"] != "freq_probe"]
+        ov = overhead(t)[["kernel", "n", "ratio", "ci_low", "ci_high"]].rename(
+            columns={"ratio": f"ratio_{tag}", "ci_low": f"ci_low_{tag}", "ci_high": f"ci_high_{tag}"})
+        rows = rows.merge(ov, on=["kernel", "n"])
+        # omp_scalar (p = 1, vectorisation experiment) vs the sequential baseline of the same run
+        vec = t[(t["experiment"] == "vectorisation") & (t["method"] == "omp_scalar_blocked") & (t["threads"] == 1)]
+        seq = t[(t["experiment"] == "scaling") & (t["method"] == "seq_blocked")]
+        for n in sorted(vec["n"].unique()):
+            a_ = vec[vec["n"] == n]["time_s"].to_numpy()
+            b_ = seq[seq["n"] == n]["time_s"].to_numpy()
+            lo, hi = boot_ratio(a_, b_)
+            scal.append({"run": tag, "n": int(n), "ratio": np.median(a_) / np.median(b_), "ci_low": lo, "ci_high": hi})
+        if tag == "run1":
+            sp1 = speedups(t, "scaling", "blocked", "seq_blocked", "omp_blocked")
+            g = sp1[sp1["n"] == sp1["n"].max()].set_index("threads")
+            num.add("RunOneSLargeSix", f"{g.loc[6, 'speedup']:.2f}")
+    rows.to_csv(SUM / "alignment_runs.csv", index=False)
+    sc = pd.DataFrame(scal)
+    sc.to_csv(SUM / "alignment_omp_scalar_p1.csv", index=False)
+    num.add("DefaultScalarRatioMin", f"{sc['ratio'].min():.2f}")
+    num.add("DefaultScalarRatioMax", f"{sc['ratio'].max():.2f}")
+    bl = rows[rows["kernel"] == "blocked"]
+    ik = rows[rows["kernel"] == "ikj"]
+    both_b = pd.concat([bl["ratio_run1"], bl["ratio_run2"]])
+    both_i = pd.concat([ik["ratio_run1"], ik["ratio_run2"]])
+    num.add("DefaultOverheadMinPct", f"{100 * (both_b.min() - 1):+.0f}")
+    num.add("DefaultOverheadMaxPct", f"{100 * (both_b.max() - 1):+.0f}")
+    num.add("DefaultIkjMinPct", f"{100 * (both_i.min() - 1):+.0f}")
+    num.add("DefaultIkjMaxPct", f"{100 * (both_i.max() - 1):+.0f}")
     lines = [r"\begin{table}[t]", r"\centering",
-             r"\caption{Code-placement artefact: $T_{par}(1)/T_{seq}$ (ratio of medians, 95\% bootstrap CI) "
-             r"in run~1 (default gcc loop alignment) and run~2 (all builds with \texttt{-falign-loops=32}). "
-             r"Placement of the inner loop in the run-1 binaries: \texttt{results/evidence/loop\_placement.csv}.}",
-             r"\label{tab:align}", r"\footnotesize", r"\setlength{\tabcolsep}{4pt}",
-             r"\begin{tabular}{@{}lrcc@{}}", r"\toprule",
-             r"Kernel & $n$ & run 1 (default) & run 2 (aligned) \\", r"\midrule"]
+             r"\caption{Code-placement artefact: $T_{par}(1)/T_{seq}$ (ratio of medians, 95\% bootstrap CI). "
+             r"Runs 1 and 2 used the same binaries with gcc's default loop alignment (run 2 is a replicate); "
+             r"the main run uses \texttt{-falign-loops=32} in every build. Inner-loop placement: "
+             r"\texttt{results/evidence/loop\_placement.csv}.}",
+             r"\label{tab:align}", r"\footnotesize", r"\setlength{\tabcolsep}{2.5pt}",
+             r"\begin{tabular}{@{}lrccc@{}}", r"\toprule",
+             r"Kernel & $n$ & run 1 (default) & run 2 (default) & main (aligned) \\", r"\midrule"]
     for _, r in rows.iterrows():
-        lines.append(f"{r['kernel']} & {r['n']} & {r['ratio_run1']:.3f} [{r['ci_low_run1']:.3f}, {r['ci_high_run1']:.3f}] & "
-                     f"{r['ratio_run2']:.3f} [{r['ci_low_run2']:.3f}, {r['ci_high_run2']:.3f}] \\\\")
+        cell = lambda t: f"{r['ratio_' + t]:.2f} [{r['ci_low_' + t]:.2f}, {r['ci_high_' + t]:.2f}]"
+        lines.append(f"{r['kernel']} & {r['n']} & {cell('run1')} & {cell('run2')} & {cell('main')} \\\\")
     lines += [r"\bottomrule", r"\end{tabular}", r"\end{table}"]
     (GEN / "table_alignment.tex").write_text("\n".join(lines) + "\n")
     return rows
