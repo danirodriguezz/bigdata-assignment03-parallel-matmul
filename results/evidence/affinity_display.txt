@@ -21,7 +21,7 @@ thread 01 bound to CPUs {1,7}
 thread 02 bound to CPUs {2,8}
 thread 03 bound to CPUs {3,9}
 thread 04 bound to CPUs {4,10}
-"threads_actual": 5, "cpus": [6,7,8,9,10]
+"threads_actual": 5, "cpus": [0,7,8,9,10]
 == p=6 OMP_PLACES=cores OMP_PROC_BIND=close
 thread 00 bound to CPUs {0,6}
 thread 01 bound to CPUs {1,7}
@@ -29,7 +29,7 @@ thread 02 bound to CPUs {2,8}
 thread 03 bound to CPUs {3,9}
 thread 04 bound to CPUs {4,10}
 thread 05 bound to CPUs {5,11}
-"threads_actual": 6, "cpus": [6,7,2,3,4,5]
+"threads_actual": 6, "cpus": [6,7,8,9,10,11]
 == p=8 OMP_PLACES=cores OMP_PROC_BIND=close
 thread 00 bound to CPUs {0,6}
 thread 01 bound to CPUs {1,7}
@@ -39,7 +39,7 @@ thread 04 bound to CPUs {4,10}
 thread 05 bound to CPUs {5,11}
 thread 06 bound to CPUs {0,6}
 thread 07 bound to CPUs {1,7}
-"threads_actual": 8, "cpus": [6,7,8,9,10,11,0,1]
+"threads_actual": 8, "cpus": [6,1,2,3,4,5,0,7]
 == p=10 OMP_PLACES=cores OMP_PROC_BIND=close
 thread 00 bound to CPUs {0,6}
 thread 01 bound to CPUs {1,7}
@@ -65,7 +65,7 @@ thread 08 bound to CPUs {4,10}
 thread 09 bound to CPUs {4,10}
 thread 10 bound to CPUs {5,11}
 thread 11 bound to CPUs {5,11}
-"threads_actual": 12, "cpus": [6,0,7,1,2,8,9,3,4,10,11,5]
+"threads_actual": 12, "cpus": [0,6,1,7,8,2,3,9,10,4,5,11]
 == p=16 OMP_PLACES=cores OMP_PROC_BIND=close
 thread 00 bound to CPUs {0,6}
 thread 01 bound to CPUs {0,6}
@@ -83,7 +83,7 @@ thread 12 bound to CPUs {0,6}
 thread 13 bound to CPUs {1,7}
 thread 14 bound to CPUs {2,8}
 thread 15 bound to CPUs {3,9}
-"threads_actual": 16, "cpus": [0,6,7,7,8,2,9,3,10,10,5,5,6,1,2,3]
+"threads_actual": 16, "cpus": [6,0,1,7,8,2,9,9,10,4,5,11,6,1,2,3]
 == p=24 OMP_PLACES=cores OMP_PROC_BIND=close
 thread 00 bound to CPUs {0,6}
 thread 01 bound to CPUs {0,6}
@@ -109,7 +109,7 @@ thread 20 bound to CPUs {5,11}
 thread 21 bound to CPUs {5,11}
 thread 22 bound to CPUs {5,11}
 thread 23 bound to CPUs {5,11}
-"threads_actual": 24, "cpus": [6,0,6,0,7,1,7,7,2,8,2,8,9,3,9,3,4,10,4,10,11,5,11,5]
+"threads_actual": 24, "cpus": [6,0,0,0,7,1,7,1,2,8,2,8,9,3,9,3,4,10,4,10,11,5,5,5]
 == OMP_DISPLAY_ENV (p=6)
   [host] OMP_DYNAMIC = 'FALSE'
   [host] OMP_NESTED = 'FALSE'

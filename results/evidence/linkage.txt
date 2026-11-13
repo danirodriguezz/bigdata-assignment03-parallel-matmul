@@ -1,9 +1,9 @@
 == bin/matmul_seq
-	linux-vdso.so.1 (0x00007092909c2000)
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000709290600000)
-	/lib64/ld-linux-x86-64.so.2 (0x00007092909c4000)
+	linux-vdso.so.1 (0x00007ccf5bc1a000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007ccf5b800000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007ccf5bc1c000)
 == bin/matmul_omp
-	linux-vdso.so.1 (0x00007b78395e6000)
-	libgomp.so.1 => /lib/x86_64-linux-gnu/libgomp.so.1 (0x00007b783956b000)
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007b7839200000)
-	/lib64/ld-linux-x86-64.so.2 (0x00007b78395e8000)
+	linux-vdso.so.1 (0x000070d43c03c000)
+	libgomp.so.1 => /lib/x86_64-linux-gnu/libgomp.so.1 (0x000070d43bfc1000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000070d43bc00000)
+	/lib64/ld-linux-x86-64.so.2 (0x000070d43c03e000)

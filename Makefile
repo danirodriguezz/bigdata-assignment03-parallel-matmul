@@ -16,11 +16,16 @@ HDR     := src/c/matmul.h
 #   omp_scalar : vectorisation extension, auto-vectorisation disabled
 #   omp_avx2   : vectorisation extension, -O3 + AVX2 (ISO C mode => no FMA contraction)
 #   omp_fma    : vectorisation extension, -O3 + AVX2 + FMA contraction allowed
-FLAGS_seq        := -O2
-FLAGS_omp        := -O2 -fopenmp
-FLAGS_omp_scalar := -O2 -fno-tree-vectorize -fopenmp
-FLAGS_omp_avx2   := -O3 -march=native -fopenmp
-FLAGS_omp_fma    := -O3 -march=native -ffp-contract=fast -fopenmp
+# LAYOUT: align every loop to a 32-byte boundary. Without it the position of the hot inner loop
+# depends on the size of the surrounding code, and the loop straddled a 32-byte boundary in some
+# binaries but not in others (~20% slower, run 1: results/raw/run1_default_alignment/). The
+# i7-9750H front end fetches/caches decoded instructions in 32-byte windows. See docs/DECISIONS.md.
+LAYOUT           := -falign-loops=32
+FLAGS_seq        := -O2 $(LAYOUT)
+FLAGS_omp        := -O2 -fopenmp $(LAYOUT)
+FLAGS_omp_scalar := -O2 -fno-tree-vectorize -fopenmp $(LAYOUT)
+FLAGS_omp_avx2   := -O3 -march=native -fopenmp $(LAYOUT)
+FLAGS_omp_fma    := -O3 -march=native -ffp-contract=fast -fopenmp $(LAYOUT)
 VARIANTS := seq omp omp_scalar omp_avx2 omp_fma
 BINS     := $(addprefix bin/matmul_,$(VARIANTS))
 TESTBINS := $(addprefix bin/test_,$(VARIANTS))

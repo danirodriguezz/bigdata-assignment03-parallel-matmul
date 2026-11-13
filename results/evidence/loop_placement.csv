@@ -1,0 +1,13 @@
+layout,binary,kernel,loop_start,loop_end,crosses_32B_window,crosses_64B_line
+default,matmul_seq,blocked,0x1d60,0x1d7e,no,no
+default,matmul_seq,ikj,0x1f30,0x1f4c,yes,yes
+default,matmul_omp,blocked,0x1f30,0x1f4e,yes,yes
+default,matmul_omp,ikj,0x21d0,0x21ec,yes,no
+default,matmul_omp_scalar,blocked,0x1f20,0x1f3e,no,no
+default,matmul_omp_scalar,ikj,0x21c0,0x21dc,no,no
+align32,matmul_seq,blocked,0x1da0,0x1dbe,no,no
+align32,matmul_seq,ikj,0x1f80,0x1f9c,no,no
+align32,matmul_omp,blocked,0x1f80,0x1f9e,no,no
+align32,matmul_omp,ikj,0x2260,0x227c,no,no
+align32,matmul_omp_scalar,blocked,0x1f60,0x1f7e,no,no
+align32,matmul_omp_scalar,ikj,0x2240,0x225c,no,no

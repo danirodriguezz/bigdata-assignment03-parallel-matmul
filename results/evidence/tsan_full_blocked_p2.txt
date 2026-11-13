@@ -1,5 +1,5 @@
 ==================
-WARNING: ThreadSanitizer: data race (pid=20695)
+WARNING: ThreadSanitizer: data race (pid=44239)
   Read of size 4 at 0x7fffffffc0e8 by main thread:
     #0 main src/c/bench_main.c:156 (tsan+0x3722) (BuildId: 29b185cf4d1248b063399dfd0c864d0e62342d4a)
 
@@ -11,7 +11,7 @@ WARNING: ThreadSanitizer: data race (pid=20695)
 
   Location is global '<null>' at 0x000000000000 ([stack]+0x1f0e8)
 
-  Thread T1 (tid=20697, running) created by main thread at:
+  Thread T1 (tid=44241, running) created by main thread at:
     #0 pthread_create ../../../../src/libsanitizer/tsan/tsan_interceptors_posix.cpp:1022 (libtsan.so.2+0x5ac1a) (BuildId: 2a13a7710e361d06f7babbea53065ca2be93f738)
     #1 <null> <null> (libgomp.so.1+0x22e1e) (BuildId: fa0c1b446610c4b7aca51e1183050acf5aa79503)
     #2 __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58 (libc.so.6+0x2a1c9) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
@@ -19,7 +19,7 @@ WARNING: ThreadSanitizer: data race (pid=20695)
 SUMMARY: ThreadSanitizer: data race src/c/bench_main.c:156 in main
 ==================
 ==================
-WARNING: ThreadSanitizer: data race (pid=20695)
+WARNING: ThreadSanitizer: data race (pid=44239)
   Read of size 4 at 0x7fffffffc0f4 by main thread:
     #0 main src/c/bench_main.c:165 (tsan+0x3769) (BuildId: 29b185cf4d1248b063399dfd0c864d0e62342d4a)
 
@@ -31,7 +31,7 @@ WARNING: ThreadSanitizer: data race (pid=20695)
 
   Location is global '<null>' at 0x000000000000 ([stack]+0x1f0f4)
 
-  Thread T1 (tid=20697, running) created by main thread at:
+  Thread T1 (tid=44241, running) created by main thread at:
     #0 pthread_create ../../../../src/libsanitizer/tsan/tsan_interceptors_posix.cpp:1022 (libtsan.so.2+0x5ac1a) (BuildId: 2a13a7710e361d06f7babbea53065ca2be93f738)
     #1 <null> <null> (libgomp.so.1+0x22e1e) (BuildId: fa0c1b446610c4b7aca51e1183050acf5aa79503)
     #2 __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58 (libc.so.6+0x2a1c9) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
@@ -39,7 +39,7 @@ WARNING: ThreadSanitizer: data race (pid=20695)
 SUMMARY: ThreadSanitizer: data race src/c/bench_main.c:165 in main
 ==================
 ==================
-WARNING: ThreadSanitizer: data race (pid=20695)
+WARNING: ThreadSanitizer: data race (pid=44239)
   Read of size 4 at 0x7fffffffbffc by thread T1:
     #0 matmul_blocked._omp_fn.0 src/c/matmul.c:75 (tsan+0x278c) (BuildId: 29b185cf4d1248b063399dfd0c864d0e62342d4a)
     #1 <null> <null> (libgomp.so.1+0x2279e) (BuildId: fa0c1b446610c4b7aca51e1183050acf5aa79503)
@@ -54,7 +54,7 @@ WARNING: ThreadSanitizer: data race (pid=20695)
 
   Location is global '<null>' at 0x000000000000 ([stack]+0x1eff8)
 
-  Thread T1 (tid=20697, running) created by main thread at:
+  Thread T1 (tid=44241, running) created by main thread at:
     #0 pthread_create ../../../../src/libsanitizer/tsan/tsan_interceptors_posix.cpp:1022 (libtsan.so.2+0x5ac1a) (BuildId: 2a13a7710e361d06f7babbea53065ca2be93f738)
     #1 <null> <null> (libgomp.so.1+0x22e1e) (BuildId: fa0c1b446610c4b7aca51e1183050acf5aa79503)
     #2 __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58 (libc.so.6+0x2a1c9) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
@@ -62,7 +62,7 @@ WARNING: ThreadSanitizer: data race (pid=20695)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:75 in matmul_blocked._omp_fn.0
 ==================
 ==================
-WARNING: ThreadSanitizer: data race (pid=20695)
+WARNING: ThreadSanitizer: data race (pid=44239)
   Read of size 8 at 0x7fffffffbff0 by thread T1:
     #0 matmul_blocked._omp_fn.0 src/c/matmul.c:75 (tsan+0x27a6) (BuildId: 29b185cf4d1248b063399dfd0c864d0e62342d4a)
     #1 <null> <null> (libgomp.so.1+0x2279e) (BuildId: fa0c1b446610c4b7aca51e1183050acf5aa79503)
@@ -77,7 +77,7 @@ WARNING: ThreadSanitizer: data race (pid=20695)
 
   Location is global '<null>' at 0x000000000000 ([stack]+0x1eff0)
 
-  Thread T1 (tid=20697, running) created by main thread at:
+  Thread T1 (tid=44241, running) created by main thread at:
     #0 pthread_create ../../../../src/libsanitizer/tsan/tsan_interceptors_posix.cpp:1022 (libtsan.so.2+0x5ac1a) (BuildId: 2a13a7710e361d06f7babbea53065ca2be93f738)
     #1 <null> <null> (libgomp.so.1+0x22e1e) (BuildId: fa0c1b446610c4b7aca51e1183050acf5aa79503)
     #2 __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58 (libc.so.6+0x2a1c9) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
@@ -85,7 +85,7 @@ WARNING: ThreadSanitizer: data race (pid=20695)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:75 in matmul_blocked._omp_fn.0
 ==================
 ==================
-WARNING: ThreadSanitizer: data race (pid=20695)
+WARNING: ThreadSanitizer: data race (pid=44239)
   Read of size 8 at 0x7fffffffbfe8 by thread T1:
     #0 matmul_blocked._omp_fn.0 src/c/matmul.c:75 (tsan+0x27b7) (BuildId: 29b185cf4d1248b063399dfd0c864d0e62342d4a)
     #1 <null> <null> (libgomp.so.1+0x2279e) (BuildId: fa0c1b446610c4b7aca51e1183050acf5aa79503)
@@ -100,7 +100,7 @@ WARNING: ThreadSanitizer: data race (pid=20695)
 
   Location is global '<null>' at 0x000000000000 ([stack]+0x1efe8)
 
-  Thread T1 (tid=20697, running) created by main thread at:
+  Thread T1 (tid=44241, running) created by main thread at:
     #0 pthread_create ../../../../src/libsanitizer/tsan/tsan_interceptors_posix.cpp:1022 (libtsan.so.2+0x5ac1a) (BuildId: 2a13a7710e361d06f7babbea53065ca2be93f738)
     #1 <null> <null> (libgomp.so.1+0x22e1e) (BuildId: fa0c1b446610c4b7aca51e1183050acf5aa79503)
     #2 __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58 (libc.so.6+0x2a1c9) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
@@ -108,7 +108,7 @@ WARNING: ThreadSanitizer: data race (pid=20695)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:75 in matmul_blocked._omp_fn.0
 ==================
 ==================
-WARNING: ThreadSanitizer: data race (pid=20695)
+WARNING: ThreadSanitizer: data race (pid=44239)
   Read of size 8 at 0x7fffffffbfe0 by thread T1:
     #0 matmul_blocked._omp_fn.0 src/c/matmul.c:75 (tsan+0x27c8) (BuildId: 29b185cf4d1248b063399dfd0c864d0e62342d4a)
     #1 <null> <null> (libgomp.so.1+0x2279e) (BuildId: fa0c1b446610c4b7aca51e1183050acf5aa79503)
@@ -123,7 +123,7 @@ WARNING: ThreadSanitizer: data race (pid=20695)
 
   Location is global '<null>' at 0x000000000000 ([stack]+0x1efe0)
 
-  Thread T1 (tid=20697, running) created by main thread at:
+  Thread T1 (tid=44241, running) created by main thread at:
     #0 pthread_create ../../../../src/libsanitizer/tsan/tsan_interceptors_posix.cpp:1022 (libtsan.so.2+0x5ac1a) (BuildId: 2a13a7710e361d06f7babbea53065ca2be93f738)
     #1 <null> <null> (libgomp.so.1+0x22e1e) (BuildId: fa0c1b446610c4b7aca51e1183050acf5aa79503)
     #2 __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58 (libc.so.6+0x2a1c9) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)

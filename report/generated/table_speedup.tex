@@ -1,21 +1,27 @@
 \begin{table*}[t]
 \centering
-\caption{Speedup $S(p)=T_{seq}/T_p$ of the blocked kernel (medians of the measured repetitions; $k$ per cell in \cref{tab:full1,tab:full2}). For $n=512$ the 95\% bootstrap confidence interval of $S$ and the efficiency $E=S/p$ are also given. $p>6$ uses both hardware threads of a core (SMT); $p>12$ is oversubscribed.}
+\caption{Speedup $S(p)=T_{seq}/T_p$ of the blocked kernel (medians of the measured repetitions; $k$ per cell in \cref{tab:full1,tab:full2}). For $n=3072$ the 95\% bootstrap confidence interval of $S$ and the efficiency $E=S/p$ are also given. $p>6$ uses both hardware threads of a core (SMT); $p>12$ is oversubscribed.}
 \label{tab:speedup}
 \small
-\begin{tabular}{@{}rlrrcr@{}}
+\begin{tabular}{@{}rlrrrrrcr@{}}
 \toprule
-$p$ & region & $n=256$ & $n=512$ & 95\% CI ($n=512$) & $E$ ($n=512$) \\
+$p$ & region & $n=256$ & $n=512$ & $n=1024$ & $n=2048$ & $n=3072$ & 95\% CI ($n=3072$) & $E$ ($n=3072$) \\
 \midrule
-1 & physical & 0.84 & 0.91 & [nan, nan] & 0.91 \\
-2 & physical & 1.46 & 1.92 & [nan, nan] & 0.96 \\
-6 & physical & 2.90 & 4.58 & [nan, nan] & 0.76 \\
+1 & physical & 0.79 & 0.83 & 0.84 & 0.84 & 0.84 & [0.77, 0.88] & 0.84 \\
+2 & physical & 1.53 & 1.58 & 1.57 & 1.59 & 1.57 & [1.51, 1.64] & 0.78 \\
+3 & physical & 2.29 & 2.18 & 2.20 & 2.19 & 2.15 & [2.07, 2.25] & 0.72 \\
+4 & physical & 2.96 & 2.91 & 2.81 & 2.86 & 2.84 & [2.35, 2.97] & 0.71 \\
+5 & physical & 3.66 & 3.47 & 3.35 & 3.44 & 3.37 & [3.20, 3.53] & 0.67 \\
+6 & physical & 4.31 & 4.14 & 4.04 & 4.06 & 4.03 & [3.15, 4.21] & 0.67 \\
 \midrule
-12 & SMT & 3.28 & 5.34 & [nan, nan] & 0.44 \\
+8 & SMT & 2.96 & 3.04 & 3.02 & 3.00 & 3.06 & [2.92, 3.19] & 0.38 \\
+10 & SMT & 3.78 & 3.67 & 3.56 & 3.61 & 3.59 & [3.08, 3.75] & 0.36 \\
+12 & SMT & 4.46 & 4.27 & 4.18 & 4.22 & 4.02 & [3.49, 4.21] & 0.34 \\
 \midrule
-24 & oversub. & 3.37 & 3.72 & [nan, nan] & 0.16 \\
+16 & oversub. & 3.79 & 4.03 & 3.78 & 3.79 & 3.72 & [2.48, 3.89] & 0.23 \\
+24 & oversub. & 4.39 & 4.22 & 4.22 & 4.14 & 3.97 & [2.92, 4.15] & 0.17 \\
 \midrule
-\multicolumn{2}{@{}l}{$T_{seq}$ [s] (median)} & 0.0093 & 0.0783 & & \\
+\multicolumn{2}{@{}l}{$T_{seq}$ [s] (median)} & 0.0080 & 0.0649 & 0.516 & 4.19 & 14.0 & & \\
 \bottomrule
 \end{tabular}
 \end{table*}

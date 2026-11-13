@@ -14,15 +14,17 @@ mkdir -p "$EV"
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
 
+L="-falign-loops=32"   # same LAYOUT flag as the Makefile
 declare -A FLAGS=(
-  [seq]="-O2" [omp]="-O2 -fopenmp" [omp_scalar]="-O2 -fno-tree-vectorize -fopenmp"
-  [omp_avx2]="-O3 -march=native -fopenmp" [omp_fma]="-O3 -march=native -ffp-contract=fast -fopenmp")
+  [seq]="-O2 $L" [omp]="-O2 -fopenmp $L" [omp_scalar]="-O2 -fno-tree-vectorize -fopenmp $L"
+  [omp_avx2]="-O3 -march=native -fopenmp $L" [omp_fma]="-O3 -march=native -ffp-contract=fast -fopenmp $L")
 
 # ---- 1. vectorisation report + disassembly counts -------------------------------------------
 {
   echo "variant,flags,vectorized_loops_reported,scalar_mulsd,scalar_addsd,packed_mulpd,packed_addpd,fma_pd,fma_sd,ymm_refs,text_sha256"
   for v in seq omp omp_scalar omp_avx2 omp_fma; do
     f="${FLAGS[$v]}"
+    rm -f "$EV/vec_report_$v.txt"   # -fopt-info appends: start from an empty report
     gcc -std=c11 -Wall -Wextra -Wno-unknown-pragmas $f -fopt-info-vec-optimized=$EV/vec_report_$v.txt \
         -c src/c/matmul.c -o "$TMP/$v.o"
     objdump -d --no-show-raw-insn "$TMP/$v.o" > "$EV/disasm_matmul_$v.txt"
@@ -38,6 +40,33 @@ cat "$EV/vectorisation_evidence.csv"
 # Innermost-loop excerpt of the blocked kernel (AVX2 build) for the report/appendix
 grep -nE 'vmulpd|vaddpd|vfmadd' "$EV/disasm_matmul_omp_avx2.txt" | head -20 > "$EV/disasm_excerpt_avx2.txt"
 grep -nE 'vfmadd' "$EV/disasm_matmul_omp_fma.txt" | head -20 > "$EV/disasm_excerpt_fma.txt"
+
+# ---- 1b. code placement of the hot inner loop (alignment artefact of run 1) -----------------
+# For the seq/omp binaries built WITHOUT (default, as in run 1) and WITH -falign-loops=32, find the
+# innermost loop (the backward jne of the c[j] += aik*b[j] loop) of the blocked kernel (tile_update)
+# and of the ikj kernel, and report whether it straddles a 32-byte window and a 64-byte cache line.
+{
+  echo "layout,binary,kernel,loop_start,loop_end,crosses_32B_window,crosses_64B_line"
+  for layout in default align32; do
+    lf=""; [ "$layout" = align32 ] && lf="-falign-loops=32"
+    for v in seq omp omp_scalar; do
+      f="-O2"; [ "$v" = omp ] && f="-O2 -fopenmp"; [ "$v" = omp_scalar ] && f="-O2 -fno-tree-vectorize -fopenmp"
+      gcc -std=c11 -Wno-unknown-pragmas $f $lf -DVARIANT="\"$v\"" src/c/matmul.c src/c/bench_main.c -o "$TMP/pl_$v" -lm
+      objdump -d --no-show-raw-insn "$TMP/pl_$v" > "$TMP/pl_$v.s"
+      for k in blocked ikj; do
+        fn="tile_update"; [ $k = ikj ] && { [ $v != seq ] && fn="matmul_ikj._omp_fn.0" || fn="matmul_ikj"; }
+        # the inner loop is the first backward jne after the first mulsd of the function
+        line=$(awk -v fn="<$fn>:" '$2==fn{f=1;next} f&&/^$/{exit} f' "$TMP/pl_$v.s" | awk '/mulsd/{m=1} m&&/jne/{print; exit}')
+        end=$(echo "$line" | awk '{print $1}' | tr -d ':'); start=$(echo "$line" | awk '{print $3}')
+        e=$((16#$end + 2)); s=$((16#$start))
+        c32=$([ $((s / 32)) -ne $(((e - 1) / 32)) ] && echo yes || echo no)
+        c64=$([ $((s / 64)) -ne $(((e - 1) / 64)) ] && echo yes || echo no)
+        echo "$layout,matmul_$v,$k,0x$start,$(printf '0x%x' $e),$c32,$c64"
+      done
+    done
+  done
+} > "$EV/loop_placement.csv"
+cat "$EV/loop_placement.csv"
 
 # ---- 2. linkage -----------------------------------------------------------------------------
 {

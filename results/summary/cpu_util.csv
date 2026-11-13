@@ -1,1 +1,13 @@
 method,threads,cpu_util
+omp_blocked,1,1.0
+omp_blocked,2,2.0
+omp_blocked,3,2.988
+omp_blocked,4,3.988
+omp_blocked,5,4.974
+omp_blocked,6,5.994
+omp_blocked,8,6.273
+omp_blocked,10,9.095
+omp_blocked,12,11.79
+omp_blocked,16,10.521
+omp_blocked,24,11.709
+seq_blocked,1,1.0

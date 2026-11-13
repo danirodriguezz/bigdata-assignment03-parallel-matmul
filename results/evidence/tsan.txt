@@ -2,94 +2,98 @@ ThreadSanitizer build: gcc -std=c11 -fsanitize=thread -fopenmp -g -O1 src/c/matm
 Caveat: the system libgomp is not instrumented for TSan, so its internal synchronisation
 (barriers) is invisible to TSan; reports inside libgomp would be false positives.
 == kernel=blocked p=2 n=300 bs=64
-WARNING: ThreadSanitizer: data race (pid=20585)
+WARNING: ThreadSanitizer: data race (pid=44013)
 SUMMARY: ThreadSanitizer: data race src/c/bench_main.c:156 in main
-WARNING: ThreadSanitizer: data race (pid=20585)
+WARNING: ThreadSanitizer: data race (pid=44013)
 SUMMARY: ThreadSanitizer: data race src/c/bench_main.c:165 in main
-WARNING: ThreadSanitizer: data race (pid=20585)
+WARNING: ThreadSanitizer: data race (pid=44013)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:75 in matmul_blocked._omp_fn.0
-WARNING: ThreadSanitizer: data race (pid=20585)
+WARNING: ThreadSanitizer: data race (pid=44013)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:75 in matmul_blocked._omp_fn.0
-WARNING: ThreadSanitizer: data race (pid=20585)
+WARNING: ThreadSanitizer: data race (pid=44013)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:75 in matmul_blocked._omp_fn.0
-WARNING: ThreadSanitizer: data race (pid=20585)
+WARNING: ThreadSanitizer: data race (pid=44013)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:75 in matmul_blocked._omp_fn.0
 "checksum": -2210.3820985002044
 exit status: 66
 == kernel=blocked p=6 n=300 bs=64
-WARNING: ThreadSanitizer: data race (pid=20629)
+WARNING: ThreadSanitizer: data race (pid=44022)
 SUMMARY: ThreadSanitizer: data race src/c/bench_main.c:156 in main
-WARNING: ThreadSanitizer: data race (pid=20629)
+WARNING: ThreadSanitizer: data race (pid=44022)
 SUMMARY: ThreadSanitizer: data race src/c/bench_main.c:165 in main
-WARNING: ThreadSanitizer: data race (pid=20629)
+WARNING: ThreadSanitizer: data race (pid=44022)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:75 in matmul_blocked._omp_fn.0
-WARNING: ThreadSanitizer: data race (pid=20629)
+WARNING: ThreadSanitizer: data race (pid=44022)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:75 in matmul_blocked._omp_fn.0
-WARNING: ThreadSanitizer: data race (pid=20629)
+WARNING: ThreadSanitizer: data race (pid=44022)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:75 in matmul_blocked._omp_fn.0
-WARNING: ThreadSanitizer: data race (pid=20629)
+WARNING: ThreadSanitizer: data race (pid=44022)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:75 in matmul_blocked._omp_fn.0
+WARNING: ThreadSanitizer: data race (pid=44022)
+SUMMARY: ThreadSanitizer: data race src/c/bench_main.c:185 in main
 "checksum": -2210.3820985002044
 exit status: 66
 == kernel=blocked p=12 n=300 bs=64
-WARNING: ThreadSanitizer: data race (pid=20643)
+WARNING: ThreadSanitizer: data race (pid=44150)
 SUMMARY: ThreadSanitizer: data race src/c/bench_main.c:156 in main
-WARNING: ThreadSanitizer: data race (pid=20643)
+WARNING: ThreadSanitizer: data race (pid=44150)
 SUMMARY: ThreadSanitizer: data race src/c/bench_main.c:165 in main
-WARNING: ThreadSanitizer: data race (pid=20643)
+WARNING: ThreadSanitizer: data race (pid=44150)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:75 in matmul_blocked._omp_fn.0
-WARNING: ThreadSanitizer: data race (pid=20643)
+WARNING: ThreadSanitizer: data race (pid=44150)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:75 in matmul_blocked._omp_fn.0
-WARNING: ThreadSanitizer: data race (pid=20643)
+WARNING: ThreadSanitizer: data race (pid=44150)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:75 in matmul_blocked._omp_fn.0
-WARNING: ThreadSanitizer: data race (pid=20643)
+WARNING: ThreadSanitizer: data race (pid=44150)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:75 in matmul_blocked._omp_fn.0
 "checksum": -2210.3820985002044
 exit status: 66
 == kernel=ikj p=2 n=300 bs=64
-WARNING: ThreadSanitizer: data race (pid=20661)
+WARNING: ThreadSanitizer: data race (pid=44205)
 SUMMARY: ThreadSanitizer: data race src/c/bench_main.c:156 in main
-WARNING: ThreadSanitizer: data race (pid=20661)
+WARNING: ThreadSanitizer: data race (pid=44205)
 SUMMARY: ThreadSanitizer: data race src/c/bench_main.c:165 in main
-WARNING: ThreadSanitizer: data race (pid=20661)
+WARNING: ThreadSanitizer: data race (pid=44205)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:89 in matmul_ikj._omp_fn.0
-WARNING: ThreadSanitizer: data race (pid=20661)
+WARNING: ThreadSanitizer: data race (pid=44205)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:89 in matmul_ikj._omp_fn.0
-WARNING: ThreadSanitizer: data race (pid=20661)
+WARNING: ThreadSanitizer: data race (pid=44205)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:89 in matmul_ikj._omp_fn.0
-WARNING: ThreadSanitizer: data race (pid=20661)
+WARNING: ThreadSanitizer: data race (pid=44205)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:89 in matmul_ikj._omp_fn.0
 "checksum": -2210.3820985002044
 exit status: 66
 == kernel=ikj p=6 n=300 bs=64
-WARNING: ThreadSanitizer: data race (pid=20668)
+WARNING: ThreadSanitizer: data race (pid=44212)
 SUMMARY: ThreadSanitizer: data race src/c/bench_main.c:156 in main
-WARNING: ThreadSanitizer: data race (pid=20668)
+WARNING: ThreadSanitizer: data race (pid=44212)
 SUMMARY: ThreadSanitizer: data race src/c/bench_main.c:165 in main
-WARNING: ThreadSanitizer: data race (pid=20668)
+WARNING: ThreadSanitizer: data race (pid=44212)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:89 in matmul_ikj._omp_fn.0
-WARNING: ThreadSanitizer: data race (pid=20668)
+WARNING: ThreadSanitizer: data race (pid=44212)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:89 in matmul_ikj._omp_fn.0
-WARNING: ThreadSanitizer: data race (pid=20668)
+WARNING: ThreadSanitizer: data race (pid=44212)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:89 in matmul_ikj._omp_fn.0
-WARNING: ThreadSanitizer: data race (pid=20668)
+WARNING: ThreadSanitizer: data race (pid=44212)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:89 in matmul_ikj._omp_fn.0
 "checksum": -2210.3820985002044
 exit status: 66
 == kernel=ikj p=12 n=300 bs=64
-WARNING: ThreadSanitizer: data race (pid=20681)
+WARNING: ThreadSanitizer: data race (pid=44224)
 SUMMARY: ThreadSanitizer: data race src/c/bench_main.c:156 in main
-WARNING: ThreadSanitizer: data race (pid=20681)
+WARNING: ThreadSanitizer: data race (pid=44224)
 SUMMARY: ThreadSanitizer: data race src/c/bench_main.c:165 in main
-WARNING: ThreadSanitizer: data race (pid=20681)
+WARNING: ThreadSanitizer: data race (pid=44224)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:89 in matmul_ikj._omp_fn.0
-WARNING: ThreadSanitizer: data race (pid=20681)
+WARNING: ThreadSanitizer: data race (pid=44224)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:89 in matmul_ikj._omp_fn.0
-WARNING: ThreadSanitizer: data race (pid=20681)
+WARNING: ThreadSanitizer: data race (pid=44224)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:89 in matmul_ikj._omp_fn.0
-WARNING: ThreadSanitizer: data race (pid=20681)
+WARNING: ThreadSanitizer: data race (pid=44224)
 SUMMARY: ThreadSanitizer: data race src/c/matmul.c:89 in matmul_ikj._omp_fn.0
 "checksum": -2210.3820985002044
+WARNING: ThreadSanitizer: data race (pid=44224)
+SUMMARY: ThreadSanitizer: data race src/c/bench_main.c:213 in main
 exit status: 66
 == classification of the full report (blocked, p=2): accessed addresses
       6 stack

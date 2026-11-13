@@ -84,4 +84,4 @@ PASS ikj     matmul_omp_avx2    p=6    max|err|/bound=6.406e-03 bit-identical-to
 PASS ikj     matmul_omp_fma     p=1    max|err|/bound=4.004e-03 bit-identical-to-seq=False
 PASS ikj     matmul_omp_fma     p=6    max|err|/bound=4.004e-03 bit-identical-to-seq=False
 test_vs_numpy: PASSED
-exit 0
+test exit 0
