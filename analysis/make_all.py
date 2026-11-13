@@ -109,6 +109,77 @@ def region(p):
     return "physical" if p <= PHYS else ("smt" if p <= LOGICAL else "oversubscribed")
 
 
+def overhead(timed):
+    """T_par(1)/T_seq per kernel and n (ratio of medians, bootstrap CI)."""
+    ov_rows = []
+    for (exp, kern), (sm, pm) in {("scaling", "blocked"): ("seq_blocked", "omp_blocked"),
+                                  ("scaling_ikj", "ikj"): ("seq_ikj", "omp_ikj")}.items():
+        sub = timed[timed["experiment"] == exp]
+        for n, g in sub.groupby("n"):
+            tb = g.loc[g["method"] == sm, "time_s"].to_numpy()
+            t1 = g.loc[(g["method"] == pm) & (g["threads"] == 1), "time_s"].to_numpy()
+            if len(tb) and len(t1):
+                lo, hi = boot_ratio(t1, tb)
+                ov_rows.append({"kernel": kern, "n": int(n), "T_seq_median_s": np.median(tb),
+                                "T_seq_iqr_s": q(tb, .75) - q(tb, .25), "T_par1_median_s": np.median(t1),
+                                "T_par1_iqr_s": q(t1, .75) - q(t1, .25), "k_seq": len(tb), "k_par1": len(t1),
+                                "ratio": np.median(t1) / np.median(tb), "ci_low": lo, "ci_high": hi})
+    return pd.DataFrame(ov_rows)
+
+
+def alignment_artifact(ov2, num):
+    """Compare T_par(1)/T_seq of run 1 (default loop alignment) with run 2 (-falign-loops=32).
+
+    Run 1 raw data: results/raw/run1_default_alignment/*.csv (kept unchanged). Also uses the
+    omp_scalar build of run 1 (same kernel machine code as omp, different code placement).
+    """
+    r1dir = RAW / "run1_default_alignment"
+    if not r1dir.exists():
+        return None
+    m1 = measured(load("run1_default_alignment/"))
+    t1 = m1[m1["experiment"] != "freq_probe"]
+    ov1 = overhead(t1)
+    rows = ov1.merge(ov2, on=["kernel", "n"], suffixes=("_run1", "_run2"))
+    # omp_scalar (p=1, vectorisation experiment of run 1) vs the run-1 sequential baseline
+    vec = t1[t1["experiment"] == "vectorisation"]
+    seq = t1[(t1["experiment"] == "scaling") & (t1["method"] == "seq_blocked")]
+    for n in sorted(vec["n"].unique()):
+        a = vec[(vec["n"] == n) & (vec["method"] == "omp_scalar_blocked") & (vec["threads"] == 1)]["time_s"].to_numpy()
+        b = seq[seq["n"] == n]["time_s"].to_numpy()
+        if len(a) and len(b):
+            lo, hi = boot_ratio(a, b)
+            r = np.median(a) / np.median(b)
+            num.add(f"RunOneScalarRatioN{word(int(n))}", f"{r:.3f}")
+            num.add(f"RunOneScalarRatioLoN{word(int(n))}", f"{lo:.3f}")
+            num.add(f"RunOneScalarRatioHiN{word(int(n))}", f"{hi:.3f}")
+    rows.to_csv(SUM / "alignment_run1_vs_run2.csv", index=False)
+    b1 = rows[rows["kernel"] == "blocked"]
+    i1 = rows[rows["kernel"] == "ikj"]
+    num.add("RunOneOverheadMinPct", f"{100 * (b1['ratio_run1'].min() - 1):+.0f}")
+    num.add("RunOneOverheadMaxPct", f"{100 * (b1['ratio_run1'].max() - 1):+.0f}")
+    num.add("RunOneIkjMinPct", f"{100 * (i1['ratio_run1'].min() - 1):+.0f}")
+    num.add("RunOneIkjMaxPct", f"{100 * (i1['ratio_run1'].max() - 1):+.0f}")
+    # speedup of run 1 at the largest n and p = 6 (to show how much the artefact biased S)
+    sp1 = speedups(t1, "scaling", "blocked", "seq_blocked", "omp_blocked")
+    nmax = int(sp1["n"].max())
+    g = sp1[sp1["n"] == nmax].set_index("threads")
+    if 6 in g.index:
+        num.add("RunOneSLargeSix", f"{g.loc[6, 'speedup']:.2f}")
+    lines = [r"\begin{table}[t]", r"\centering",
+             r"\caption{Code-placement artefact: $T_{par}(1)/T_{seq}$ (ratio of medians, 95\% bootstrap CI) "
+             r"in run~1 (default gcc loop alignment) and run~2 (all builds with \texttt{-falign-loops=32}). "
+             r"Placement of the inner loop in the run-1 binaries: \texttt{results/evidence/loop\_placement.csv}.}",
+             r"\label{tab:align}", r"\footnotesize", r"\setlength{\tabcolsep}{4pt}",
+             r"\begin{tabular}{@{}lrcc@{}}", r"\toprule",
+             r"Kernel & $n$ & run 1 (default) & run 2 (aligned) \\", r"\midrule"]
+    for _, r in rows.iterrows():
+        lines.append(f"{r['kernel']} & {r['n']} & {r['ratio_run1']:.3f} [{r['ci_low_run1']:.3f}, {r['ci_high_run1']:.3f}] & "
+                     f"{r['ratio_run2']:.3f} [{r['ci_low_run2']:.3f}, {r['ci_high_run2']:.3f}] \\\\")
+    lines += [r"\bottomrule", r"\end{tabular}", r"\end{table}"]
+    (GEN / "table_alignment.tex").write_text("\n".join(lines) + "\n")
+    return rows
+
+
 # ----------------------------------------------------------------------------------- latex helpers
 def fmt_s(x):
     if pd.isna(x):
@@ -165,7 +236,7 @@ def color_n(n):
     return pal.get(n, "#000000"), mk.get(n, "x")
 
 
-def fig_speedup_eff(sp, path):
+def fig_speedup_eff(sp, path, fq=None):
     ps.apply_style()
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(ps.TEXT_WIDTH_IN, 2.5))
     pmax = sp["threads"].max()
@@ -174,6 +245,11 @@ def fig_speedup_eff(sp, path):
     xs = np.arange(1, pmax + 1)
     a1.plot(xs[xs <= LOGICAL], xs[xs <= LOGICAL], color="0.4", lw=0.8, ls="--", label="ideal $S=p$")
     a1.axhline(PHYS, color="0.4", lw=0.6, ls="-.", label="6 physical cores")
+    if fq is not None and len(fq):
+        g = fq.sort_values("threads")
+        bound = np.minimum(g["threads"], PHYS) * g["mhz"] / g.loc[g["threads"] == 1, "mhz"].iloc[0]
+        a1.plot(g["threads"], bound, ls="none", marker="x", color="k", ms=4,
+                label="$\\min(p,6)\\,f(p)/f(1)$")
     for n, g in sp.groupby("n"):
         c, m = color_n(n)
         g = g.sort_values("threads")
@@ -405,21 +481,20 @@ def main():
             num.add(f"GflopsIkjOneN{w}", f"{g.loc[1, 'gflops_p']:.2f}")
 
     # ---- overhead of the parallel binary with one thread ---------------------------------------
-    ov_rows = []
-    for (exp, kern), (sm, pm) in {("scaling", "blocked"): ("seq_blocked", "omp_blocked"),
-                                  ("scaling_ikj", "ikj"): ("seq_ikj", "omp_ikj")}.items():
-        sub = timed[timed["experiment"] == exp]
-        for n, g in sub.groupby("n"):
-            tb = g.loc[g["method"] == sm, "time_s"].to_numpy()
-            t1 = g.loc[(g["method"] == pm) & (g["threads"] == 1), "time_s"].to_numpy()
-            if len(tb) and len(t1):
-                lo, hi = boot_ratio(t1, tb)
-                ov_rows.append({"kernel": kern, "n": int(n), "T_seq_median_s": np.median(tb),
-                                "T_seq_iqr_s": q(tb, .75) - q(tb, .25), "T_par1_median_s": np.median(t1),
-                                "T_par1_iqr_s": q(t1, .75) - q(t1, .25), "k_seq": len(tb), "k_par1": len(t1),
-                                "ratio": np.median(t1) / np.median(tb), "ci_low": lo, "ci_high": hi})
-    ov = pd.DataFrame(ov_rows)
+    ov = overhead(timed)
     ov.to_csv(SUM / "overhead_one_thread.csv", index=False)
+    alignment_artifact(ov, num)
+    ovi = ov[ov["kernel"] == "ikj"]
+    if len(ovi):
+        num.add("OverheadIkjMinPct", f"{100 * (ovi['ratio'].min() - 1):+.1f}")
+        num.add("OverheadIkjMaxPct", f"{100 * (ovi['ratio'].max() - 1):+.1f}")
+    # relative (self) speedup T_par(1)/T_p of the same binary, blocked kernel
+    for n, g in timed[(timed["experiment"] == "scaling") & (timed["method"] == "omp_blocked")].groupby("n"):
+        med = g.groupby("threads")["time_s"].median()
+        if 1 in med.index and 6 in med.index:
+            num.add(f"SRelSixN{word(int(n))}", f"{med[1] / med[6]:.2f}")
+        if 1 in med.index and 12 in med.index:
+            num.add(f"SRelTwelveN{word(int(n))}", f"{med[1] / med[12]:.2f}")
     ovb = ov[ov["kernel"] == "blocked"]
     num.add("OverheadMinPct", f"{100 * (ovb['ratio'].min() - 1):+.1f}")
     num.add("OverheadMaxPct", f"{100 * (ovb['ratio'].max() - 1):+.1f}")
@@ -466,6 +541,7 @@ def main():
         write_vec_table(vt, GEN / "table_vectorisation.tex")
 
     # ---- frequency probe -----------------------------------------------------------------------
+    fq = None
     fp = m[m["experiment"] == "freq_probe"].copy()
     if len(fp):
         fp["p_eff"] = np.where(fp["method"].str.startswith("seq"), 0, fp["threads"])
@@ -479,6 +555,13 @@ def main():
             num.add(f"Freq{word(int(rr['threads']))}", f"{rr['mhz']:.0f}")
         if len(fseq):
             num.add("FreqSeq", f"{fseq['freq_busy_mhz_median'].median():.0f}")
+        fqi = fq.set_index("threads")
+        if 1 in fqi.index:
+            for p in fqi.index:
+                ratio = fqi.loc[p, "mhz"] / fqi.loc[1, "mhz"]
+                num.add(f"FreqRatio{word(int(p))}", f"{ratio:.2f}", "f(p)/f(1)")
+                num.add(f"FreqBound{word(int(p))}", f"{min(p, PHYS) * ratio:.2f}",
+                        "min(p,6) * f(p)/f(1): speedup bound if only the frequency drop limited scaling")
         fig_freq(fq, FIG / "frequency")
 
     # ---- CPU utilisation (from the main sweep, long reps) --------------------------------------
@@ -499,7 +582,7 @@ def main():
         num.add(f"ArrayMibN{w}", f"{3 * 8 * n * n / 2 ** 20:.1f}")
 
     # ---- figures ------------------------------------------------------------------------------
-    fig_speedup_eff(sp, FIG / "speedup_efficiency")
+    fig_speedup_eff(sp, FIG / "speedup_efficiency", fq)
     fig_runtime(timed, sp, FIG / "runtime_vs_threads")
     if len(sp_ikj):
         fig_kernels(sp_all, FIG / "kernels_gflops")

@@ -1,0 +1,1489 @@
+[run_measured] measured run 0: status=ok wall=0.440s peak_rss=26620 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 1/520 scaling_ikj omp_ikj n=1024 p=6 rc=0 0.5s (elapsed 0.0 min)
+[run_measured] measured run 0: status=ok wall=0.490s peak_rss=26480 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 2/520 scaling omp_blocked n=1024 p=24 rc=0 0.5s (elapsed 0.0 min)
+[run_measured] measured run 0: status=ok wall=0.079s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 3/520 scaling omp_blocked n=256 p=16 rc=0 0.1s (elapsed 0.0 min)
+[run_measured] measured run 0: status=ok wall=0.874s peak_rss=100168 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 1 4/520 vectorisation omp_avx2_blocked n=2048 p=6 rc=0 0.9s (elapsed 0.0 min)
+[run_measured] measured run 0: status=ok wall=2.856s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 5/520 scaling omp_blocked n=2048 p=4 rc=0 2.9s (elapsed 0.1 min)
+[run_measured] measured run 0: status=ok wall=3.571s peak_rss=223092 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 6/520 scaling omp_blocked n=3072 p=24 rc=0 3.6s (elapsed 0.1 min)
+[run_measured] measured run 0: status=ok wall=2.943s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 7/520 scaling_ikj omp_ikj n=2048 p=8 rc=0 3.0s (elapsed 0.2 min)
+[run_measured] measured run 0: status=ok wall=0.531s peak_rss=26500 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 8/520 scaling_ikj omp_ikj n=1024 p=5 rc=0 0.6s (elapsed 0.2 min)
+[run_measured] measured run 0: status=ok wall=2.140s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 9/520 scaling_ikj omp_ikj n=1024 p=1 rc=0 2.2s (elapsed 0.2 min)
+[run_measured] measured run 0: status=ok wall=0.198s peak_rss=8052 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 10/520 scaling omp_blocked n=512 p=5 rc=0 0.2s (elapsed 0.2 min)
+[run_measured] measured run 0: status=ok wall=0.228s peak_rss=26488 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 1 11/520 vectorisation omp_avx2_blocked n=1024 p=6 rc=0 0.3s (elapsed 0.2 min)
+[run_measured] measured run 0: status=ok wall=3.836s peak_rss=223040 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 12/520 scaling omp_blocked n=3072 p=16 rc=0 3.9s (elapsed 0.3 min)
+[run_measured] measured run 0: status=ok wall=1.299s peak_rss=26332 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 13/520 scaling omp_blocked n=1024 p=2 rc=0 1.3s (elapsed 0.3 min)
+[run_measured] measured run 0: status=ok wall=0.581s peak_rss=26736 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 14/520 scaling_ikj omp_ikj n=1024 p=10 rc=0 0.6s (elapsed 0.3 min)
+[run_measured] measured run 0: status=ok wall=0.916s peak_rss=26612 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 1 15/520 vectorisation omp_fma_blocked n=1024 p=1 rc=0 1.0s (elapsed 0.4 min)
+[run_measured] measured run 0: status=ok wall=0.603s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 16/520 scaling omp_blocked n=1024 p=5 rc=0 0.6s (elapsed 0.4 min)
+[run_measured] measured run 0: status=ok wall=2.307s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 17/520 scaling omp_blocked n=2048 p=16 rc=0 2.4s (elapsed 0.4 min)
+[run_measured] measured run 0: status=ok wall=0.178s peak_rss=8308 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 18/520 scaling omp_blocked n=512 p=6 rc=0 0.2s (elapsed 0.4 min)
+[run_measured] measured run 0: status=ok wall=8.602s peak_rss=99880 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/freq_probe.csv
+[driver] round 1 19/520 freq_probe seq_blocked n=2048 p=1 rc=0 8.7s (elapsed 0.6 min)
+[run_measured] measured run 0: status=ok wall=0.490s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 20/520 scaling omp_blocked n=1024 p=6 rc=0 0.5s (elapsed 0.6 min)
+[run_measured] measured run 0: status=ok wall=2.213s peak_rss=100164 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 21/520 scaling omp_blocked n=2048 p=6 rc=0 2.3s (elapsed 0.6 min)
+[run_measured] measured run 0: status=ok wall=3.542s peak_rss=223092 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 22/520 scaling omp_blocked n=3072 p=6 rc=0 3.6s (elapsed 0.7 min)
+[run_measured] measured run 0: status=ok wall=0.097s peak_rss=3388 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 23/520 scaling omp_blocked n=256 p=4 rc=0 0.1s (elapsed 0.7 min)
+[run_measured] measured run 0: status=ok wall=0.925s peak_rss=100340 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 1 24/520 vectorisation omp_fma_blocked n=2048 p=6 rc=0 1.0s (elapsed 0.7 min)
+[run_measured] measured run 0: status=ok wall=0.320s peak_rss=3440 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 25/520 scaling omp_blocked n=256 p=1 rc=0 0.4s (elapsed 0.7 min)
+[run_measured] measured run 0: status=ok wall=3.068s peak_rss=100208 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/freq_probe.csv
+[driver] round 1 26/520 freq_probe omp_blocked n=2048 p=4 rc=0 3.1s (elapsed 0.7 min)
+[run_measured] measured run 0: status=ok wall=2.201s peak_rss=100340 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 27/520 scaling_ikj omp_ikj n=2048 p=12 rc=0 2.2s (elapsed 0.8 min)
+[run_measured] measured run 0: status=ok wall=8.454s peak_rss=100224 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 1 28/520 vectorisation omp_scalar_blocked n=2048 p=1 rc=0 8.5s (elapsed 0.9 min)
+[run_measured] measured run 0: status=ok wall=0.672s peak_rss=26480 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 29/520 scaling omp_blocked n=1024 p=8 rc=0 0.7s (elapsed 0.9 min)
+[run_measured] measured run 0: status=ok wall=3.944s peak_rss=223088 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 30/520 scaling omp_blocked n=3072 p=10 rc=0 4.0s (elapsed 1.0 min)
+[run_measured] measured run 0: status=ok wall=0.330s peak_rss=8052 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 31/520 scaling omp_blocked n=512 p=3 rc=0 0.4s (elapsed 1.0 min)
+[run_measured] measured run 0: status=ok wall=2.464s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 32/520 scaling omp_blocked n=2048 p=5 rc=0 2.5s (elapsed 1.0 min)
+[run_measured] measured run 0: status=ok wall=0.461s peak_rss=8308 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 33/520 scaling omp_blocked n=512 p=2 rc=0 0.5s (elapsed 1.1 min)
+[run_measured] measured run 0: status=ok wall=0.077s peak_rss=3652 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 34/520 scaling omp_blocked n=256 p=5 rc=0 0.1s (elapsed 1.1 min)
+[run_measured] measured run 0: status=ok wall=2.771s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 35/520 scaling omp_blocked n=2048 p=8 rc=0 2.8s (elapsed 1.1 min)
+[run_measured] measured run 0: status=ok wall=2.056s peak_rss=100356 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 36/520 scaling omp_blocked n=2048 p=12 rc=0 2.1s (elapsed 1.1 min)
+[run_measured] measured run 0: status=ok wall=0.521s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 37/520 scaling omp_blocked n=1024 p=12 rc=0 0.6s (elapsed 1.1 min)
+[run_measured] measured run 0: status=ok wall=0.195s peak_rss=8304 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 38/520 scaling omp_blocked n=512 p=16 rc=0 0.2s (elapsed 1.2 min)
+[run_measured] measured run 0: status=ok wall=2.871s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/freq_probe.csv
+[driver] round 1 39/520 freq_probe omp_blocked n=2048 p=8 rc=0 2.9s (elapsed 1.2 min)
+[run_measured] measured run 0: status=ok wall=0.713s peak_rss=26612 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 40/520 scaling_ikj omp_ikj n=1024 p=8 rc=0 0.8s (elapsed 1.2 min)
+[run_measured] measured run 0: status=ok wall=2.626s peak_rss=26152 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 41/520 scaling_ikj seq_ikj n=1024 p=1 rc=0 2.7s (elapsed 1.3 min)
+[run_measured] measured run 0: status=ok wall=0.167s peak_rss=8052 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 42/520 scaling omp_blocked n=512 p=24 rc=0 0.2s (elapsed 1.3 min)
+[run_measured] measured run 0: status=ok wall=2.068s peak_rss=26500 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 1 43/520 vectorisation omp_scalar_blocked n=1024 p=1 rc=0 2.1s (elapsed 1.3 min)
+[run_measured] measured run 0: status=ok wall=1.128s peak_rss=26740 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 44/520 scaling_ikj omp_ikj n=1024 p=2 rc=0 1.2s (elapsed 1.3 min)
+[run_measured] measured run 0: status=ok wall=8.037s peak_rss=99880 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 45/520 scaling seq_blocked n=2048 p=1 rc=0 8.1s (elapsed 1.4 min)
+[run_measured] measured run 0: status=ok wall=3.363s peak_rss=223236 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 46/520 scaling omp_blocked n=3072 p=12 rc=0 3.4s (elapsed 1.5 min)
+[run_measured] measured run 0: status=ok wall=0.734s peak_rss=26436 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 47/520 scaling omp_blocked n=1024 p=4 rc=0 0.8s (elapsed 1.5 min)
+[run_measured] measured run 0: status=ok wall=0.560s peak_rss=26624 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 48/520 scaling omp_blocked n=1024 p=16 rc=0 0.6s (elapsed 1.5 min)
+[run_measured] measured run 0: status=ok wall=0.077s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 49/520 scaling omp_blocked n=256 p=10 rc=0 0.1s (elapsed 1.5 min)
+[run_measured] measured run 0: status=ok wall=5.811s peak_rss=100336 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 50/520 scaling_ikj omp_ikj n=2048 p=2 rc=0 5.9s (elapsed 1.6 min)
+[run_measured] measured run 0: status=ok wall=3.188s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 51/520 scaling_ikj omp_ikj n=2048 p=4 rc=0 3.2s (elapsed 1.7 min)
+[run_measured] measured run 0: status=ok wall=2.493s peak_rss=100412 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 52/520 scaling_ikj omp_ikj n=2048 p=10 rc=0 2.5s (elapsed 1.7 min)
+[run_measured] measured run 0: status=ok wall=16.789s peak_rss=223036 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 53/520 scaling omp_blocked n=3072 p=1 rc=0 16.8s (elapsed 2.0 min)
+[run_measured] measured run 0: status=ok wall=4.075s peak_rss=223104 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 54/520 scaling omp_blocked n=3072 p=5 rc=0 4.1s (elapsed 2.1 min)
+[run_measured] measured run 0: status=ok wall=10.113s peak_rss=100464 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 55/520 scaling omp_blocked n=2048 p=1 rc=0 10.2s (elapsed 2.2 min)
+[run_measured] measured run 0: status=ok wall=0.933s peak_rss=26480 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 56/520 scaling omp_blocked n=1024 p=3 rc=0 1.0s (elapsed 2.3 min)
+[run_measured] measured run 0: status=ok wall=0.249s peak_rss=3112 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 57/520 scaling seq_blocked n=256 p=1 rc=0 0.3s (elapsed 2.3 min)
+[run_measured] measured run 0: status=ok wall=0.845s peak_rss=8068 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 58/520 scaling omp_blocked n=512 p=1 rc=0 0.9s (elapsed 2.3 min)
+[run_measured] measured run 0: status=ok wall=5.078s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 59/520 scaling omp_blocked n=2048 p=2 rc=0 5.1s (elapsed 2.4 min)
+[run_measured] measured run 0: status=ok wall=0.419s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 1 60/520 vectorisation omp_scalar_blocked n=1024 p=6 rc=0 0.5s (elapsed 2.4 min)
+[run_measured] measured run 0: status=ok wall=0.565s peak_rss=26740 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 61/520 scaling_ikj omp_ikj n=1024 p=16 rc=0 0.6s (elapsed 2.4 min)
+[run_measured] measured run 0: status=ok wall=0.512s peak_rss=26740 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 62/520 scaling_ikj omp_ikj n=1024 p=12 rc=0 0.6s (elapsed 2.4 min)
+[run_measured] measured run 0: status=ok wall=0.953s peak_rss=26440 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 1 63/520 vectorisation omp_avx2_blocked n=1024 p=1 rc=0 1.0s (elapsed 2.4 min)
+[run_measured] measured run 0: status=ok wall=0.208s peak_rss=26488 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 1 64/520 vectorisation omp_fma_blocked n=1024 p=6 rc=0 0.3s (elapsed 2.4 min)
+[run_measured] measured run 0: status=ok wall=0.190s peak_rss=8308 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 65/520 scaling omp_blocked n=512 p=12 rc=0 0.2s (elapsed 2.4 min)
+[run_measured] measured run 0: status=ok wall=2.317s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 66/520 scaling omp_blocked n=2048 p=10 rc=0 2.4s (elapsed 2.5 min)
+[run_measured] measured run 0: status=ok wall=3.852s peak_rss=100468 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 67/520 scaling omp_blocked n=2048 p=3 rc=0 3.9s (elapsed 2.5 min)
+[run_measured] measured run 0: status=ok wall=5.501s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/freq_probe.csv
+[driver] round 1 68/520 freq_probe omp_blocked n=2048 p=2 rc=0 5.6s (elapsed 2.6 min)
+[run_measured] measured run 0: status=ok wall=8.682s peak_rss=223092 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 69/520 scaling omp_blocked n=3072 p=2 rc=0 8.7s (elapsed 2.8 min)
+[run_measured] measured run 0: status=ok wall=0.069s peak_rss=3516 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 70/520 scaling omp_blocked n=256 p=12 rc=0 0.1s (elapsed 2.8 min)
+[run_measured] measured run 0: status=ok wall=4.617s peak_rss=223036 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 71/520 scaling omp_blocked n=3072 p=8 rc=0 4.7s (elapsed 2.8 min)
+[run_measured] measured run 0: status=ok wall=0.584s peak_rss=26436 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 72/520 scaling omp_blocked n=1024 p=10 rc=0 0.6s (elapsed 2.8 min)
+[run_measured] measured run 0: status=ok wall=4.139s peak_rss=100208 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 73/520 scaling_ikj omp_ikj n=2048 p=3 rc=0 4.2s (elapsed 2.9 min)
+[run_measured] measured run 0: status=ok wall=0.258s peak_rss=8048 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 74/520 scaling omp_blocked n=512 p=4 rc=0 0.3s (elapsed 2.9 min)
+[run_measured] measured run 0: status=ok wall=3.888s peak_rss=100160 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 1 75/520 vectorisation omp_fma_blocked n=2048 p=1 rc=0 3.9s (elapsed 3.0 min)
+[run_measured] measured run 0: status=ok wall=0.704s peak_rss=7720 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 76/520 scaling seq_blocked n=512 p=1 rc=0 0.7s (elapsed 3.0 min)
+[run_measured] measured run 0: status=ok wall=1.838s peak_rss=100356 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 1 77/520 vectorisation omp_scalar_blocked n=2048 p=6 rc=0 1.9s (elapsed 3.0 min)
+[run_measured] measured run 0: status=ok wall=0.169s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 78/520 scaling omp_blocked n=256 p=2 rc=0 0.2s (elapsed 3.0 min)
+[run_measured] measured run 0: status=ok wall=0.248s peak_rss=8048 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 79/520 scaling omp_blocked n=512 p=8 rc=0 0.3s (elapsed 3.0 min)
+[run_measured] measured run 0: status=ok wall=2.424s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 80/520 scaling_ikj omp_ikj n=2048 p=16 rc=0 2.5s (elapsed 3.1 min)
+[run_measured] measured run 0: status=ok wall=0.692s peak_rss=26740 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 81/520 scaling_ikj omp_ikj n=1024 p=4 rc=0 0.7s (elapsed 3.1 min)
+[run_measured] measured run 0: status=ok wall=2.059s peak_rss=26152 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 82/520 scaling seq_blocked n=1024 p=1 rc=0 2.1s (elapsed 3.1 min)
+[run_measured] measured run 0: status=ok wall=2.287s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 83/520 scaling_ikj omp_ikj n=2048 p=6 rc=0 2.3s (elapsed 3.2 min)
+[run_measured] measured run 0: status=ok wall=0.853s peak_rss=26496 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 84/520 scaling_ikj omp_ikj n=1024 p=3 rc=0 0.9s (elapsed 3.2 min)
+[run_measured] measured run 0: status=ok wall=0.118s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 85/520 scaling omp_blocked n=256 p=3 rc=0 0.2s (elapsed 3.2 min)
+[run_measured] measured run 0: status=ok wall=0.067s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 86/520 scaling omp_blocked n=256 p=6 rc=0 0.1s (elapsed 3.2 min)
+[run_measured] measured run 0: status=ok wall=2.681s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 87/520 scaling_ikj omp_ikj n=2048 p=5 rc=0 2.7s (elapsed 3.2 min)
+[run_measured] measured run 0: status=ok wall=3.979s peak_rss=100208 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/freq_probe.csv
+[driver] round 1 88/520 freq_probe omp_blocked n=2048 p=3 rc=0 4.0s (elapsed 3.3 min)
+[run_measured] measured run 0: status=ok wall=10.699s peak_rss=100200 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 89/520 scaling_ikj omp_ikj n=2048 p=1 rc=0 10.7s (elapsed 3.5 min)
+[run_measured] measured run 0: status=ok wall=6.382s peak_rss=223092 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 90/520 scaling omp_blocked n=3072 p=3 rc=0 6.4s (elapsed 3.6 min)
+[run_measured] measured run 0: status=ok wall=2.481s peak_rss=100208 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 91/520 scaling_ikj omp_ikj n=2048 p=24 rc=0 2.5s (elapsed 3.6 min)
+[run_measured] measured run 0: status=ok wall=11.752s peak_rss=99880 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 92/520 scaling_ikj seq_ikj n=2048 p=1 rc=0 11.8s (elapsed 3.8 min)
+[run_measured] measured run 0: status=ok wall=1.984s peak_rss=100164 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 93/520 scaling omp_blocked n=2048 p=24 rc=0 2.0s (elapsed 3.9 min)
+[run_measured] measured run 0: status=ok wall=3.716s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 1 94/520 vectorisation omp_avx2_blocked n=2048 p=1 rc=0 3.8s (elapsed 3.9 min)
+[run_measured] measured run 0: status=ok wall=4.924s peak_rss=223092 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 95/520 scaling omp_blocked n=3072 p=4 rc=0 5.0s (elapsed 4.0 min)
+[run_measured] measured run 0: status=ok wall=0.208s peak_rss=8068 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 96/520 scaling omp_blocked n=512 p=10 rc=0 0.2s (elapsed 4.0 min)
+[run_measured] measured run 0: status=ok wall=13.850s peak_rss=222760 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 97/520 scaling seq_blocked n=3072 p=1 rc=0 13.9s (elapsed 4.2 min)
+[run_measured] measured run 0: status=ok wall=0.490s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 1 98/520 scaling_ikj omp_ikj n=1024 p=24 rc=0 0.5s (elapsed 4.2 min)
+[run_measured] measured run 0: status=ok wall=0.079s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 99/520 scaling omp_blocked n=256 p=24 rc=0 0.1s (elapsed 4.3 min)
+[run_measured] measured run 0: status=ok wall=2.441s peak_rss=26740 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 100/520 scaling omp_blocked n=1024 p=1 rc=0 2.5s (elapsed 4.3 min)
+[run_measured] measured run 0: status=ok wall=2.073s peak_rss=100340 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/freq_probe.csv
+[driver] round 1 101/520 freq_probe omp_blocked n=2048 p=12 rc=0 2.1s (elapsed 4.3 min)
+[run_measured] measured run 0: status=ok wall=9.808s peak_rss=100468 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/freq_probe.csv
+[driver] round 1 102/520 freq_probe omp_blocked n=2048 p=1 rc=0 9.8s (elapsed 4.5 min)
+[run_measured] measured run 0: status=ok wall=0.087s peak_rss=3440 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 1 103/520 scaling omp_blocked n=256 p=8 rc=0 0.1s (elapsed 4.5 min)
+[run_measured] measured run 0: status=ok wall=2.162s peak_rss=100156 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/freq_probe.csv
+[driver] round 1 104/520 freq_probe omp_blocked n=2048 p=6 rc=0 2.2s (elapsed 4.5 min)
+[run_measured] measured run 0: status=ok wall=0.896s peak_rss=26488 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 2 105/520 vectorisation omp_fma_blocked n=1024 p=1 rc=0 0.9s (elapsed 4.5 min)
+[run_measured] measured run 0: status=ok wall=4.079s peak_rss=100208 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/freq_probe.csv
+[driver] round 2 106/520 freq_probe omp_blocked n=2048 p=3 rc=0 4.1s (elapsed 4.6 min)
+[run_measured] measured run 0: status=ok wall=0.590s peak_rss=26500 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 107/520 scaling omp_blocked n=1024 p=5 rc=0 0.6s (elapsed 4.6 min)
+[run_measured] measured run 0: status=ok wall=2.013s peak_rss=100420 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 108/520 scaling omp_blocked n=2048 p=12 rc=0 2.1s (elapsed 4.7 min)
+[run_measured] measured run 0: status=ok wall=0.459s peak_rss=8052 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 109/520 scaling omp_blocked n=512 p=2 rc=0 0.5s (elapsed 4.7 min)
+[run_measured] measured run 0: status=ok wall=3.797s peak_rss=223088 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 110/520 scaling omp_blocked n=3072 p=16 rc=0 3.8s (elapsed 4.7 min)
+[run_measured] measured run 0: status=ok wall=8.048s peak_rss=99880 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 111/520 scaling seq_blocked n=2048 p=1 rc=0 8.1s (elapsed 4.9 min)
+[run_measured] measured run 0: status=ok wall=0.174s peak_rss=7996 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 112/520 scaling omp_blocked n=512 p=16 rc=0 0.2s (elapsed 4.9 min)
+[run_measured] measured run 0: status=ok wall=0.238s peak_rss=8308 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 113/520 scaling omp_blocked n=512 p=8 rc=0 0.3s (elapsed 4.9 min)
+[run_measured] measured run 0: status=ok wall=0.180s peak_rss=8124 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 114/520 scaling omp_blocked n=512 p=12 rc=0 0.2s (elapsed 4.9 min)
+[run_measured] measured run 0: status=ok wall=2.040s peak_rss=26152 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 115/520 scaling seq_blocked n=1024 p=1 rc=0 2.1s (elapsed 4.9 min)
+[run_measured] measured run 0: status=ok wall=2.287s peak_rss=100228 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 116/520 scaling omp_blocked n=2048 p=10 rc=0 2.3s (elapsed 5.0 min)
+[run_measured] measured run 0: status=ok wall=0.430s peak_rss=26480 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 2 117/520 vectorisation omp_scalar_blocked n=1024 p=6 rc=0 0.5s (elapsed 5.0 min)
+[run_measured] measured run 0: status=ok wall=3.725s peak_rss=100216 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 2 118/520 vectorisation omp_avx2_blocked n=2048 p=1 rc=0 3.8s (elapsed 5.0 min)
+[run_measured] measured run 0: status=ok wall=13.901s peak_rss=222760 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 119/520 scaling seq_blocked n=3072 p=1 rc=0 13.9s (elapsed 5.3 min)
+[run_measured] measured run 0: status=ok wall=0.545s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 120/520 scaling_ikj omp_ikj n=1024 p=16 rc=0 0.6s (elapsed 5.3 min)
+[run_measured] measured run 0: status=ok wall=2.423s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 121/520 scaling omp_blocked n=2048 p=5 rc=0 2.5s (elapsed 5.3 min)
+[run_measured] measured run 0: status=ok wall=0.833s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 122/520 scaling_ikj omp_ikj n=1024 p=3 rc=0 0.9s (elapsed 5.3 min)
+[run_measured] measured run 0: status=ok wall=0.172s peak_rss=8052 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 123/520 scaling omp_blocked n=512 p=24 rc=0 0.2s (elapsed 5.3 min)
+[run_measured] measured run 0: status=ok wall=2.012s peak_rss=100420 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 124/520 scaling omp_blocked n=2048 p=24 rc=0 2.1s (elapsed 5.4 min)
+[run_measured] measured run 0: status=ok wall=4.313s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 125/520 scaling_ikj omp_ikj n=2048 p=3 rc=0 4.4s (elapsed 5.4 min)
+[run_measured] measured run 0: status=ok wall=2.390s peak_rss=100204 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 126/520 scaling_ikj omp_ikj n=2048 p=24 rc=0 2.5s (elapsed 5.5 min)
+[run_measured] measured run 0: status=ok wall=3.464s peak_rss=223092 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 127/520 scaling omp_blocked n=3072 p=12 rc=0 3.5s (elapsed 5.5 min)
+[run_measured] measured run 0: status=ok wall=0.602s peak_rss=26428 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 128/520 scaling_ikj omp_ikj n=1024 p=10 rc=0 0.6s (elapsed 5.5 min)
+[run_measured] measured run 0: status=ok wall=2.693s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 129/520 scaling_ikj omp_ikj n=2048 p=5 rc=0 2.7s (elapsed 5.6 min)
+[run_measured] measured run 0: status=ok wall=10.466s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 130/520 scaling_ikj omp_ikj n=2048 p=1 rc=0 10.5s (elapsed 5.8 min)
+[run_measured] measured run 0: status=ok wall=0.571s peak_rss=26468 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 131/520 scaling omp_blocked n=1024 p=10 rc=0 0.6s (elapsed 5.8 min)
+[run_measured] measured run 0: status=ok wall=2.740s peak_rss=100224 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 132/520 scaling omp_blocked n=2048 p=8 rc=0 2.8s (elapsed 5.8 min)
+[run_measured] measured run 0: status=ok wall=2.870s peak_rss=100468 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/freq_probe.csv
+[driver] round 2 133/520 freq_probe omp_blocked n=2048 p=8 rc=0 2.9s (elapsed 5.9 min)
+[run_measured] measured run 0: status=ok wall=2.461s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 134/520 scaling omp_blocked n=1024 p=1 rc=0 2.5s (elapsed 5.9 min)
+[run_measured] measured run 0: status=ok wall=0.634s peak_rss=26500 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 135/520 scaling_ikj omp_ikj n=1024 p=4 rc=0 0.7s (elapsed 5.9 min)
+[run_measured] measured run 0: status=ok wall=0.258s peak_rss=3112 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 136/520 scaling seq_blocked n=256 p=1 rc=0 0.3s (elapsed 5.9 min)
+[run_measured] measured run 0: status=ok wall=0.320s peak_rss=8052 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 137/520 scaling omp_blocked n=512 p=3 rc=0 0.4s (elapsed 5.9 min)
+[run_measured] measured run 0: status=ok wall=0.569s peak_rss=26480 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 138/520 scaling omp_blocked n=1024 p=16 rc=0 0.6s (elapsed 5.9 min)
+[run_measured] measured run 0: status=ok wall=2.237s peak_rss=100340 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 139/520 scaling omp_blocked n=2048 p=16 rc=0 2.3s (elapsed 6.0 min)
+[run_measured] measured run 0: status=ok wall=0.097s peak_rss=3700 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 140/520 scaling omp_blocked n=256 p=8 rc=0 0.1s (elapsed 6.0 min)
+[run_measured] measured run 0: status=ok wall=16.844s peak_rss=223092 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 141/520 scaling omp_blocked n=3072 p=1 rc=0 16.9s (elapsed 6.3 min)
+[run_measured] measured run 0: status=ok wall=0.845s peak_rss=8052 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 142/520 scaling omp_blocked n=512 p=1 rc=0 0.9s (elapsed 6.3 min)
+[run_measured] measured run 0: status=ok wall=2.041s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 143/520 scaling omp_blocked n=2048 p=6 rc=0 2.1s (elapsed 6.3 min)
+[run_measured] measured run 0: status=ok wall=0.310s peak_rss=3440 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 144/520 scaling omp_blocked n=256 p=1 rc=0 0.4s (elapsed 6.3 min)
+[run_measured] measured run 0: status=ok wall=0.198s peak_rss=8048 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 145/520 scaling omp_blocked n=512 p=5 rc=0 0.2s (elapsed 6.3 min)
+[run_measured] measured run 0: status=ok wall=0.218s peak_rss=26488 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 2 146/520 vectorisation omp_fma_blocked n=1024 p=6 rc=0 0.3s (elapsed 6.3 min)
+[run_measured] measured run 0: status=ok wall=2.416s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 147/520 scaling_ikj omp_ikj n=2048 p=16 rc=0 2.5s (elapsed 6.4 min)
+[run_measured] measured run 0: status=ok wall=0.946s peak_rss=26440 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 2 148/520 vectorisation omp_avx2_blocked n=1024 p=1 rc=0 1.0s (elapsed 6.4 min)
+[run_measured] measured run 0: status=ok wall=3.563s peak_rss=100168 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 2 149/520 vectorisation omp_fma_blocked n=2048 p=1 rc=0 3.6s (elapsed 6.4 min)
+[run_measured] measured run 0: status=ok wall=0.926s peak_rss=26500 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 150/520 scaling omp_blocked n=1024 p=3 rc=0 1.0s (elapsed 6.5 min)
+[run_measured] measured run 0: status=ok wall=2.139s peak_rss=100208 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 151/520 scaling_ikj omp_ikj n=2048 p=12 rc=0 2.2s (elapsed 6.5 min)
+[run_measured] measured run 0: status=ok wall=0.228s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 2 152/520 vectorisation omp_avx2_blocked n=1024 p=6 rc=0 0.3s (elapsed 6.5 min)
+[run_measured] measured run 0: status=ok wall=0.168s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 153/520 scaling omp_blocked n=256 p=2 rc=0 0.2s (elapsed 6.5 min)
+[run_measured] measured run 0: status=ok wall=2.073s peak_rss=100228 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/freq_probe.csv
+[driver] round 2 154/520 freq_probe omp_blocked n=2048 p=12 rc=0 2.1s (elapsed 6.5 min)
+[run_measured] measured run 0: status=ok wall=2.318s peak_rss=100356 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 155/520 scaling_ikj omp_ikj n=2048 p=6 rc=0 2.4s (elapsed 6.6 min)
+[run_measured] measured run 0: status=ok wall=5.213s peak_rss=223104 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 156/520 scaling omp_blocked n=3072 p=4 rc=0 5.3s (elapsed 6.7 min)
+[run_measured] measured run 0: status=ok wall=8.193s peak_rss=99880 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/freq_probe.csv
+[driver] round 2 157/520 freq_probe seq_blocked n=2048 p=1 rc=0 8.2s (elapsed 6.8 min)
+[run_measured] measured run 0: status=ok wall=0.480s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 158/520 scaling omp_blocked n=1024 p=12 rc=0 0.5s (elapsed 6.8 min)
+[run_measured] measured run 0: status=ok wall=2.048s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 2 159/520 vectorisation omp_scalar_blocked n=1024 p=1 rc=0 2.1s (elapsed 6.8 min)
+[run_measured] measured run 0: status=ok wall=0.672s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 160/520 scaling omp_blocked n=1024 p=8 rc=0 0.7s (elapsed 6.9 min)
+[run_measured] measured run 0: status=ok wall=0.097s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 161/520 scaling omp_blocked n=256 p=4 rc=0 0.1s (elapsed 6.9 min)
+[run_measured] measured run 0: status=ok wall=1.305s peak_rss=26428 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 162/520 scaling omp_blocked n=1024 p=2 rc=0 1.3s (elapsed 6.9 min)
+[run_measured] measured run 0: status=ok wall=1.128s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 163/520 scaling_ikj omp_ikj n=1024 p=2 rc=0 1.2s (elapsed 6.9 min)
+[run_measured] measured run 0: status=ok wall=0.501s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 164/520 scaling_ikj omp_ikj n=1024 p=12 rc=0 0.5s (elapsed 6.9 min)
+[run_measured] measured run 0: status=ok wall=5.164s peak_rss=100156 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 165/520 scaling omp_blocked n=2048 p=2 rc=0 5.2s (elapsed 7.0 min)
+[run_measured] measured run 0: status=ok wall=6.463s peak_rss=223092 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 166/520 scaling omp_blocked n=3072 p=3 rc=0 6.5s (elapsed 7.1 min)
+[run_measured] measured run 0: status=ok wall=2.575s peak_rss=26152 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 167/520 scaling_ikj seq_ikj n=1024 p=1 rc=0 2.6s (elapsed 7.2 min)
+[run_measured] measured run 0: status=ok wall=2.876s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 168/520 scaling omp_blocked n=2048 p=4 rc=0 2.9s (elapsed 7.2 min)
+[run_measured] measured run 0: status=ok wall=8.985s peak_rss=223092 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 169/520 scaling omp_blocked n=3072 p=2 rc=0 9.0s (elapsed 7.4 min)
+[run_measured] measured run 0: status=ok wall=0.077s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 170/520 scaling omp_blocked n=256 p=10 rc=0 0.1s (elapsed 7.4 min)
+[run_measured] measured run 0: status=ok wall=1.719s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 2 171/520 vectorisation omp_scalar_blocked n=2048 p=6 rc=0 1.8s (elapsed 7.4 min)
+[run_measured] measured run 0: status=ok wall=3.551s peak_rss=223092 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 172/520 scaling omp_blocked n=3072 p=6 rc=0 3.6s (elapsed 7.4 min)
+[run_measured] measured run 0: status=ok wall=0.751s peak_rss=7720 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 173/520 scaling seq_blocked n=512 p=1 rc=0 0.8s (elapsed 7.5 min)
+[run_measured] measured run 0: status=ok wall=0.058s peak_rss=3568 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 174/520 scaling omp_blocked n=256 p=12 rc=0 0.1s (elapsed 7.5 min)
+[run_measured] measured run 0: status=ok wall=9.797s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 175/520 scaling omp_blocked n=2048 p=1 rc=0 9.8s (elapsed 7.6 min)
+[run_measured] measured run 0: status=ok wall=4.051s peak_rss=223284 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 176/520 scaling omp_blocked n=3072 p=10 rc=0 4.1s (elapsed 7.7 min)
+[run_measured] measured run 0: status=ok wall=0.713s peak_rss=26692 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 177/520 scaling_ikj omp_ikj n=1024 p=8 rc=0 0.8s (elapsed 7.7 min)
+[run_measured] measured run 0: status=ok wall=0.078s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 178/520 scaling omp_blocked n=256 p=16 rc=0 0.1s (elapsed 7.7 min)
+[run_measured] measured run 0: status=ok wall=9.807s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/freq_probe.csv
+[driver] round 2 179/520 freq_probe omp_blocked n=2048 p=1 rc=0 9.8s (elapsed 7.9 min)
+[run_measured] measured run 0: status=ok wall=3.450s peak_rss=223220 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 180/520 scaling omp_blocked n=3072 p=24 rc=0 3.5s (elapsed 7.9 min)
+[run_measured] measured run 0: status=ok wall=3.775s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 181/520 scaling omp_blocked n=2048 p=3 rc=0 3.8s (elapsed 8.0 min)
+[run_measured] measured run 0: status=ok wall=0.198s peak_rss=8308 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 182/520 scaling omp_blocked n=512 p=10 rc=0 0.2s (elapsed 8.0 min)
+[run_measured] measured run 0: status=ok wall=0.966s peak_rss=100344 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 2 183/520 vectorisation omp_avx2_blocked n=2048 p=6 rc=0 1.0s (elapsed 8.0 min)
+[run_measured] measured run 0: status=ok wall=0.925s peak_rss=100216 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 2 184/520 vectorisation omp_fma_blocked n=2048 p=6 rc=0 1.0s (elapsed 8.0 min)
+[run_measured] measured run 0: status=ok wall=0.529s peak_rss=26500 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 185/520 scaling_ikj omp_ikj n=1024 p=24 rc=0 0.6s (elapsed 8.0 min)
+[run_measured] measured run 0: status=ok wall=11.467s peak_rss=99880 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 186/520 scaling_ikj seq_ikj n=2048 p=1 rc=0 11.5s (elapsed 8.2 min)
+[run_measured] measured run 0: status=ok wall=0.117s peak_rss=3396 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 187/520 scaling omp_blocked n=256 p=3 rc=0 0.2s (elapsed 8.2 min)
+[run_measured] measured run 0: status=ok wall=2.162s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/freq_probe.csv
+[driver] round 2 188/520 freq_probe omp_blocked n=2048 p=6 rc=0 2.2s (elapsed 8.3 min)
+[run_measured] measured run 0: status=ok wall=0.077s peak_rss=3440 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 189/520 scaling omp_blocked n=256 p=5 rc=0 0.1s (elapsed 8.3 min)
+[run_measured] measured run 0: status=ok wall=3.271s peak_rss=100468 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/freq_probe.csv
+[driver] round 2 190/520 freq_probe omp_blocked n=2048 p=4 rc=0 3.3s (elapsed 8.3 min)
+[run_measured] measured run 0: status=ok wall=0.510s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 191/520 scaling omp_blocked n=1024 p=6 rc=0 0.6s (elapsed 8.3 min)
+[run_measured] measured run 0: status=ok wall=0.067s peak_rss=3452 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 192/520 scaling omp_blocked n=256 p=6 rc=0 0.1s (elapsed 8.3 min)
+[run_measured] measured run 0: status=ok wall=0.551s peak_rss=26564 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 193/520 scaling_ikj omp_ikj n=1024 p=5 rc=0 0.6s (elapsed 8.3 min)
+[run_measured] measured run 0: status=ok wall=4.665s peak_rss=223092 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 194/520 scaling omp_blocked n=3072 p=8 rc=0 4.7s (elapsed 8.4 min)
+[run_measured] measured run 0: status=ok wall=8.059s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 2 195/520 vectorisation omp_scalar_blocked n=2048 p=1 rc=0 8.1s (elapsed 8.6 min)
+[run_measured] measured run 0: status=ok wall=0.068s peak_rss=3396 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 196/520 scaling omp_blocked n=256 p=24 rc=0 0.1s (elapsed 8.6 min)
+[run_measured] measured run 0: status=ok wall=2.948s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 197/520 scaling_ikj omp_ikj n=2048 p=8 rc=0 3.0s (elapsed 8.6 min)
+[run_measured] measured run 0: status=ok wall=5.782s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 198/520 scaling_ikj omp_ikj n=2048 p=2 rc=0 5.8s (elapsed 8.7 min)
+[run_measured] measured run 0: status=ok wall=2.636s peak_rss=100156 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 199/520 scaling_ikj omp_ikj n=2048 p=10 rc=0 2.7s (elapsed 8.8 min)
+[run_measured] measured run 0: status=ok wall=5.290s peak_rss=100156 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/freq_probe.csv
+[driver] round 2 200/520 freq_probe omp_blocked n=2048 p=2 rc=0 5.3s (elapsed 8.8 min)
+[run_measured] measured run 0: status=ok wall=2.129s peak_rss=26480 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 201/520 scaling_ikj omp_ikj n=1024 p=1 rc=0 2.2s (elapsed 8.9 min)
+[run_measured] measured run 0: status=ok wall=0.491s peak_rss=26436 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 202/520 scaling omp_blocked n=1024 p=24 rc=0 0.5s (elapsed 8.9 min)
+[run_measured] measured run 0: status=ok wall=0.258s peak_rss=8052 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 203/520 scaling omp_blocked n=512 p=4 rc=0 0.3s (elapsed 8.9 min)
+[run_measured] measured run 0: status=ok wall=0.178s peak_rss=8052 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 204/520 scaling omp_blocked n=512 p=6 rc=0 0.2s (elapsed 8.9 min)
+[run_measured] measured run 0: status=ok wall=0.732s peak_rss=26740 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 205/520 scaling omp_blocked n=1024 p=4 rc=0 0.8s (elapsed 8.9 min)
+[run_measured] measured run 0: status=ok wall=4.185s peak_rss=223104 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 2 206/520 scaling omp_blocked n=3072 p=5 rc=0 4.2s (elapsed 9.0 min)
+[run_measured] measured run 0: status=ok wall=3.221s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 207/520 scaling_ikj omp_ikj n=2048 p=4 rc=0 3.3s (elapsed 9.0 min)
+[run_measured] measured run 0: status=ok wall=0.470s peak_rss=26480 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 2 208/520 scaling_ikj omp_ikj n=1024 p=6 rc=0 0.5s (elapsed 9.0 min)
+[run_measured] measured run 0: status=ok wall=3.624s peak_rss=100472 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 3 209/520 vectorisation omp_fma_blocked n=2048 p=1 rc=0 3.7s (elapsed 9.1 min)
+[run_measured] measured run 0: status=ok wall=1.155s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 210/520 scaling_ikj omp_ikj n=1024 p=2 rc=0 1.2s (elapsed 9.1 min)
+[run_measured] measured run 0: status=ok wall=0.450s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 211/520 scaling_ikj omp_ikj n=1024 p=6 rc=0 0.5s (elapsed 9.1 min)
+[run_measured] measured run 0: status=ok wall=0.713s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 212/520 scaling_ikj omp_ikj n=1024 p=8 rc=0 0.8s (elapsed 9.1 min)
+[run_measured] measured run 0: status=ok wall=8.333s peak_rss=99880 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 213/520 scaling seq_blocked n=2048 p=1 rc=0 8.4s (elapsed 9.3 min)
+[run_measured] measured run 0: status=ok wall=0.320s peak_rss=8116 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 214/520 scaling omp_blocked n=512 p=3 rc=0 0.4s (elapsed 9.3 min)
+[run_measured] measured run 0: status=ok wall=11.360s peak_rss=99880 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 215/520 scaling_ikj seq_ikj n=2048 p=1 rc=0 11.4s (elapsed 9.5 min)
+[run_measured] measured run 0: status=ok wall=0.481s peak_rss=26612 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 216/520 scaling omp_blocked n=1024 p=12 rc=0 0.5s (elapsed 9.5 min)
+[run_measured] measured run 0: status=ok wall=2.397s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 217/520 scaling omp_blocked n=2048 p=10 rc=0 2.4s (elapsed 9.5 min)
+[run_measured] measured run 0: status=ok wall=2.494s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 218/520 scaling omp_blocked n=2048 p=5 rc=0 2.6s (elapsed 9.6 min)
+[run_measured] measured run 0: status=ok wall=10.418s peak_rss=100468 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 219/520 scaling_ikj omp_ikj n=2048 p=1 rc=0 10.5s (elapsed 9.7 min)
+[run_measured] measured run 0: status=ok wall=0.476s peak_rss=26740 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 220/520 scaling omp_blocked n=1024 p=24 rc=0 0.5s (elapsed 9.8 min)
+[run_measured] measured run 0: status=ok wall=0.208s peak_rss=8180 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 221/520 scaling omp_blocked n=512 p=10 rc=0 0.2s (elapsed 9.8 min)
+[run_measured] measured run 0: status=ok wall=0.248s peak_rss=8308 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 222/520 scaling omp_blocked n=512 p=8 rc=0 0.3s (elapsed 9.8 min)
+[run_measured] measured run 0: status=ok wall=5.160s peak_rss=100164 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 224/520 scaling omp_blocked n=2048 p=2 rc=0 5.2s (elapsed 9.9 min)
+[run_measured] measured run 0: status=ok wall=0.079s peak_rss=3696 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 225/520 scaling omp_blocked n=256 p=16 rc=0 0.1s (elapsed 9.9 min)
+[run_measured] measured run 0: status=ok wall=0.178s peak_rss=8048 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 226/520 scaling omp_blocked n=512 p=6 rc=0 0.2s (elapsed 9.9 min)
+[run_measured] measured run 0: status=ok wall=1.299s peak_rss=26496 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 227/520 scaling omp_blocked n=1024 p=2 rc=0 1.3s (elapsed 9.9 min)
+[run_measured] measured run 0: status=ok wall=0.452s peak_rss=8064 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 228/520 scaling omp_blocked n=512 p=2 rc=0 0.5s (elapsed 9.9 min)
+[run_measured] measured run 0: status=ok wall=0.168s peak_rss=3388 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 229/520 scaling omp_blocked n=256 p=2 rc=0 0.2s (elapsed 9.9 min)
+[run_measured] measured run 0: status=ok wall=2.137s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 230/520 scaling_ikj omp_ikj n=2048 p=12 rc=0 2.2s (elapsed 9.9 min)
+[run_measured] measured run 0: status=ok wall=0.703s peak_rss=26424 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 231/520 scaling omp_blocked n=1024 p=8 rc=0 0.7s (elapsed 9.9 min)
+[run_measured] measured run 0: status=ok wall=2.046s peak_rss=100340 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 232/520 scaling omp_blocked n=2048 p=12 rc=0 2.1s (elapsed 10.0 min)
+[run_measured] measured run 0: status=ok wall=1.739s peak_rss=100224 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 3 233/520 vectorisation omp_scalar_blocked n=2048 p=6 rc=0 1.8s (elapsed 10.0 min)
+[run_measured] measured run 0: status=ok wall=0.077s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 234/520 scaling omp_blocked n=256 p=5 rc=0 0.1s (elapsed 10.0 min)
+[run_measured] measured run 0: status=ok wall=0.876s peak_rss=8308 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 235/520 scaling omp_blocked n=512 p=1 rc=0 0.9s (elapsed 10.0 min)
+[run_measured] measured run 0: status=ok wall=0.181s peak_rss=7996 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 236/520 scaling omp_blocked n=512 p=16 rc=0 0.2s (elapsed 10.0 min)
+[run_measured] measured run 0: status=ok wall=4.165s peak_rss=100156 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 237/520 scaling_ikj omp_ikj n=2048 p=3 rc=0 4.2s (elapsed 10.1 min)
+[run_measured] measured run 0: status=ok wall=0.067s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 238/520 scaling omp_blocked n=256 p=6 rc=0 0.1s (elapsed 10.1 min)
+[run_measured] measured run 0: status=ok wall=0.945s peak_rss=100472 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 3 239/520 vectorisation omp_avx2_blocked n=2048 p=6 rc=0 1.0s (elapsed 10.1 min)
+[run_measured] measured run 0: status=ok wall=2.068s peak_rss=100468 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 240/520 scaling omp_blocked n=2048 p=24 rc=0 2.1s (elapsed 10.1 min)
+[run_measured] measured run 0: status=ok wall=4.162s peak_rss=223164 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 241/520 scaling omp_blocked n=3072 p=10 rc=0 4.2s (elapsed 10.2 min)
+[run_measured] measured run 0: status=ok wall=0.591s peak_rss=26628 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 242/520 scaling omp_blocked n=1024 p=10 rc=0 0.6s (elapsed 10.2 min)
+[run_measured] measured run 0: status=ok wall=0.088s peak_rss=3572 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 243/520 scaling omp_blocked n=256 p=12 rc=0 0.1s (elapsed 10.2 min)
+[run_measured] measured run 0: status=ok wall=0.183s peak_rss=8052 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 244/520 scaling omp_blocked n=512 p=24 rc=0 0.2s (elapsed 10.2 min)
+[run_measured] measured run 0: status=ok wall=0.178s peak_rss=8052 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 246/520 scaling omp_blocked n=512 p=12 rc=0 0.2s (elapsed 10.2 min)
+[run_measured] measured run 0: status=ok wall=2.701s peak_rss=100224 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 247/520 scaling_ikj omp_ikj n=2048 p=5 rc=0 2.7s (elapsed 10.3 min)
+[run_measured] measured run 0: status=ok wall=0.239s peak_rss=26488 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 3 248/520 vectorisation omp_avx2_blocked n=1024 p=6 rc=0 0.3s (elapsed 10.3 min)
+[run_measured] measured run 0: status=ok wall=0.320s peak_rss=3700 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 249/520 scaling omp_blocked n=256 p=1 rc=0 0.4s (elapsed 10.3 min)
+[run_measured] measured run 0: status=ok wall=0.460s peak_rss=26740 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 3 250/520 vectorisation omp_scalar_blocked n=1024 p=6 rc=0 0.5s (elapsed 10.3 min)
+[run_measured] measured run 0: status=ok wall=5.072s peak_rss=223088 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 251/520 scaling omp_blocked n=3072 p=4 rc=0 5.1s (elapsed 10.4 min)
+[run_measured] measured run 0: status=ok wall=3.837s peak_rss=100164 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 252/520 scaling omp_blocked n=2048 p=3 rc=0 3.9s (elapsed 10.5 min)
+[run_measured] measured run 0: status=ok wall=2.068s peak_rss=26628 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 3 253/520 vectorisation omp_scalar_blocked n=1024 p=1 rc=0 2.1s (elapsed 10.5 min)
+[run_measured] measured run 0: status=ok wall=0.208s peak_rss=26432 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 3 255/520 vectorisation omp_fma_blocked n=1024 p=6 rc=0 0.3s (elapsed 10.5 min)
+[run_measured] measured run 0: status=ok wall=2.317s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 256/520 scaling_ikj omp_ikj n=2048 p=6 rc=0 2.4s (elapsed 10.5 min)
+[run_measured] measured run 0: status=ok wall=4.441s peak_rss=222944 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 257/520 scaling omp_blocked n=3072 p=5 rc=0 4.5s (elapsed 10.6 min)
+[run_measured] measured run 0: status=ok wall=0.552s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 259/520 scaling_ikj omp_ikj n=1024 p=5 rc=0 0.6s (elapsed 10.6 min)
+[run_measured] measured run 0: status=ok wall=2.477s peak_rss=100336 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 260/520 scaling_ikj omp_ikj n=2048 p=16 rc=0 2.5s (elapsed 10.7 min)
+[run_measured] measured run 0: status=ok wall=2.221s peak_rss=26684 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 261/520 scaling_ikj omp_ikj n=1024 p=1 rc=0 2.3s (elapsed 10.7 min)
+[run_measured] measured run 0: status=ok wall=13.658s peak_rss=222760 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 262/520 scaling seq_blocked n=3072 p=1 rc=0 13.7s (elapsed 10.9 min)
+[run_measured] measured run 0: status=ok wall=4.747s peak_rss=223172 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 263/520 scaling omp_blocked n=3072 p=8 rc=0 4.8s (elapsed 11.0 min)
+[run_measured] measured run 0: status=ok wall=0.714s peak_rss=7720 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 264/520 scaling seq_blocked n=512 p=1 rc=0 0.8s (elapsed 11.0 min)
+[run_measured] measured run 0: status=ok wall=0.926s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 265/520 scaling omp_blocked n=1024 p=3 rc=0 1.0s (elapsed 11.0 min)
+[run_measured] measured run 0: status=ok wall=2.038s peak_rss=26152 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 266/520 scaling seq_blocked n=1024 p=1 rc=0 2.1s (elapsed 11.1 min)
+[run_measured] measured run 0: status=ok wall=0.248s peak_rss=8116 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 267/520 scaling omp_blocked n=512 p=4 rc=0 0.3s (elapsed 11.1 min)
+[run_measured] measured run 0: status=ok wall=3.584s peak_rss=223228 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 268/520 scaling omp_blocked n=3072 p=6 rc=0 3.6s (elapsed 11.1 min)
+[run_measured] measured run 0: status=ok wall=8.129s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 3 269/520 vectorisation omp_scalar_blocked n=2048 p=1 rc=0 8.2s (elapsed 11.3 min)
+[run_measured] measured run 0: status=ok wall=0.874s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 3 270/520 vectorisation omp_fma_blocked n=2048 p=6 rc=0 0.9s (elapsed 11.3 min)
+[run_measured] measured run 0: status=ok wall=2.482s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 271/520 scaling omp_blocked n=1024 p=1 rc=0 2.5s (elapsed 11.3 min)
+[run_measured] measured run 0: status=ok wall=0.528s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 272/520 scaling omp_blocked n=1024 p=16 rc=0 0.6s (elapsed 11.3 min)
+[run_measured] measured run 0: status=ok wall=3.367s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 273/520 scaling_ikj omp_ikj n=2048 p=4 rc=0 3.4s (elapsed 11.4 min)
+[run_measured] measured run 0: status=ok wall=16.496s peak_rss=223292 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 274/520 scaling omp_blocked n=3072 p=1 rc=0 16.5s (elapsed 11.7 min)
+[run_measured] measured run 0: status=ok wall=0.917s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 275/520 scaling omp_blocked n=1024 p=6 rc=0 1.0s (elapsed 11.7 min)
+[run_measured] measured run 0: status=ok wall=2.800s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 276/520 scaling_ikj omp_ikj n=2048 p=10 rc=0 2.9s (elapsed 11.7 min)
+[run_measured] measured run 0: status=ok wall=2.464s peak_rss=100164 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 277/520 scaling_ikj omp_ikj n=2048 p=24 rc=0 2.5s (elapsed 11.8 min)
+[run_measured] measured run 0: status=ok wall=8.743s peak_rss=223088 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 278/520 scaling omp_blocked n=3072 p=2 rc=0 8.8s (elapsed 11.9 min)
+[run_measured] measured run 0: status=ok wall=0.208s peak_rss=8048 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 279/520 scaling omp_blocked n=512 p=5 rc=0 0.2s (elapsed 11.9 min)
+[run_measured] measured run 0: status=ok wall=0.249s peak_rss=3176 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 280/520 scaling seq_blocked n=256 p=1 rc=0 0.3s (elapsed 11.9 min)
+[run_measured] measured run 0: status=ok wall=0.558s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 281/520 scaling_ikj omp_ikj n=1024 p=16 rc=0 0.6s (elapsed 11.9 min)
+[run_measured] measured run 0: status=ok wall=2.998s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 283/520 scaling_ikj omp_ikj n=2048 p=8 rc=0 3.0s (elapsed 12.0 min)
+[run_measured] measured run 0: status=ok wall=2.956s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 284/520 scaling omp_blocked n=2048 p=4 rc=0 3.0s (elapsed 12.0 min)
+[run_measured] measured run 0: status=ok wall=0.097s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 285/520 scaling omp_blocked n=256 p=8 rc=0 0.1s (elapsed 12.0 min)
+[run_measured] measured run 0: status=ok wall=0.614s peak_rss=26612 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 287/520 scaling_ikj omp_ikj n=1024 p=10 rc=0 0.7s (elapsed 12.1 min)
+[run_measured] measured run 0: status=ok wall=0.621s peak_rss=26692 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 288/520 scaling omp_blocked n=1024 p=5 rc=0 0.7s (elapsed 12.1 min)
+[run_measured] measured run 0: status=ok wall=0.098s peak_rss=3396 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 289/520 scaling omp_blocked n=256 p=4 rc=0 0.1s (elapsed 12.1 min)
+[run_measured] measured run 0: status=ok wall=0.957s peak_rss=26632 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 3 290/520 vectorisation omp_avx2_blocked n=1024 p=1 rc=0 1.0s (elapsed 12.1 min)
+[run_measured] measured run 0: status=ok wall=5.931s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 291/520 scaling_ikj omp_ikj n=2048 p=2 rc=0 6.0s (elapsed 12.2 min)
+[run_measured] measured run 0: status=ok wall=2.811s peak_rss=100208 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 292/520 scaling omp_blocked n=2048 p=8 rc=0 2.9s (elapsed 12.2 min)
+[run_measured] measured run 0: status=ok wall=10.401s peak_rss=100208 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 293/520 scaling omp_blocked n=2048 p=1 rc=0 10.4s (elapsed 12.4 min)
+[run_measured] measured run 0: status=ok wall=0.088s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 294/520 scaling omp_blocked n=256 p=24 rc=0 0.1s (elapsed 12.4 min)
+[run_measured] measured run 0: status=ok wall=0.763s peak_rss=26480 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 297/520 scaling_ikj omp_ikj n=1024 p=4 rc=0 0.8s (elapsed 12.4 min)
+[run_measured] measured run 0: status=ok wall=2.658s peak_rss=26152 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 298/520 scaling_ikj seq_ikj n=1024 p=1 rc=0 2.7s (elapsed 12.5 min)
+[run_measured] measured run 0: status=ok wall=0.077s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 299/520 scaling omp_blocked n=256 p=10 rc=0 0.1s (elapsed 12.5 min)
+[run_measured] measured run 0: status=ok wall=2.203s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 300/520 scaling omp_blocked n=2048 p=6 rc=0 2.2s (elapsed 12.5 min)
+[run_measured] measured run 0: status=ok wall=0.916s peak_rss=26488 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 3 301/520 vectorisation omp_fma_blocked n=1024 p=1 rc=0 1.0s (elapsed 12.5 min)
+[run_measured] measured run 0: status=ok wall=0.118s peak_rss=3456 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 302/520 scaling omp_blocked n=256 p=3 rc=0 0.2s (elapsed 12.5 min)
+[run_measured] measured run 0: status=ok wall=6.790s peak_rss=223092 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 303/520 scaling omp_blocked n=3072 p=3 rc=0 6.8s (elapsed 12.6 min)
+[run_measured] measured run 0: status=ok wall=4.938s peak_rss=223092 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 304/520 scaling omp_blocked n=3072 p=16 rc=0 5.0s (elapsed 12.7 min)
+[run_measured] measured run 0: status=ok wall=0.524s peak_rss=26556 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 305/520 scaling_ikj omp_ikj n=1024 p=12 rc=0 0.6s (elapsed 12.7 min)
+[run_measured] measured run 0: status=ok wall=3.716s peak_rss=223092 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 306/520 scaling omp_blocked n=3072 p=12 rc=0 3.8s (elapsed 12.8 min)
+[run_measured] measured run 0: status=ok wall=4.076s peak_rss=223344 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 307/520 scaling omp_blocked n=3072 p=24 rc=0 4.1s (elapsed 12.9 min)
+[run_measured] measured run 0: status=ok wall=3.988s peak_rss=100216 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 3 308/520 vectorisation omp_avx2_blocked n=2048 p=1 rc=0 4.0s (elapsed 12.9 min)
+[run_measured] measured run 0: status=ok wall=0.785s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 309/520 scaling omp_blocked n=1024 p=4 rc=0 0.8s (elapsed 12.9 min)
+[run_measured] measured run 0: status=ok wall=2.467s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 3 310/520 scaling omp_blocked n=2048 p=16 rc=0 2.5s (elapsed 13.0 min)
+[run_measured] measured run 0: status=ok wall=0.537s peak_rss=26428 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 311/520 scaling_ikj omp_ikj n=1024 p=24 rc=0 0.6s (elapsed 13.0 min)
+[run_measured] measured run 0: status=ok wall=1.170s peak_rss=26480 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 3 312/520 scaling_ikj omp_ikj n=1024 p=3 rc=0 1.2s (elapsed 13.0 min)
+[run_measured] measured run 0: status=ok wall=0.653s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 313/520 scaling omp_blocked n=1024 p=10 rc=0 0.7s (elapsed 13.0 min)
+[run_measured] measured run 0: status=ok wall=8.704s peak_rss=99880 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 314/520 scaling seq_blocked n=2048 p=1 rc=0 8.7s (elapsed 13.2 min)
+[run_measured] measured run 0: status=ok wall=0.169s peak_rss=8004 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 315/520 scaling omp_blocked n=512 p=12 rc=0 0.2s (elapsed 13.2 min)
+[run_measured] measured run 0: status=ok wall=2.444s peak_rss=100336 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 316/520 scaling_ikj omp_ikj n=2048 p=16 rc=0 2.5s (elapsed 13.2 min)
+[run_measured] measured run 0: status=ok wall=0.935s peak_rss=100216 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 4 317/520 vectorisation omp_avx2_blocked n=2048 p=6 rc=0 1.0s (elapsed 13.2 min)
+[run_measured] measured run 0: status=ok wall=10.887s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 318/520 scaling_ikj omp_ikj n=2048 p=1 rc=0 10.9s (elapsed 13.4 min)
+[run_measured] measured run 0: status=ok wall=5.593s peak_rss=223092 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 319/520 scaling omp_blocked n=3072 p=4 rc=0 5.6s (elapsed 13.5 min)
+[run_measured] measured run 0: status=ok wall=0.097s peak_rss=3388 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 320/520 scaling omp_blocked n=256 p=5 rc=0 0.1s (elapsed 13.5 min)
+[run_measured] measured run 0: status=ok wall=0.239s peak_rss=26744 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 4 321/520 vectorisation omp_avx2_blocked n=1024 p=6 rc=0 0.3s (elapsed 13.5 min)
+[run_measured] measured run 0: status=ok wall=0.985s peak_rss=26740 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 322/520 scaling_ikj omp_ikj n=1024 p=3 rc=0 1.0s (elapsed 13.5 min)
+[run_measured] measured run 0: status=ok wall=4.316s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 324/520 scaling omp_blocked n=2048 p=3 rc=0 4.4s (elapsed 13.6 min)
+[run_measured] measured run 0: status=ok wall=2.977s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 325/520 scaling omp_blocked n=2048 p=4 rc=0 3.0s (elapsed 13.7 min)
+[run_measured] measured run 0: status=ok wall=0.208s peak_rss=8068 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 326/520 scaling omp_blocked n=512 p=5 rc=0 0.3s (elapsed 13.7 min)
+[run_measured] measured run 0: status=ok wall=0.733s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 327/520 scaling_ikj omp_ikj n=1024 p=8 rc=0 0.8s (elapsed 13.7 min)
+[run_measured] measured run 0: status=ok wall=0.562s peak_rss=26740 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 328/520 scaling omp_blocked n=1024 p=12 rc=0 0.6s (elapsed 13.7 min)
+[run_measured] measured run 0: status=ok wall=2.525s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 329/520 scaling omp_blocked n=2048 p=16 rc=0 2.6s (elapsed 13.7 min)
+[run_measured] measured run 0: status=ok wall=0.622s peak_rss=26496 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 330/520 scaling_ikj omp_ikj n=1024 p=10 rc=0 0.7s (elapsed 13.7 min)
+[run_measured] measured run 0: status=ok wall=4.031s peak_rss=223300 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 331/520 scaling omp_blocked n=3072 p=16 rc=0 4.1s (elapsed 13.8 min)
+[run_measured] measured run 0: status=ok wall=0.976s peak_rss=26488 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 4 332/520 vectorisation omp_avx2_blocked n=1024 p=1 rc=0 1.0s (elapsed 13.8 min)
+[run_measured] measured run 0: status=ok wall=3.666s peak_rss=223044 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 333/520 scaling omp_blocked n=3072 p=24 rc=0 3.7s (elapsed 13.9 min)
+[run_measured] measured run 0: status=ok wall=8.542s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 4 334/520 vectorisation omp_scalar_blocked n=2048 p=1 rc=0 8.6s (elapsed 14.0 min)
+[run_measured] measured run 0: status=ok wall=8.849s peak_rss=223104 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 335/520 scaling omp_blocked n=3072 p=2 rc=0 8.9s (elapsed 14.2 min)
+[run_measured] measured run 0: status=ok wall=2.584s peak_rss=26152 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 337/520 scaling_ikj seq_ikj n=1024 p=1 rc=0 2.6s (elapsed 14.2 min)
+[run_measured] measured run 0: status=ok wall=0.168s peak_rss=8052 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 338/520 scaling omp_blocked n=512 p=24 rc=0 0.2s (elapsed 14.2 min)
+[run_measured] measured run 0: status=ok wall=0.723s peak_rss=7720 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 339/520 scaling seq_blocked n=512 p=1 rc=0 0.8s (elapsed 14.2 min)
+[run_measured] measured run 0: status=ok wall=16.743s peak_rss=223108 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 340/520 scaling omp_blocked n=3072 p=1 rc=0 16.8s (elapsed 14.5 min)
+[run_measured] measured run 0: status=ok wall=0.439s peak_rss=8052 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 341/520 scaling omp_blocked n=512 p=2 rc=0 0.5s (elapsed 14.5 min)
+[run_measured] measured run 0: status=ok wall=0.491s peak_rss=26740 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 342/520 scaling omp_blocked n=1024 p=24 rc=0 0.5s (elapsed 14.5 min)
+[run_measured] measured run 0: status=ok wall=0.097s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 343/520 scaling omp_blocked n=256 p=4 rc=0 0.1s (elapsed 14.5 min)
+[run_measured] measured run 0: status=ok wall=0.198s peak_rss=8260 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 344/520 scaling omp_blocked n=512 p=10 rc=0 0.2s (elapsed 14.5 min)
+[run_measured] measured run 0: status=ok wall=0.460s peak_rss=26620 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 345/520 scaling_ikj omp_ikj n=1024 p=6 rc=0 0.5s (elapsed 14.5 min)
+[run_measured] measured run 0: status=ok wall=0.193s peak_rss=7996 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 346/520 scaling omp_blocked n=512 p=16 rc=0 0.2s (elapsed 14.6 min)
+[run_measured] measured run 0: status=ok wall=0.550s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 347/520 scaling omp_blocked n=1024 p=16 rc=0 0.6s (elapsed 14.6 min)
+[run_measured] measured run 0: status=ok wall=0.067s peak_rss=3572 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 348/520 scaling omp_blocked n=256 p=12 rc=0 0.1s (elapsed 14.6 min)
+[run_measured] measured run 0: status=ok wall=0.319s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 350/520 scaling omp_blocked n=256 p=1 rc=0 0.4s (elapsed 14.6 min)
+[run_measured] measured run 0: status=ok wall=13.762s peak_rss=222760 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 351/520 scaling seq_blocked n=3072 p=1 rc=0 13.8s (elapsed 14.8 min)
+[run_measured] measured run 0: status=ok wall=4.160s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 352/520 scaling_ikj omp_ikj n=2048 p=3 rc=0 4.2s (elapsed 14.9 min)
+[run_measured] measured run 0: status=ok wall=1.719s peak_rss=100156 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 4 353/520 vectorisation omp_scalar_blocked n=2048 p=6 rc=0 1.8s (elapsed 14.9 min)
+[run_measured] measured run 0: status=ok wall=0.631s peak_rss=26692 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 356/520 scaling omp_blocked n=1024 p=5 rc=0 0.7s (elapsed 14.9 min)
+[run_measured] measured run 0: status=ok wall=0.088s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 358/520 scaling omp_blocked n=256 p=16 rc=0 0.1s (elapsed 14.9 min)
+[run_measured] measured run 0: status=ok wall=3.468s peak_rss=223220 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 359/520 scaling omp_blocked n=3072 p=12 rc=0 3.5s (elapsed 15.0 min)
+[run_measured] measured run 0: status=ok wall=2.633s peak_rss=26436 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 360/520 scaling omp_blocked n=1024 p=1 rc=0 2.7s (elapsed 15.0 min)
+[run_measured] measured run 0: status=ok wall=6.029s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 361/520 scaling_ikj omp_ikj n=2048 p=2 rc=0 6.1s (elapsed 15.1 min)
+[run_measured] measured run 0: status=ok wall=1.369s peak_rss=26500 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 362/520 scaling_ikj omp_ikj n=1024 p=2 rc=0 1.4s (elapsed 15.1 min)
+[run_measured] measured run 0: status=ok wall=1.057s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 363/520 scaling omp_blocked n=1024 p=3 rc=0 1.1s (elapsed 15.2 min)
+[run_measured] measured run 0: status=ok wall=2.127s peak_rss=26692 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 4 364/520 vectorisation omp_scalar_blocked n=1024 p=1 rc=0 2.2s (elapsed 15.2 min)
+[run_measured] measured run 0: status=ok wall=2.234s peak_rss=100164 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 365/520 scaling omp_blocked n=2048 p=6 rc=0 2.3s (elapsed 15.2 min)
+[run_measured] measured run 0: status=ok wall=2.714s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 366/520 scaling_ikj omp_ikj n=2048 p=5 rc=0 2.8s (elapsed 15.3 min)
+[run_measured] measured run 0: status=ok wall=6.532s peak_rss=223300 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 367/520 scaling omp_blocked n=3072 p=3 rc=0 6.6s (elapsed 15.4 min)
+[run_measured] measured run 0: status=ok wall=2.124s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 368/520 scaling omp_blocked n=2048 p=12 rc=0 2.2s (elapsed 15.4 min)
+[run_measured] measured run 0: status=ok wall=3.374s peak_rss=100208 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 369/520 scaling_ikj omp_ikj n=2048 p=4 rc=0 3.4s (elapsed 15.5 min)
+[run_measured] measured run 0: status=ok wall=0.794s peak_rss=26740 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 370/520 scaling omp_blocked n=1024 p=4 rc=0 0.8s (elapsed 15.5 min)
+[run_measured] measured run 0: status=ok wall=1.008s peak_rss=100152 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 4 371/520 vectorisation omp_fma_blocked n=2048 p=6 rc=0 1.1s (elapsed 15.5 min)
+[run_measured] measured run 0: status=ok wall=4.255s peak_rss=100216 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 4 372/520 vectorisation omp_fma_blocked n=2048 p=1 rc=0 4.3s (elapsed 15.6 min)
+[run_measured] measured run 0: status=ok wall=2.895s peak_rss=100224 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 373/520 scaling omp_blocked n=2048 p=10 rc=0 3.0s (elapsed 15.6 min)
+[run_measured] measured run 0: status=ok wall=5.825s peak_rss=223036 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 374/520 scaling omp_blocked n=3072 p=10 rc=0 5.9s (elapsed 15.7 min)
+[run_measured] measured run 0: status=ok wall=0.747s peak_rss=26500 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 375/520 scaling_ikj omp_ikj n=1024 p=16 rc=0 0.8s (elapsed 15.7 min)
+[run_measured] measured run 0: status=ok wall=0.219s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 376/520 scaling omp_blocked n=256 p=2 rc=0 0.3s (elapsed 15.8 min)
+[run_measured] measured run 0: status=ok wall=0.860s peak_rss=26692 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 377/520 scaling omp_blocked n=1024 p=8 rc=0 0.9s (elapsed 15.8 min)
+[run_measured] measured run 0: status=ok wall=14.202s peak_rss=99880 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 378/520 scaling_ikj seq_ikj n=2048 p=1 rc=0 14.3s (elapsed 16.0 min)
+[run_measured] measured run 0: status=ok wall=11.427s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 379/520 scaling omp_blocked n=2048 p=1 rc=0 11.5s (elapsed 16.2 min)
+[run_measured] measured run 0: status=ok wall=0.108s peak_rss=3396 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 380/520 scaling omp_blocked n=256 p=6 rc=0 0.2s (elapsed 16.2 min)
+[run_measured] measured run 0: status=ok wall=3.155s peak_rss=26496 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 381/520 scaling_ikj omp_ikj n=1024 p=1 rc=0 3.2s (elapsed 16.3 min)
+[run_measured] measured run 0: status=ok wall=0.775s peak_rss=26740 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 382/520 scaling_ikj omp_ikj n=1024 p=24 rc=0 0.8s (elapsed 16.3 min)
+[run_measured] measured run 0: status=ok wall=4.957s peak_rss=223216 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 383/520 scaling omp_blocked n=3072 p=6 rc=0 5.0s (elapsed 16.3 min)
+[run_measured] measured run 0: status=ok wall=0.390s peak_rss=8004 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 384/520 scaling omp_blocked n=512 p=3 rc=0 0.4s (elapsed 16.4 min)
+[run_measured] measured run 0: status=ok wall=2.999s peak_rss=100468 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 385/520 scaling_ikj omp_ikj n=2048 p=10 rc=0 3.0s (elapsed 16.4 min)
+[run_measured] measured run 0: status=ok wall=6.061s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 386/520 scaling omp_blocked n=2048 p=2 rc=0 6.1s (elapsed 16.5 min)
+[run_measured] measured run 0: status=ok wall=5.052s peak_rss=223044 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 387/520 scaling omp_blocked n=3072 p=8 rc=0 5.1s (elapsed 16.6 min)
+[run_measured] measured run 0: status=ok wall=2.762s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 388/520 scaling omp_blocked n=2048 p=5 rc=0 2.8s (elapsed 16.6 min)
+[run_measured] measured run 0: status=ok wall=0.079s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 390/520 scaling omp_blocked n=256 p=24 rc=0 0.1s (elapsed 16.6 min)
+[run_measured] measured run 0: status=ok wall=0.299s peak_rss=7968 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 392/520 scaling omp_blocked n=512 p=4 rc=0 0.3s (elapsed 16.6 min)
+[run_measured] measured run 0: status=ok wall=0.138s peak_rss=3584 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 393/520 scaling omp_blocked n=256 p=3 rc=0 0.2s (elapsed 16.7 min)
+[run_measured] measured run 0: status=ok wall=0.198s peak_rss=8252 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 394/520 scaling omp_blocked n=512 p=6 rc=0 0.2s (elapsed 16.7 min)
+[run_measured] measured run 0: status=ok wall=0.279s peak_rss=3112 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 395/520 scaling seq_blocked n=256 p=1 rc=0 0.3s (elapsed 16.7 min)
+[run_measured] measured run 0: status=ok wall=0.624s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 396/520 scaling omp_blocked n=1024 p=6 rc=0 0.7s (elapsed 16.7 min)
+[run_measured] measured run 0: status=ok wall=0.816s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 397/520 scaling_ikj omp_ikj n=1024 p=4 rc=0 0.9s (elapsed 16.7 min)
+[run_measured] measured run 0: status=ok wall=0.087s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 398/520 scaling omp_blocked n=256 p=10 rc=0 0.1s (elapsed 16.7 min)
+[run_measured] measured run 0: status=ok wall=2.517s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 399/520 scaling omp_blocked n=2048 p=24 rc=0 2.6s (elapsed 16.7 min)
+[run_measured] measured run 0: status=ok wall=3.555s peak_rss=100156 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 400/520 scaling_ikj omp_ikj n=2048 p=8 rc=0 3.6s (elapsed 16.8 min)
+[run_measured] measured run 0: status=ok wall=0.269s peak_rss=8260 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 401/520 scaling omp_blocked n=512 p=8 rc=0 0.3s (elapsed 16.8 min)
+[run_measured] measured run 0: status=ok wall=0.249s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 4 402/520 vectorisation omp_fma_blocked n=1024 p=6 rc=0 0.3s (elapsed 16.8 min)
+[run_measured] measured run 0: status=ok wall=0.119s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 403/520 scaling omp_blocked n=256 p=8 rc=0 0.2s (elapsed 16.8 min)
+[run_measured] measured run 0: status=ok wall=3.392s peak_rss=100156 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 404/520 scaling_ikj omp_ikj n=2048 p=24 rc=0 3.4s (elapsed 16.9 min)
+[run_measured] measured run 0: status=ok wall=2.986s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 405/520 scaling omp_blocked n=2048 p=8 rc=0 3.0s (elapsed 16.9 min)
+[run_measured] measured run 0: status=ok wall=1.728s peak_rss=26740 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 406/520 scaling omp_blocked n=1024 p=2 rc=0 1.8s (elapsed 16.9 min)
+[run_measured] measured run 0: status=ok wall=2.228s peak_rss=26152 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 407/520 scaling seq_blocked n=1024 p=1 rc=0 2.3s (elapsed 17.0 min)
+[run_measured] measured run 0: status=ok wall=2.419s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 408/520 scaling_ikj omp_ikj n=2048 p=12 rc=0 2.5s (elapsed 17.0 min)
+[run_measured] measured run 0: status=ok wall=0.582s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 409/520 scaling_ikj omp_ikj n=1024 p=5 rc=0 0.6s (elapsed 17.0 min)
+[run_measured] measured run 0: status=ok wall=0.480s peak_rss=26436 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 4 410/520 vectorisation omp_scalar_blocked n=1024 p=6 rc=0 0.5s (elapsed 17.0 min)
+[run_measured] measured run 0: status=ok wall=0.997s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 4 411/520 vectorisation omp_fma_blocked n=1024 p=1 rc=0 1.0s (elapsed 17.1 min)
+[run_measured] measured run 0: status=ok wall=0.552s peak_rss=26436 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 412/520 scaling_ikj omp_ikj n=1024 p=12 rc=0 0.6s (elapsed 17.1 min)
+[run_measured] measured run 0: status=ok wall=2.683s peak_rss=100228 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 4 413/520 scaling_ikj omp_ikj n=2048 p=6 rc=0 2.7s (elapsed 17.1 min)
+[run_measured] measured run 0: status=ok wall=3.997s peak_rss=100216 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 4 414/520 vectorisation omp_avx2_blocked n=2048 p=1 rc=0 4.0s (elapsed 17.2 min)
+[run_measured] measured run 0: status=ok wall=0.905s peak_rss=8004 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 415/520 scaling omp_blocked n=512 p=1 rc=0 0.9s (elapsed 17.2 min)
+[run_measured] measured run 0: status=ok wall=4.511s peak_rss=223044 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 4 416/520 scaling omp_blocked n=3072 p=5 rc=0 4.6s (elapsed 17.3 min)
+[run_measured] measured run 0: status=ok wall=0.228s peak_rss=8180 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 417/520 scaling omp_blocked n=512 p=10 rc=0 0.3s (elapsed 17.3 min)
+[run_measured] measured run 0: status=ok wall=0.249s peak_rss=26440 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 5 419/520 vectorisation omp_avx2_blocked n=1024 p=6 rc=0 0.3s (elapsed 17.3 min)
+[run_measured] measured run 0: status=ok wall=0.259s peak_rss=8068 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 420/520 scaling omp_blocked n=512 p=5 rc=0 0.3s (elapsed 17.3 min)
+[run_measured] measured run 0: status=ok wall=3.876s peak_rss=223220 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 421/520 scaling omp_blocked n=3072 p=12 rc=0 3.9s (elapsed 17.4 min)
+[run_measured] measured run 0: status=ok wall=0.745s peak_rss=26500 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 5 422/520 vectorisation omp_scalar_blocked n=1024 p=6 rc=0 0.8s (elapsed 17.4 min)
+[run_measured] measured run 0: status=ok wall=2.159s peak_rss=26152 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 423/520 scaling seq_blocked n=1024 p=1 rc=0 2.2s (elapsed 17.4 min)
+[run_measured] measured run 0: status=ok wall=0.249s peak_rss=8308 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 424/520 scaling omp_blocked n=512 p=8 rc=0 0.3s (elapsed 17.4 min)
+[run_measured] measured run 0: status=ok wall=4.342s peak_rss=223044 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 425/520 scaling omp_blocked n=3072 p=16 rc=0 4.4s (elapsed 17.5 min)
+[run_measured] measured run 0: status=ok wall=3.864s peak_rss=100216 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 5 426/520 vectorisation omp_avx2_blocked n=2048 p=1 rc=0 3.9s (elapsed 17.5 min)
+[run_measured] measured run 0: status=ok wall=0.249s peak_rss=8304 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 427/520 scaling omp_blocked n=512 p=4 rc=0 0.3s (elapsed 17.6 min)
+[run_measured] measured run 0: status=ok wall=0.127s peak_rss=3396 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 428/520 scaling omp_blocked n=256 p=3 rc=0 0.2s (elapsed 17.6 min)
+[run_measured] measured run 0: status=ok wall=0.722s peak_rss=26624 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 429/520 scaling omp_blocked n=1024 p=8 rc=0 0.8s (elapsed 17.6 min)
+[run_measured] measured run 0: status=ok wall=14.360s peak_rss=222760 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 430/520 scaling seq_blocked n=3072 p=1 rc=0 14.4s (elapsed 17.8 min)
+[run_measured] measured run 0: status=ok wall=16.946s peak_rss=223092 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 431/520 scaling omp_blocked n=3072 p=1 rc=0 17.0s (elapsed 18.1 min)
+[run_measured] measured run 0: status=ok wall=0.885s peak_rss=26440 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 5 432/520 vectorisation omp_fma_blocked n=1024 p=1 rc=0 0.9s (elapsed 18.1 min)
+[run_measured] measured run 0: status=ok wall=3.555s peak_rss=100216 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 5 433/520 vectorisation omp_fma_blocked n=2048 p=1 rc=0 3.6s (elapsed 18.2 min)
+[run_measured] measured run 0: status=ok wall=2.367s peak_rss=100468 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 434/520 scaling_ikj omp_ikj n=2048 p=24 rc=0 2.4s (elapsed 18.2 min)
+[run_measured] measured run 0: status=ok wall=0.956s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 435/520 scaling omp_blocked n=1024 p=3 rc=0 1.0s (elapsed 18.2 min)
+[run_measured] measured run 0: status=ok wall=2.326s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 436/520 scaling omp_blocked n=2048 p=10 rc=0 2.4s (elapsed 18.3 min)
+[run_measured] measured run 0: status=ok wall=2.987s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 437/520 scaling_ikj omp_ikj n=2048 p=8 rc=0 3.0s (elapsed 18.3 min)
+[run_measured] measured run 0: status=ok wall=2.235s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 438/520 scaling omp_blocked n=2048 p=16 rc=0 2.3s (elapsed 18.3 min)
+[run_measured] measured run 0: status=ok wall=3.616s peak_rss=223108 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 439/520 scaling omp_blocked n=3072 p=24 rc=0 3.7s (elapsed 18.4 min)
+[run_measured] measured run 0: status=ok wall=2.495s peak_rss=100228 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 440/520 scaling_ikj omp_ikj n=2048 p=16 rc=0 2.5s (elapsed 18.5 min)
+[run_measured] measured run 0: status=ok wall=0.079s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 441/520 scaling omp_blocked n=256 p=16 rc=0 0.1s (elapsed 18.5 min)
+[run_measured] measured run 0: status=ok wall=0.866s peak_rss=26428 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 442/520 scaling_ikj omp_ikj n=1024 p=3 rc=0 0.9s (elapsed 18.5 min)
+[run_measured] measured run 0: status=ok wall=12.724s peak_rss=99880 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 443/520 scaling_ikj seq_ikj n=2048 p=1 rc=0 12.8s (elapsed 18.7 min)
+[run_measured] measured run 0: status=ok wall=2.643s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 445/520 scaling_ikj omp_ikj n=2048 p=10 rc=0 2.7s (elapsed 18.7 min)
+[run_measured] measured run 0: status=ok wall=0.229s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 5 446/520 vectorisation omp_fma_blocked n=1024 p=6 rc=0 0.3s (elapsed 18.7 min)
+[run_measured] measured run 0: status=ok wall=0.543s peak_rss=8116 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 447/520 scaling omp_blocked n=512 p=2 rc=0 0.6s (elapsed 18.7 min)
+[run_measured] measured run 0: status=ok wall=0.077s peak_rss=3396 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 448/520 scaling omp_blocked n=256 p=10 rc=0 0.1s (elapsed 18.7 min)
+[run_measured] measured run 0: status=ok wall=0.997s peak_rss=7996 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 449/520 scaling omp_blocked n=512 p=1 rc=0 1.0s (elapsed 18.8 min)
+[run_measured] measured run 0: status=ok wall=5.543s peak_rss=223292 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 450/520 scaling omp_blocked n=3072 p=6 rc=0 5.6s (elapsed 18.9 min)
+[run_measured] measured run 0: status=ok wall=6.177s peak_rss=223164 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 451/520 scaling omp_blocked n=3072 p=10 rc=0 6.2s (elapsed 19.0 min)
+[run_measured] measured run 0: status=ok wall=4.449s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 452/520 scaling omp_blocked n=2048 p=6 rc=0 4.5s (elapsed 19.0 min)
+[run_measured] measured run 0: status=ok wall=0.269s peak_rss=3112 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 453/520 scaling seq_blocked n=256 p=1 rc=0 0.3s (elapsed 19.0 min)
+[run_measured] measured run 0: status=ok wall=4.489s peak_rss=100164 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 454/520 scaling_ikj omp_ikj n=2048 p=4 rc=0 4.5s (elapsed 19.1 min)
+[run_measured] measured run 0: status=ok wall=0.291s peak_rss=3396 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 455/520 scaling omp_blocked n=256 p=2 rc=0 0.4s (elapsed 19.1 min)
+[run_measured] measured run 0: status=ok wall=0.333s peak_rss=3456 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 456/520 scaling omp_blocked n=256 p=12 rc=0 0.4s (elapsed 19.1 min)
+[run_measured] measured run 0: status=ok wall=4.600s peak_rss=100224 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 457/520 scaling omp_blocked n=2048 p=4 rc=0 4.7s (elapsed 19.2 min)
+[run_measured] measured run 0: status=ok wall=0.800s peak_rss=26692 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 458/520 scaling_ikj omp_ikj n=1024 p=6 rc=0 0.8s (elapsed 19.2 min)
+[run_measured] measured run 0: status=ok wall=0.804s peak_rss=26552 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 459/520 scaling_ikj omp_ikj n=1024 p=24 rc=0 0.9s (elapsed 19.2 min)
+[run_measured] measured run 0: status=ok wall=0.542s peak_rss=26608 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 460/520 scaling_ikj omp_ikj n=1024 p=12 rc=0 0.6s (elapsed 19.2 min)
+[run_measured] measured run 0: status=ok wall=3.445s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 461/520 scaling_ikj omp_ikj n=2048 p=5 rc=0 3.5s (elapsed 19.3 min)
+[run_measured] measured run 0: status=ok wall=9.653s peak_rss=99880 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 462/520 scaling seq_blocked n=2048 p=1 rc=0 9.7s (elapsed 19.5 min)
+[run_measured] measured run 0: status=ok wall=0.937s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 464/520 scaling_ikj omp_ikj n=1024 p=4 rc=0 1.0s (elapsed 19.5 min)
+[run_measured] measured run 0: status=ok wall=6.129s peak_rss=223092 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 465/520 scaling omp_blocked n=3072 p=8 rc=0 6.2s (elapsed 19.6 min)
+[run_measured] measured run 0: status=ok wall=2.818s peak_rss=26740 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 466/520 scaling omp_blocked n=1024 p=1 rc=0 2.9s (elapsed 19.6 min)
+[run_measured] measured run 0: status=ok wall=1.067s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 467/520 scaling_ikj omp_ikj n=1024 p=5 rc=0 1.1s (elapsed 19.7 min)
+[run_measured] measured run 0: status=ok wall=0.410s peak_rss=8304 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 468/520 scaling omp_blocked n=512 p=24 rc=0 0.5s (elapsed 19.7 min)
+[run_measured] measured run 0: status=ok wall=0.669s peak_rss=3700 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 469/520 scaling omp_blocked n=256 p=1 rc=0 0.8s (elapsed 19.7 min)
+[run_measured] measured run 0: status=ok wall=1.323s peak_rss=26692 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 470/520 scaling_ikj omp_ikj n=1024 p=8 rc=0 1.4s (elapsed 19.7 min)
+[run_measured] measured run 0: status=ok wall=2.791s peak_rss=100468 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 471/520 scaling_ikj omp_ikj n=2048 p=6 rc=0 2.9s (elapsed 19.7 min)
+[run_measured] measured run 0: status=ok wall=0.198s peak_rss=8052 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 472/520 scaling omp_blocked n=512 p=6 rc=0 0.2s (elapsed 19.7 min)
+[run_measured] measured run 0: status=ok wall=0.622s peak_rss=26500 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 474/520 scaling omp_blocked n=1024 p=10 rc=0 0.7s (elapsed 19.8 min)
+[run_measured] measured run 0: status=ok wall=0.190s peak_rss=8252 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 475/520 scaling omp_blocked n=512 p=12 rc=0 0.2s (elapsed 19.8 min)
+[run_measured] measured run 0: status=ok wall=0.812s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 476/520 scaling omp_blocked n=1024 p=4 rc=0 0.9s (elapsed 19.8 min)
+[run_measured] measured run 0: status=ok wall=4.291s peak_rss=100224 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 477/520 scaling_ikj omp_ikj n=2048 p=3 rc=0 4.3s (elapsed 19.8 min)
+[run_measured] measured run 0: status=ok wall=0.540s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 478/520 scaling omp_blocked n=1024 p=6 rc=0 0.6s (elapsed 19.9 min)
+[run_measured] measured run 0: status=ok wall=6.002s peak_rss=223344 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 480/520 scaling omp_blocked n=3072 p=5 rc=0 6.1s (elapsed 20.0 min)
+[run_measured] measured run 0: status=ok wall=1.096s peak_rss=26428 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 481/520 scaling omp_blocked n=1024 p=24 rc=0 1.2s (elapsed 20.0 min)
+[run_measured] measured run 0: status=ok wall=7.200s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 482/520 scaling omp_blocked n=2048 p=3 rc=0 7.3s (elapsed 20.1 min)
+[run_measured] measured run 0: status=ok wall=0.857s peak_rss=26740 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 483/520 scaling omp_blocked n=1024 p=16 rc=0 1.0s (elapsed 20.1 min)
+[run_measured] measured run 0: status=ok wall=0.098s peak_rss=3700 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 484/520 scaling omp_blocked n=256 p=6 rc=0 0.2s (elapsed 20.1 min)
+[run_measured] measured run 0: status=ok wall=1.304s peak_rss=100216 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 5 485/520 vectorisation omp_fma_blocked n=2048 p=6 rc=0 1.4s (elapsed 20.1 min)
+[run_measured] measured run 0: status=ok wall=15.491s peak_rss=223092 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 486/520 scaling omp_blocked n=3072 p=2 rc=0 15.6s (elapsed 20.4 min)
+[run_measured] measured run 0: status=ok wall=0.996s peak_rss=26500 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 5 487/520 vectorisation omp_avx2_blocked n=1024 p=1 rc=0 1.0s (elapsed 20.4 min)
+[run_measured] measured run 0: status=ok wall=3.398s peak_rss=26152 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 488/520 scaling_ikj seq_ikj n=1024 p=1 rc=0 3.4s (elapsed 20.5 min)
+[run_measured] measured run 0: status=ok wall=11.182s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 5 489/520 vectorisation omp_scalar_blocked n=2048 p=1 rc=0 11.2s (elapsed 20.7 min)
+[run_measured] measured run 0: status=ok wall=14.530s peak_rss=100164 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 490/520 scaling omp_blocked n=2048 p=1 rc=0 14.6s (elapsed 20.9 min)
+[run_measured] measured run 0: status=ok wall=0.079s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 491/520 scaling omp_blocked n=256 p=24 rc=0 0.1s (elapsed 20.9 min)
+[run_measured] measured run 0: status=ok wall=1.182s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 492/520 scaling omp_blocked n=1024 p=5 rc=0 1.2s (elapsed 20.9 min)
+[run_measured] measured run 0: status=ok wall=0.673s peak_rss=26424 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 493/520 scaling omp_blocked n=1024 p=12 rc=0 0.7s (elapsed 20.9 min)
+[run_measured] measured run 0: status=ok wall=0.896s peak_rss=7720 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 494/520 scaling seq_blocked n=512 p=1 rc=0 1.0s (elapsed 21.0 min)
+[run_measured] measured run 0: status=ok wall=3.017s peak_rss=100412 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 5 495/520 vectorisation omp_scalar_blocked n=2048 p=6 rc=0 3.1s (elapsed 21.0 min)
+[run_measured] measured run 0: status=ok wall=4.290s peak_rss=100356 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 496/520 scaling omp_blocked n=2048 p=8 rc=0 4.4s (elapsed 21.1 min)
+[run_measured] measured run 0: status=ok wall=0.109s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 497/520 scaling omp_blocked n=256 p=8 rc=0 0.2s (elapsed 21.1 min)
+[run_measured] measured run 0: status=ok wall=0.087s peak_rss=3652 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 499/520 scaling omp_blocked n=256 p=5 rc=0 0.1s (elapsed 21.1 min)
+[run_measured] measured run 0: status=ok wall=10.793s peak_rss=100208 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 500/520 scaling_ikj omp_ikj n=2048 p=2 rc=0 10.8s (elapsed 21.3 min)
+[run_measured] measured run 0: status=ok wall=1.357s peak_rss=100344 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 5 501/520 vectorisation omp_avx2_blocked n=2048 p=6 rc=0 1.4s (elapsed 21.3 min)
+[run_measured] measured run 0: status=ok wall=0.128s peak_rss=3444 KiB
+[run_measured] wrote 31 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 502/520 scaling omp_blocked n=256 p=4 rc=0 0.2s (elapsed 21.3 min)
+[run_measured] measured run 0: status=ok wall=1.553s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 503/520 scaling omp_blocked n=1024 p=2 rc=0 1.6s (elapsed 21.3 min)
+[run_measured] measured run 0: status=ok wall=2.341s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 504/520 scaling omp_blocked n=2048 p=24 rc=0 2.4s (elapsed 21.4 min)
+[run_measured] measured run 0: status=ok wall=3.182s peak_rss=100164 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 505/520 scaling omp_blocked n=2048 p=5 rc=0 3.3s (elapsed 21.4 min)
+[run_measured] measured run 0: status=ok wall=0.410s peak_rss=8004 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 507/520 scaling omp_blocked n=512 p=3 rc=0 0.5s (elapsed 21.4 min)
+[run_measured] measured run 0: status=ok wall=1.351s peak_rss=26484 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 508/520 scaling_ikj omp_ikj n=1024 p=2 rc=0 1.4s (elapsed 21.4 min)
+[run_measured] measured run 0: status=ok wall=0.217s peak_rss=8052 KiB
+[run_measured] wrote 11 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 509/520 scaling omp_blocked n=512 p=16 rc=0 0.3s (elapsed 21.5 min)
+[run_measured] measured run 0: status=ok wall=2.279s peak_rss=26496 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/vectorisation.csv
+[driver] round 5 510/520 vectorisation omp_scalar_blocked n=1024 p=1 rc=0 2.3s (elapsed 21.5 min)
+[run_measured] measured run 0: status=ok wall=0.610s peak_rss=26740 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 511/520 scaling_ikj omp_ikj n=1024 p=16 rc=0 0.7s (elapsed 21.5 min)
+[run_measured] measured run 0: status=ok wall=2.317s peak_rss=100212 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 512/520 scaling omp_blocked n=2048 p=12 rc=0 2.4s (elapsed 21.5 min)
+[run_measured] measured run 0: status=ok wall=5.794s peak_rss=100164 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 513/520 scaling omp_blocked n=2048 p=2 rc=0 5.8s (elapsed 21.6 min)
+[run_measured] measured run 0: status=ok wall=2.559s peak_rss=100208 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 514/520 scaling_ikj omp_ikj n=2048 p=12 rc=0 2.6s (elapsed 21.7 min)
+[run_measured] measured run 0: status=ok wall=12.204s peak_rss=100224 KiB
+[run_measured] wrote 2 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 515/520 scaling_ikj omp_ikj n=2048 p=1 rc=0 12.3s (elapsed 21.9 min)
+[run_measured] measured run 0: status=ok wall=5.790s peak_rss=223092 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 516/520 scaling omp_blocked n=3072 p=4 rc=0 5.8s (elapsed 22.0 min)
+[run_measured] measured run 0: status=ok wall=0.666s peak_rss=26480 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 517/520 scaling_ikj omp_ikj n=1024 p=10 rc=0 0.7s (elapsed 22.0 min)
+[run_measured] measured run 0: status=ok wall=8.308s peak_rss=223348 KiB
+[run_measured] wrote 1 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling.csv
+[driver] round 5 518/520 scaling omp_blocked n=3072 p=3 rc=0 8.4s (elapsed 22.1 min)
+[run_measured] measured run 0: status=ok wall=2.379s peak_rss=26492 KiB
+[run_measured] wrote 4 rows to /home/daniel/Documentos/Universidad/4Year/Big_Data/Teoria/Assigments/Assignment03_Parallel_Vectorisation/results/raw/scaling_ikj.csv
+[driver] round 5 520/520 scaling_ikj omp_ikj n=1024 p=1 rc=0 2.4s (elapsed 22.2 min)
+[driver] finished: 520 jobs, 22.2 min wall (includes waiting for the lock)

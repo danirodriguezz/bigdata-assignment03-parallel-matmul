@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\caption{Code-placement artefact: $T_{par}(1)/T_{seq}$ (ratio of medians, 95\% bootstrap CI) in run~1 (default gcc loop alignment) and run~2 (all builds with \texttt{-falign-loops=32}). Placement of the inner loop in the run-1 binaries: \texttt{results/evidence/loop\_placement.csv}.}
+\label{tab:align}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrcc@{}}
+\toprule
+Kernel & $n$ & run 1 (default) & run 2 (aligned) \\
+\midrule
+blocked & 256 & 1.263 [1.248, 1.284] & 1.245 [1.219, 1.261] \\
+blocked & 512 & 1.205 [1.190, 1.214] & 1.219 [1.182, 1.240] \\
+blocked & 1024 & 1.196 [1.186, 1.210] & 1.207 [1.161, 1.253] \\
+blocked & 2048 & 1.186 [1.082, 1.232] & 1.269 [1.132, 1.478] \\
+blocked & 3072 & 1.193 [1.142, 1.291] & 1.214 [1.174, 1.234] \\
+ikj & 1024 & 0.836 [0.827, 0.855] & 0.844 [0.807, 0.933] \\
+ikj & 2048 & 0.925 [0.888, 0.968] & 0.899 [0.814, 0.968] \\
+\bottomrule
+\end{tabular}
+\end{table}

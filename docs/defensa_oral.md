@@ -82,4 +82,60 @@ make analysis   # regenera tablas, figuras y numbers.tex desde results/raw
 ```
 
 ## 8. Preguntas probables y respuestas cortas
-PREGUNTAS
+**¿Por qué no comparas con el binario paralelo a 1 hilo en vez de con el secuencial?**
+Porque el enunciado exige el baseline secuencial equivalente y porque T_par(1) incluye la sobrecarga del runtime;
+S(p) respecto a T_par(1) (speedup "relativo") sobreestima la ganancia real. Reporto ambos: S(p) con T_seq como
+resultado principal y T_par(1)/T_seq como medida de sobrecarga.
+
+**¿Qué pasó con la primera ejecución (run 1)?**
+El binario OpenMP salía ~20 % más lento que el secuencial *con cualquier número de hilos*, aunque el bucle interno
+es idéntico instrucción a instrucción. La variante `omp_scalar` (mismo código máquina del kernel) igualaba al
+secuencial. Mirando el desensamblado de los binarios enlazados (`results/evidence/loop_placement.csv`): los casos
+lentos son justo aquellos cuyo bucle interno cruza una frontera de línea de caché de 64 bytes; su dirección depende
+del tamaño de código que no tiene nada que ver (p. ej. `bench_main.c`). Con `-falign-loops=32` (bucle de 30 bytes
+alineado a 32 → nunca cruza 64 B) la diferencia desaparece; repetí todo el benchmark con ese flag en todas las
+variantes. Los datos de run 1 se conservan sin tocar. Es el clásico "producing wrong data without doing anything
+obviously wrong" (Mytkowicz et al. 2009). El mecanismo exacto del front-end es conjetura (sin contadores hardware).
+
+**¿Por qué cae el speedup en p = 8 y vuelve a subir en p = 12?**
+Con `OMP_PLACES=cores` y `close`, con 8 hilos los núcleos 0 y 1 tienen 2 hilos cada uno y los otros 4 núcleos uno.
+El reparto de filas es igual para todos los hilos, así que los 4 hilos que comparten núcleo van más lentos y el
+resto espera en la barrera final: desequilibrio de carga. Con 12 hilos todos los núcleos tienen 2 hilos → vuelve a
+estar equilibrado y el tiempo ≈ p = 6 (el SMT casi no aporta a este kernel escalar). Lo mismo con 16 (desequilibrado)
+vs 24 (equilibrado). `cpu_util` lo confirma: con p = 8 la CPU usada es ~6,3, no 8.
+
+**¿Por qué la eficiencia con 6 hilos no es 1?**
+Principalmente por la frecuencia: con 1 núcleo activo el turbo llega a ~3,8 GHz y con 6 núcleos ~3,05 GHz
+(freq_probe). Si solo limitase la frecuencia, S(6) ≈ 6 · f(6)/f(1). Ver los números en la sección 5.
+
+**¿Hay speedup superlineal?**
+No en este estudio (E(p) < 1 en todos los casos). Si apareciera habría que comprobar caché agregada (p · L2),
+frecuencia y si el baseline está penalizado (como pasó en run 1 a la inversa).
+
+**¿Cómo sabes que la vectorización ocurre?**
+Tres evidencias: (1) informe del compilador `-fopt-info-vec-optimized` (bucle `c[j] += aik*b[j]`, matmul.c:41,
+"loop vectorized using 32 byte vectors"); (2) desensamblado: la variante escalar solo tiene `mulsd/addsd`, la AVX2
+tiene `vmulpd/vaddpd` sobre registros `%ymm` y la FMA `vfmadd...pd`; (3) el tiempo baja ~2× a p fijo.
+`-O2` sin `-fno-tree-vectorize` genera *el mismo* `.text` que con él (gcc 13 a -O2 usa el modelo de coste
+"very-cheap" y no vectoriza este bucle), así que el barrido principal es escalar.
+
+**¿Cómo separas vectorización de hilos?**
+Comparo variantes SIMD *al mismo p* (1 y 6): speedup SIMD = T_scalar(p)/T_variant(p). Y el speedup por hilos de
+cada variante (T(1)/T(6)) con el mismo binario.
+
+**¿Por qué FMA da resultados distintos?**
+FMA redondea una vez en vez de dos (a·b+c), así que cambia los bits del resultado (sigue dentro de la cota de
+error). Por eso con `-std=c11` gcc no contrae a FMA salvo `-ffp-contract=fast`, y lo trato como variante aparte.
+
+**¿Por qué b = 256 si con n pequeño b = 64 era algo mejor?**
+Con b = 64 el secuencial era ~25 % más lento en n = 2048; un baseline peor infla el speedup. b = 256 tiene la menor
+pérdida máxima y coincide con el elegido en el Assignment 2.
+
+**¿Qué es `other_busy_cpus`?**
+CPU consumida por *otros* procesos durante cada repetición (de /proc/stat). Sirve para detectar interferencias
+(navegador, otros agentes). El análisis de sensibilidad excluye repeticiones con > 1 CPU ajena.
+
+**¿Qué cambiarías con más tiempo?**
+Contadores hardware (fallos de caché, ancho de banda), fijar la frecuencia (desactivar turbo) para separar el
+efecto frecuencia, reparto de filas proporcional para p no múltiplo de 6, `schedule(dynamic)`, y comparar con
+una BLAS multihilo (OpenBLAS) como referencia de rendimiento máximo.

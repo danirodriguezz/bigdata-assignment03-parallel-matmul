@@ -1,5 +1,5 @@
 
-/tmp/tmp.uaQ7VRFsl8/omp_fma.o:     formato del fichero elf64-x86-64
+/tmp/tmp.yRNGGXpaow/omp_fma.o:     formato del fichero elf64-x86-64
 
 
 Desensamblado de la sección .text:

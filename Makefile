@@ -45,11 +45,11 @@ setup: $(VENV)/bin/activate build    ## venv + compile all variants
 build: $(BINS) $(TESTBINS)
 
 # -Wno-unknown-pragmas: the sequential build deliberately ignores "#pragma omp".
-bin/matmul_%: $(SRC) $(HDR)
+bin/matmul_%: $(SRC) $(HDR) Makefile   # Makefile: rebuild when the flags change
 	@mkdir -p bin
 	$(CC) $(STD) -Wno-unknown-pragmas $(FLAGS_$*) -DVARIANT='"$*"' -DBUILD_FLAGS='"$(FLAGS_$*)"' $(SRC) -o $@ -lm
 
-bin/test_%: tests/test_matmul.c src/c/matmul.c $(HDR)
+bin/test_%: tests/test_matmul.c src/c/matmul.c $(HDR) Makefile
 	@mkdir -p bin
 	$(CC) $(STD) -Wno-unknown-pragmas $(FLAGS_$*) -DVARIANT='"$*"' -Isrc/c tests/test_matmul.c src/c/matmul.c -o $@ -lm
 
