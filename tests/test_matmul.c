@@ -12,7 +12,7 @@
  *                 equals the result with one thread bit for bit (no FMA contraction changes this,
  *                 because the operation sequence per element is independent of p);
  *   6. awkward shapes: n not a multiple of the tile size, n smaller than the number of threads,
- *                 n = 1, and tile sizes 1, 7, 64, 200.
+ *                 n = 1, and tile sizes 1, 7, 64, 200 (plus 256, the benchmark tile size).
  * Exit status 0 = all tests passed.
  */
 #include "matmul.h"
@@ -177,10 +177,12 @@ int main(void)
         test_random(which, 100, 64);
         test_random(which, 129, 7);
         test_random(which, 257, 64);
+        test_random(which, 300, 256);  /* tile size used in the benchmarks, n not a multiple */
 #ifdef _OPENMP
         test_bit_identity(which, 5, 2);    /* n < p for most p */
         test_bit_identity(which, 131, 64); /* n not a multiple of bs */
         test_bit_identity(which, 256, 64);
+        test_bit_identity(which, 300, 256); /* benchmark tile size */
 #endif
     }
     printf("test_matmul: %d checks, %d failures -> %s\n", checks, failures, failures ? "FAILED" : "PASSED");

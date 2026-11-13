@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\caption{Vectorisation at fixed thread count (blocked kernel, OpenMP binaries). Median [IQR] over $k$ repetitions; SIMD speedup = $T_{scalar}/T_{variant}$ at the same $p$ (95\% bootstrap CI).}
+\label{tab:vec}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}rrlrrc@{}}
+\toprule
+$n$ & $p$ & build & median [IQR] (s) & GFLOP/s & SIMD speedup \\
+\midrule
+256 & 1 & scalar & 0.0077 [0.0000] & 4.38 & 1 (ref.) \\
+256 & 1 & AVX2 & 0.0036 [0.0000] & 9.32 & 2.13 [nan, nan] \\
+256 & 1 & AVX2+FMA & 0.0030 [0.0000] & 11.13 & 2.54 [nan, nan] \\
+256 & 6 & scalar & 0.0014 [0.0000] & 23.82 & 1 (ref.) \\
+256 & 6 & AVX2 & 0.0007 [0.0000] & 47.10 & 1.98 [nan, nan] \\
+256 & 6 & AVX2+FMA & 0.0008 [0.0000] & 41.73 & 1.75 [nan, nan] \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -271,7 +271,8 @@ def fig_vec(vt, path):
 def fig_freq(fq, path):
     fig, ax = ps.new_figure("column", 2.2)
     g = fq.sort_values("threads")
-    ax.errorbar(g["threads"], g["mhz"], yerr=[g["mhz"] - g["p10"], g["p90"] - g["mhz"]],
+    yerr = [(g["mhz"] - g["p10"]).clip(lower=0), (g["p90"] - g["mhz"]).clip(lower=0)]
+    ax.errorbar(g["threads"], g["mhz"], yerr=yerr,
                 marker="o", color="#0072B2", ms=3.5, label="busy-CPU frequency (median, p10–p90)")
     ax.set_xlabel("Threads $p$ (blocked kernel, $n=2048$)")
     ax.set_ylabel("Effective frequency [MHz]")

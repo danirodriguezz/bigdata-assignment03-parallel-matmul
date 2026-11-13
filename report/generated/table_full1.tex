@@ -1,0 +1,21 @@
+\begin{table}[!ht]
+\centering
+\caption{All timing configurations (1/2): median and IQR of the kernel time [s], number of measured repetitions $k$ and median peak RSS [MiB] (GNU time).}
+\label{tab:full1}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrlrrrr@{}}
+\toprule
+Kernel & $n$ & $p$ & median & IQR & $k$ & RSS \\
+\midrule
+blocked & 256 & seq & 0.0093 & 0.0000 & 1 & 3.0 \\
+blocked & 256 & 1 & 0.0111 & 0.0000 & 1 & 3.3 \\
+blocked & 256 & 2 & 0.0064 & 0.0000 & 1 & 3.6 \\
+blocked & 256 & 6 & 0.0032 & 0.0000 & 1 & 3.3 \\
+blocked & 256 & 12 & 0.0028 & 0.0000 & 1 & 3.3 \\
+blocked & 256 & 24 & 0.0028 & 0.0000 & 1 & 3.3 \\
+blocked & 512 & seq & 0.0783 & 0.0000 & 1 & 7.5 \\
+blocked & 512 & 1 & 0.0863 & 0.0000 & 1 & 7.8 \\
+\bottomrule
+\end{tabular}
+\end{table}

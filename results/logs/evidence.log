@@ -1,0 +1,9 @@
+variant,flags,vectorized_loops_reported,scalar_mulsd,scalar_addsd,packed_mulpd,packed_addpd,fma_pd,fma_sd,ymm_refs,text_sha256
+seq,"-O2",0,3,3,0,0,0,0,0,8f62a76838cad694
+omp,"-O2 -fopenmp",0,3,3,0,0,0,0,0,93aefd807d93f2b9
+omp_scalar,"-O2 -fno-tree-vectorize -fopenmp",0,3,3,0,0,0,0,0,93aefd807d93f2b9
+omp_avx2,"-O3 -march=native -fopenmp",21,6,8,9,8,0,0,15,5c6402d7e9345ac7
+omp_fma,"-O3 -march=native -ffp-contract=fast -fopenmp",21,0,2,1,0,8,6,14,829bbc690958e86a
+OMP_DISPLAY_AFFINITY of p=1..24 -> results/evidence/affinity_display.txt
+TSan warnings: 36
+evidence written to results/evidence/

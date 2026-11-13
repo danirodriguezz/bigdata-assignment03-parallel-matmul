@@ -21,7 +21,7 @@
 #include <stddef.h>
 
 /* Default tile size of the blocked kernel (selected by a pilot, see docs/DECISIONS.md). */
-#define MATMUL_DEFAULT_BS 64
+#define MATMUL_DEFAULT_BS 256
 
 /* Cache-blocked i-k-j kernel (the kernel studied in Assignment 3).
  * Rows of C are split into p contiguous ranges of n/p (+-1) rows, one per thread. */

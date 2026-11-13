@@ -1,0 +1,695 @@
+
+/tmp/tmp.aLoBaQku6Z/omp_fma.o:     formato del fichero elf64-x86-64
+
+
+Desensamblado de la sección .text:
+
+0000000000000000 <tile_update>:
+   0:	push   %rbp
+   1:	mov    %r8d,%r10d
+   4:	mov    %rsp,%rbp
+   7:	push   %r15
+   9:	push   %r14
+   b:	push   %r13
+   d:	push   %r12
+   f:	push   %rbx
+  10:	and    $0xffffffffffffffe0,%rsp
+  14:	sub    $0x28,%rsp
+  18:	mov    %rdi,-0x10(%rsp)
+  1d:	mov    %r9d,-0x38(%rsp)
+  22:	mov    0x28(%rbp),%r8d
+  26:	cmp    %r9d,%r10d
+  29:	jge    3d7 <tile_update+0x3d7>
+  2f:	mov    0x18(%rbp),%eax
+  32:	movslq %ecx,%rbx
+  35:	cmp    %eax,0x10(%rbp)
+  38:	jge    3d7 <tile_update+0x3d7>
+  3e:	cmp    %r8d,0x20(%rbp)
+  42:	jge    3d7 <tile_update+0x3d7>
+  48:	lea    0x0(,%rbx,8),%r14
+  50:	movslq %r10d,%rcx
+  53:	mov    %rbx,%rax
+  56:	mov    %rbx,%r11
+  59:	imul   %rcx,%rax
+  5d:	mov    %r14,-0x40(%rsp)
+  62:	movslq 0x20(%rbp),%r15
+  66:	shl    $0x4,%r11
+  6a:	imul   %r14,%rcx
+  6e:	mov    %r11,-0x60(%rsp)
+  73:	mov    %rbx,%r11
+  76:	mov    %r15,-0x30(%rsp)
+  7b:	lea    (%rax,%r15,1),%r9
+  7f:	lea    (%rdi,%rcx,1),%r13
+  83:	mov    0x10(%rbp),%edi
+  86:	mov    %rbx,%rcx
+  89:	lea    (%rbx,%rbx,1),%rbx
+  8d:	mov    %rbx,-0x48(%rsp)
+  92:	mov    %r8d,%ebx
+  95:	lea    (%rdx,%r9,8),%rax
+  99:	lea    0x1(%rdi),%r14d
+  9d:	mov    0x18(%rbp),%edi
+  a0:	sub    0x20(%rbp),%ebx
+  a3:	mov    %r13,0x20(%rsp)
+  a8:	mov    %ebx,0x4(%rsp)
+  ac:	dec    %edi
+  ae:	mov    %r14d,-0x34(%rsp)
+  b3:	mov    %r11,%r14
+  b6:	mov    %edi,-0x8(%rsp)
+  ba:	movslq 0x10(%rbp),%rdi
+  be:	imul   %rdi,%rcx
+  c2:	lea    0x8(,%rdi,8),%rdi
+  ca:	mov    %rdi,-0x68(%rsp)
+  cf:	add    %r15,%rcx
+  d2:	mov    %rcx,-0x50(%rsp)
+  d7:	lea    (%rsi,%rcx,8),%rcx
+  db:	mov    %rcx,-0x58(%rsp)
+  e0:	lea    -0x1(%rbx),%ecx
+  e3:	mov    %ecx,0x10(%rsp)
+  e7:	lea    (%rsi,%r15,8),%rcx
+  eb:	mov    %rcx,0x8(%rsp)
+  f0:	mov    %ebx,%ecx
+  f2:	shr    $0x2,%ecx
+  f5:	shl    $0x5,%rcx
+  f9:	mov    %rcx,%r15
+  fc:	mov    %ebx,%ecx
+  fe:	and    $0x3,%ebx
+ 101:	and    $0xfffffffc,%ecx
+ 104:	mov    %ebx,0x14(%rsp)
+ 108:	mov    %ecx,-0x4(%rsp)
+ 10c:	add    0x20(%rbp),%ecx
+ 10f:	mov    %ecx,(%rsp)
+ 112:	mov    %r10d,%ecx
+ 115:	nopl   (%rax)
+ 118:	mov    -0x30(%rsp),%rbx
+ 11d:	mov    -0x34(%rsp),%edi
+ 121:	mov    %r9,%r10
+ 124:	mov    0x10(%rbp),%r12d
+ 128:	sub    %rbx,%r10
+ 12b:	cmp    %edi,-0x8(%rsp)
+ 12f:	jle    2c2 <tile_update+0x2c2>
+ 135:	mov    0x20(%rsp),%rbx
+ 13a:	mov    %edi,%r13d
+ 13d:	mov    -0x68(%rsp),%rdi
+ 142:	mov    %rax,-0x20(%rsp)
+ 147:	mov    %r9,-0x28(%rsp)
+ 14c:	mov    -0x58(%rsp),%r11
+ 151:	add    %rbx,%rdi
+ 154:	mov    %ecx,-0x6c(%rsp)
+ 158:	mov    %rdi,0x18(%rsp)
+ 15d:	mov    -0x50(%rsp),%rdi
+ 162:	mov    %rdi,-0x18(%rsp)
+ 167:	mov    0x18(%rsp),%rax
+ 16c:	mov    -0x18(%rsp),%rdi
+ 171:	vmovsd -0x8(%rax),%xmm0
+ 176:	mov    -0x30(%rsp),%rax
+ 17b:	sub    %rax,%rdi
+ 17e:	cmpl   $0x2,0x10(%rsp)
+ 183:	jbe    423 <tile_update+0x423>
+ 189:	mov    -0x40(%rsp),%rax
+ 18e:	vbroadcastsd %xmm0,%ymm3
+ 193:	xor    %ecx,%ecx
+ 195:	lea    (%rax,%r11,1),%r8
+ 199:	mov    0x18(%rsp),%rax
+ 19e:	vbroadcastsd (%rax),%ymm2
+ 1a3:	mov    -0x20(%rsp),%rax
+ 1a8:	nopl   0x0(%rax,%rax,1)
+ 1b0:	vmovupd (%r11,%rcx,1),%ymm1
+ 1b6:	vfmadd213pd (%rax,%rcx,1),%ymm3,%ymm1
+ 1bc:	vfmadd231pd (%r8,%rcx,1),%ymm2,%ymm1
+ 1c2:	vmovupd %ymm1,(%rax,%rcx,1)
+ 1c7:	add    $0x20,%rcx
+ 1cb:	cmp    %r15,%rcx
+ 1ce:	jne    1b0 <tile_update+0x1b0>
+ 1d0:	mov    0x14(%rsp),%r8d
+ 1d5:	mov    (%rsp),%ecx
+ 1d8:	mov    %rax,-0x20(%rsp)
+ 1dd:	test   %r8d,%r8d
+ 1e0:	je     286 <tile_update+0x286>
+ 1e6:	mov    -0x4(%rsp),%r8d
+ 1eb:	mov    0x4(%rsp),%r9d
+ 1f0:	sub    %r8d,%r9d
+ 1f3:	cmp    $0x1,%r9d
+ 1f7:	je     249 <tile_update+0x249>
+ 1f9:	mov    -0x28(%rsp),%rax
+ 1fe:	vmovddup %xmm0,%xmm2
+ 202:	lea    (%rax,%r8,1),%rbx
+ 206:	mov    -0x18(%rsp),%rax
+ 20b:	lea    (%rdx,%rbx,8),%r12
+ 20f:	mov    %rax,%rbx
+ 212:	vmovupd (%r12),%xmm3
+ 218:	add    %r14,%rbx
+ 21b:	add    %r8,%rbx
+ 21e:	add    %rax,%r8
+ 221:	mov    0x18(%rsp),%rax
+ 226:	vfmadd132pd (%rsi,%r8,8),%xmm3,%xmm2
+ 22c:	vmovddup (%rax),%xmm1
+ 230:	vfmadd132pd (%rsi,%rbx,8),%xmm2,%xmm1
+ 236:	vmovupd %xmm1,(%r12)
+ 23c:	test   $0x1,%r9b
+ 240:	je     286 <tile_update+0x286>
+ 242:	and    $0xfffffffe,%r9d
+ 246:	add    %r9d,%ecx
+ 249:	movslq %ecx,%rcx
+ 24c:	mov    -0x10(%rsp),%rbx
+ 251:	lea    (%r10,%rcx,1),%r8
+ 255:	add    %rcx,%rdi
+ 258:	lea    (%rdx,%r8,8),%r8
+ 25c:	vmovsd (%r8),%xmm6
+ 261:	vfmadd132sd (%rsi,%rdi,8),%xmm6,%xmm0
+ 267:	movslq %r13d,%rdi
+ 26a:	lea    (%r10,%rdi,1),%r9
+ 26e:	imul   %r14,%rdi
+ 272:	vmovsd (%rbx,%r9,8),%xmm7
+ 278:	add    %rcx,%rdi
+ 27b:	vfmadd231sd (%rsi,%rdi,8),%xmm7,%xmm0
+ 281:	vmovsd %xmm0,(%r8)
+ 286:	mov    -0x60(%rsp),%rax
+ 28b:	mov    -0x48(%rsp),%rbx
+ 290:	lea    0x2(%r13),%ecx
+ 294:	addq   $0x10,0x18(%rsp)
+ 29a:	add    %rbx,-0x18(%rsp)
+ 29f:	add    %rax,%r11
+ 2a2:	cmp    %ecx,-0x8(%rsp)
+ 2a6:	jle    2b0 <tile_update+0x2b0>
+ 2a8:	mov    %ecx,%r13d
+ 2ab:	jmp    167 <tile_update+0x167>
+ 2b0:	mov    -0x20(%rsp),%rax
+ 2b5:	mov    -0x28(%rsp),%r9
+ 2ba:	lea    0x1(%r13),%r12d
+ 2be:	mov    -0x6c(%rsp),%ecx
+ 2c2:	mov    %r14,%rdi
+ 2c5:	movslq %r12d,%r12
+ 2c8:	mov    %ecx,-0x18(%rsp)
+ 2cc:	imul   %r12,%rdi
+ 2d0:	mov    %r14,0x18(%rsp)
+ 2d5:	mov    -0x30(%rsp),%r14
+ 2da:	nopw   0x0(%rax,%rax,1)
+ 2e0:	mov    0x20(%rsp),%rbx
+ 2e5:	cmpl   $0x2,0x10(%rsp)
+ 2ea:	vmovsd (%rbx,%r12,8),%xmm0
+ 2f0:	jbe    418 <tile_update+0x418>
+ 2f6:	mov    0x8(%rsp),%rbx
+ 2fb:	vbroadcastsd %xmm0,%ymm2
+ 300:	xor    %ecx,%ecx
+ 302:	lea    (%rbx,%rdi,8),%r8
+ 306:	cs nopw 0x0(%rax,%rax,1)
+ 310:	vmovupd (%r8,%rcx,1),%ymm1
+ 316:	vfmadd213pd (%rax,%rcx,1),%ymm2,%ymm1
+ 31c:	vmovupd %ymm1,(%rax,%rcx,1)
+ 321:	add    $0x20,%rcx
+ 325:	cmp    %r15,%rcx
+ 328:	jne    310 <tile_update+0x310>
+ 32a:	mov    0x14(%rsp),%ecx
+ 32e:	test   %ecx,%ecx
+ 330:	je     3f0 <tile_update+0x3f0>
+ 336:	mov    -0x4(%rsp),%r8d
+ 33b:	mov    (%rsp),%ecx
+ 33e:	mov    0x4(%rsp),%r11d
+ 343:	sub    %r8d,%r11d
+ 346:	cmp    $0x1,%r11d
+ 34a:	je     37e <tile_update+0x37e>
+ 34c:	lea    (%r8,%r9,1),%rbx
+ 350:	vmovddup %xmm0,%xmm1
+ 354:	lea    (%rdx,%rbx,8),%r13
+ 358:	lea    (%rdi,%r14,1),%rbx
+ 35c:	vmovupd 0x0(%r13),%xmm5
+ 362:	add    %r8,%rbx
+ 365:	vfmadd132pd (%rsi,%rbx,8),%xmm5,%xmm1
+ 36b:	vmovupd %xmm1,0x0(%r13)
+ 371:	test   $0x1,%r11b
+ 375:	je     39c <tile_update+0x39c>
+ 377:	and    $0xfffffffe,%r11d
+ 37b:	add    %r11d,%ecx
+ 37e:	movslq %ecx,%rcx
+ 381:	lea    (%r10,%rcx,1),%r8
+ 385:	add    %rdi,%rcx
+ 388:	lea    (%rdx,%r8,8),%r8
+ 38c:	vmovsd (%r8),%xmm4
+ 391:	vfmadd132sd (%rsi,%rcx,8),%xmm4,%xmm0
+ 397:	vmovsd %xmm0,(%r8)
+ 39c:	mov    0x18(%rsp),%rbx
+ 3a1:	inc    %r12
+ 3a4:	add    %rbx,%rdi
+ 3a7:	cmp    %r12d,0x18(%rbp)
+ 3ab:	jg     2e0 <tile_update+0x2e0>
+ 3b1:	mov    -0x18(%rsp),%ecx
+ 3b5:	mov    %rbx,%r14
+ 3b8:	mov    -0x40(%rsp),%rbx
+ 3bd:	add    %r14,%r9
+ 3c0:	inc    %ecx
+ 3c2:	add    %rbx,0x20(%rsp)
+ 3c7:	add    %rbx,%rax
+ 3ca:	cmp    %ecx,-0x38(%rsp)
+ 3ce:	jne    118 <tile_update+0x118>
+ 3d4:	vzeroupper
+ 3d7:	lea    -0x28(%rbp),%rsp
+ 3db:	pop    %rbx
+ 3dc:	pop    %r12
+ 3de:	pop    %r13
+ 3e0:	pop    %r14
+ 3e2:	pop    %r15
+ 3e4:	pop    %rbp
+ 3e5:	ret
+ 3e6:	cs nopw 0x0(%rax,%rax,1)
+ 3f0:	mov    0x18(%rsp),%rbx
+ 3f5:	inc    %r12
+ 3f8:	add    %rbx,%rdi
+ 3fb:	cmp    %r12d,0x18(%rbp)
+ 3ff:	jle    3b1 <tile_update+0x3b1>
+ 401:	mov    0x20(%rsp),%rbx
+ 406:	vmovsd (%rbx,%r12,8),%xmm0
+ 40c:	jmp    2f6 <tile_update+0x2f6>
+ 411:	nopl   0x0(%rax)
+ 418:	mov    0x20(%rbp),%ecx
+ 41b:	xor    %r8d,%r8d
+ 41e:	jmp    33e <tile_update+0x33e>
+ 423:	mov    0x20(%rbp),%ecx
+ 426:	xor    %r8d,%r8d
+ 429:	jmp    1eb <tile_update+0x1eb>
+ 42e:	xchg   %ax,%ax
+
+0000000000000430 <matmul_blocked._omp_fn.0>:
+ 430:	endbr64
+ 434:	push   %r15
+ 436:	push   %r14
+ 438:	push   %r13
+ 43a:	push   %r12
+ 43c:	push   %rbp
+ 43d:	push   %rbx
+ 43e:	sub    $0x28,%rsp
+ 442:	mov    0x10(%rdi),%r14
+ 446:	mov    0x8(%rdi),%rsi
+ 44a:	mov    (%rdi),%rax
+ 44d:	movslq 0x18(%rdi),%rbp
+ 451:	mov    %rsi,0x10(%rsp)
+ 456:	mov    0x1c(%rdi),%r13d
+ 45a:	mov    %r14,(%rsp)
+ 45e:	mov    %rax,0x8(%rsp)
+ 463:	call   468 <matmul_blocked._omp_fn.0+0x38>
+ 468:	mov    %eax,%r12d
+ 46b:	call   470 <matmul_blocked._omp_fn.0+0x40>
+ 470:	movslq %r12d,%r8
+ 473:	imul   %rbp,%r8
+ 477:	movslq %eax,%r9
+ 47a:	mov    %r8,%rax
+ 47d:	cqto
+ 47f:	idiv   %r9
+ 482:	mov    %rax,%r15
+ 485:	lea    0x0(%rbp,%r8,1),%rax
+ 48a:	cqto
+ 48c:	idiv   %r9
+ 48f:	cmp    %eax,%r15d
+ 492:	jge    58b <matmul_blocked._omp_fn.0+0x15b>
+ 498:	mov    %rbp,%rbx
+ 49b:	movslq %r15d,%r8
+ 49e:	shl    $0x3,%rbp
+ 4a2:	mov    %eax,%r12d
+ 4a5:	imul   %rbp,%r8
+ 4a9:	mov    %ebx,0x18(%rsp)
+ 4ad:	add    %r14,%r8
+ 4b0:	mov    %r15d,%r14d
+ 4b3:	mov    0x10(%rsp),%r15
+ 4b8:	mov    %r14d,%ebx
+ 4bb:	nopl   0x0(%rax,%rax,1)
+ 4c0:	mov    %r8,%rdi
+ 4c3:	mov    %rbp,%rdx
+ 4c6:	xor    %esi,%esi
+ 4c8:	inc    %ebx
+ 4ca:	call   4cf <matmul_blocked._omp_fn.0+0x9f>
+ 4cf:	mov    %rax,%r8
+ 4d2:	add    %rbp,%r8
+ 4d5:	cmp    %ebx,%r12d
+ 4d8:	jne    4c0 <matmul_blocked._omp_fn.0+0x90>
+ 4da:	mov    %r14d,%ecx
+ 4dd:	mov    %ebx,%r14d
+ 4e0:	mov    0x18(%rsp),%ebx
+ 4e4:	mov    %r15,%rsi
+ 4e7:	test   %ebx,%ebx
+ 4e9:	jle    58b <matmul_blocked._omp_fn.0+0x15b>
+ 4ef:	mov    (%rsp),%rdx
+ 4f3:	mov    %r14d,0x10(%rsp)
+ 4f8:	mov    %ecx,%r14d
+ 4fb:	nopl   0x0(%rax,%rax,1)
+ 500:	mov    0x10(%rsp),%eax
+ 504:	mov    %r14d,(%rsp)
+ 508:	add    %r13d,%r14d
+ 50b:	mov    %ebx,%r12d
+ 50e:	mov    %r14d,0x1c(%rsp)
+ 513:	cmp    %r14d,%eax
+ 516:	cmovg  %r14d,%eax
+ 51a:	xor    %r15d,%r15d
+ 51d:	mov    %r15d,%r14d
+ 520:	mov    %eax,0x18(%rsp)
+ 524:	nopl   0x0(%rax)
+ 528:	mov    %r14d,%ebx
+ 52b:	add    %r13d,%r14d
+ 52e:	cmp    %r14d,%r12d
+ 531:	mov    %r14d,%r15d
+ 534:	cmovle %r12d,%r15d
+ 538:	xor    %ebp,%ebp
+ 53a:	nopw   0x0(%rax,%rax,1)
+ 540:	mov    %ebp,%eax
+ 542:	add    %r13d,%ebp
+ 545:	cmp    %ebp,%r12d
+ 548:	mov    %ebp,%ecx
+ 54a:	cmovle %r12d,%ecx
+ 54e:	push   %rcx
+ 54f:	mov    %r12d,%ecx
+ 552:	push   %rax
+ 553:	push   %r15
+ 555:	push   %rbx
+ 556:	mov    0x38(%rsp),%r9d
+ 55b:	mov    0x20(%rsp),%r8d
+ 560:	mov    0x28(%rsp),%rdi
+ 565:	call   0 <tile_update>
+ 56a:	add    $0x20,%rsp
+ 56e:	cmp    %ebp,%r12d
+ 571:	jg     540 <matmul_blocked._omp_fn.0+0x110>
+ 573:	cmp    %r14d,%r12d
+ 576:	jg     528 <matmul_blocked._omp_fn.0+0xf8>
+ 578:	mov    0x1c(%rsp),%r14d
+ 57d:	mov    %r12d,%ebx
+ 580:	cmp    %r14d,0x10(%rsp)
+ 585:	jg     500 <matmul_blocked._omp_fn.0+0xd0>
+ 58b:	add    $0x28,%rsp
+ 58f:	pop    %rbx
+ 590:	pop    %rbp
+ 591:	pop    %r12
+ 593:	pop    %r13
+ 595:	pop    %r14
+ 597:	pop    %r15
+ 599:	ret
+ 59a:	nopw   0x0(%rax,%rax,1)
+
+00000000000005a0 <matmul_ikj._omp_fn.0>:
+ 5a0:	endbr64
+ 5a4:	push   %rbp
+ 5a5:	mov    %rsp,%rbp
+ 5a8:	push   %r15
+ 5aa:	push   %r14
+ 5ac:	push   %r13
+ 5ae:	mov    %rdi,%r13
+ 5b1:	push   %r12
+ 5b3:	push   %rbx
+ 5b4:	and    $0xffffffffffffffe0,%rsp
+ 5b8:	sub    $0x40,%rsp
+ 5bc:	mov    0x18(%rdi),%r14d
+ 5c0:	call   5c5 <matmul_ikj._omp_fn.0+0x25>
+ 5c5:	mov    %eax,%ebx
+ 5c7:	call   5cc <matmul_ikj._omp_fn.0+0x2c>
+ 5cc:	mov    %eax,%ecx
+ 5ce:	mov    %r14d,%eax
+ 5d1:	cltd
+ 5d2:	idiv   %ebx
+ 5d4:	cmp    %edx,%ecx
+ 5d6:	jl     7d4 <matmul_ikj._omp_fn.0+0x234>
+ 5dc:	imul   %eax,%ecx
+ 5df:	lea    (%rcx,%rdx,1),%r10d
+ 5e3:	lea    (%rax,%r10,1),%edi
+ 5e7:	cmp    %edi,%r10d
+ 5ea:	jge    709 <matmul_ikj._omp_fn.0+0x169>
+ 5f0:	movslq %r14d,%r15
+ 5f3:	movslq %r10d,%rax
+ 5f6:	mov    0x10(%r13),%r11
+ 5fa:	mov    0x0(%r13),%rsi
+ 5fe:	lea    0x0(,%r15,8),%rbx
+ 606:	mov    %r15,%r8
+ 609:	mov    0x8(%r13),%r12
+ 60d:	mov    %r10d,0x1c(%rsp)
+ 612:	mov    %rbx,%rcx
+ 615:	imul   %rax,%r8
+ 619:	mov    %r14d,%r13d
+ 61c:	mov    %rsi,0x28(%rsp)
+ 621:	imul   %rax,%rcx
+ 625:	inc    %rax
+ 628:	mov    %edi,0x14(%rsp)
+ 62c:	shr    $0x2,%r13d
+ 630:	imul   %r15,%rax
+ 634:	mov    %r11,0x8(%rsp)
+ 639:	shl    $0x5,%r13
+ 63d:	add    %rsi,%rcx
+ 640:	lea    (%r11,%rax,8),%rax
+ 644:	mov    %rax,0x38(%rsp)
+ 649:	lea    -0x1(%r14),%eax
+ 64d:	mov    %eax,0x24(%rsp)
+ 651:	mov    %r14d,%eax
+ 654:	and    $0xfffffffc,%eax
+ 657:	mov    %eax,0x20(%rsp)
+ 65b:	mov    %r14d,%eax
+ 65e:	and    $0x3,%eax
+ 661:	mov    %eax,0x18(%rsp)
+ 665:	nopl   (%rax)
+ 668:	xor    %esi,%esi
+ 66a:	mov    %rcx,%rdi
+ 66d:	mov    %rbx,%rdx
+ 670:	mov    %r8,0x30(%rsp)
+ 675:	call   67a <matmul_ikj._omp_fn.0+0xda>
+ 67a:	test   %r14d,%r14d
+ 67d:	mov    0x30(%rsp),%r8
+ 682:	mov    %rax,%rcx
+ 685:	jle    6ec <matmul_ikj._omp_fn.0+0x14c>
+ 687:	mov    0x8(%rsp),%rax
+ 68c:	mov    %r12,%rdx
+ 68f:	xor    %esi,%esi
+ 691:	lea    (%rax,%r8,8),%r9
+ 695:	nopl   (%rax)
+ 698:	vmovsd (%r9),%xmm0
+ 69d:	cmp    $0x1,%r14d
+ 6a1:	je     6b3 <matmul_ikj._omp_fn.0+0x113>
+ 6a3:	lea    0x8(%rdx),%rdi
+ 6a7:	mov    %rcx,%rax
+ 6aa:	sub    %rdi,%rax
+ 6ad:	cmp    $0x10,%rax
+ 6b1:	ja     720 <matmul_ikj._omp_fn.0+0x180>
+ 6b3:	xor    %eax,%eax
+ 6b5:	nopl   (%rax)
+ 6b8:	vmovsd (%rdx,%rax,1),%xmm1
+ 6bd:	vfmadd213sd (%rcx,%rax,1),%xmm0,%xmm1
+ 6c3:	vmovsd %xmm1,(%rcx,%rax,1)
+ 6c8:	add    $0x8,%rax
+ 6cc:	cmp    %rbx,%rax
+ 6cf:	jne    6b8 <matmul_ikj._omp_fn.0+0x118>
+ 6d1:	nopl   0x0(%rax)
+ 6d8:	add    $0x8,%r9
+ 6dc:	add    %r15,%rsi
+ 6df:	add    %rbx,%rdx
+ 6e2:	cmp    %r9,0x38(%rsp)
+ 6e7:	jne    698 <matmul_ikj._omp_fn.0+0xf8>
+ 6e9:	vzeroupper
+ 6ec:	incl   0x1c(%rsp)
+ 6f0:	add    %rbx,%rcx
+ 6f3:	add    %r15,%r8
+ 6f6:	add    %rbx,0x38(%rsp)
+ 6fb:	mov    0x1c(%rsp),%eax
+ 6ff:	cmp    %eax,0x14(%rsp)
+ 703:	jne    668 <matmul_ikj._omp_fn.0+0xc8>
+ 709:	lea    -0x28(%rbp),%rsp
+ 70d:	pop    %rbx
+ 70e:	pop    %r12
+ 710:	pop    %r13
+ 712:	pop    %r14
+ 714:	pop    %r15
+ 716:	pop    %rbp
+ 717:	ret
+ 718:	nopl   0x0(%rax,%rax,1)
+ 720:	cmpl   $0x2,0x24(%rsp)
+ 725:	jbe    7c1 <matmul_ikj._omp_fn.0+0x221>
+ 72b:	vbroadcastsd %xmm0,%ymm2
+ 730:	xor    %eax,%eax
+ 732:	nopw   0x0(%rax,%rax,1)
+ 738:	vmovupd (%rdx,%rax,1),%ymm1
+ 73d:	vfmadd213pd (%rcx,%rax,1),%ymm2,%ymm1
+ 743:	vmovupd %ymm1,(%rcx,%rax,1)
+ 748:	add    $0x20,%rax
+ 74c:	cmp    %rax,%r13
+ 74f:	jne    738 <matmul_ikj._omp_fn.0+0x198>
+ 751:	mov    0x20(%rsp),%edi
+ 755:	cmp    %edi,%r14d
+ 758:	je     6d8 <matmul_ikj._omp_fn.0+0x138>
+ 75e:	mov    0x18(%rsp),%r11d
+ 763:	mov    %r11d,%eax
+ 766:	cmp    $0x1,%r11d
+ 76a:	je     7d0 <matmul_ikj._omp_fn.0+0x230>
+ 76c:	mov    %edi,0x30(%rsp)
+ 770:	mov    0x28(%rsp),%r11
+ 775:	lea    (%rdi,%r8,1),%r10
+ 779:	vmovddup %xmm0,%xmm1
+ 77d:	add    %rsi,%rdi
+ 780:	lea    (%r11,%r10,8),%r10
+ 784:	vmovupd (%r10),%xmm4
+ 789:	vfmadd132pd (%r12,%rdi,8),%xmm4,%xmm1
+ 78f:	vmovupd %xmm1,(%r10)
+ 794:	test   $0x1,%al
+ 796:	je     6d8 <matmul_ikj._omp_fn.0+0x138>
+ 79c:	mov    0x30(%rsp),%edi
+ 7a0:	and    $0xfffffffe,%eax
+ 7a3:	add    %edi,%eax
+ 7a5:	cltq
+ 7a7:	lea    (%rcx,%rax,8),%rdi
+ 7ab:	add    %rsi,%rax
+ 7ae:	vmovsd (%rdi),%xmm3
+ 7b2:	vfmadd132sd (%r12,%rax,8),%xmm3,%xmm0
+ 7b8:	vmovsd %xmm0,(%rdi)
+ 7bc:	jmp    6d8 <matmul_ikj._omp_fn.0+0x138>
+ 7c1:	movl   $0x0,0x30(%rsp)
+ 7c9:	mov    %r14d,%eax
+ 7cc:	xor    %edi,%edi
+ 7ce:	jmp    770 <matmul_ikj._omp_fn.0+0x1d0>
+ 7d0:	mov    %edi,%eax
+ 7d2:	jmp    7a5 <matmul_ikj._omp_fn.0+0x205>
+ 7d4:	inc    %eax
+ 7d6:	xor    %edx,%edx
+ 7d8:	jmp    5dc <matmul_ikj._omp_fn.0+0x3c>
+ 7dd:	nopl   (%rax)
+
+00000000000007e0 <matmul_blocked>:
+ 7e0:	endbr64
+ 7e4:	sub    $0x38,%rsp
+ 7e8:	vmovq  %rdi,%xmm2
+ 7ed:	vmovd  %ecx,%xmm3
+ 7f1:	mov    %fs:0x28,%rax
+ 7fa:	mov    %rax,0x28(%rsp)
+ 7ff:	xor    %eax,%eax
+ 801:	test   %r8d,%r8d
+ 804:	mov    $0x100,%eax
+ 809:	vpinsrq $0x1,%rsi,%xmm2,%xmm0
+ 80f:	cmovle %eax,%r8d
+ 813:	mov    %rdx,0x10(%rsp)
+ 818:	xor    %ecx,%ecx
+ 81a:	xor    %edx,%edx
+ 81c:	mov    %rsp,%rsi
+ 81f:	lea    -0x3f6(%rip),%rdi        # 430 <matmul_blocked._omp_fn.0>
+ 826:	vmovdqa %xmm0,(%rsp)
+ 82b:	vpinsrd $0x1,%r8d,%xmm3,%xmm1
+ 831:	vmovq  %xmm1,0x18(%rsp)
+ 837:	call   83c <matmul_blocked+0x5c>
+ 83c:	mov    0x28(%rsp),%rax
+ 841:	sub    %fs:0x28,%rax
+ 84a:	jne    851 <matmul_blocked+0x71>
+ 84c:	add    $0x38,%rsp
+ 850:	ret
+ 851:	call   856 <matmul_blocked+0x76>
+ 856:	cs nopw 0x0(%rax,%rax,1)
+
+0000000000000860 <matmul_ikj>:
+ 860:	endbr64
+ 864:	sub    $0x38,%rsp
+ 868:	vmovq  %rdx,%xmm1
+ 86d:	xor    %edx,%edx
+ 86f:	mov    %fs:0x28,%rax
+ 878:	mov    %rax,0x28(%rsp)
+ 87d:	xor    %eax,%eax
+ 87f:	vpinsrq $0x1,%rsi,%xmm1,%xmm0
+ 885:	mov    %rdi,0x10(%rsp)
+ 88a:	mov    %rsp,%rsi
+ 88d:	mov    %ecx,0x18(%rsp)
+ 891:	lea    -0x2f8(%rip),%rdi        # 5a0 <matmul_ikj._omp_fn.0>
+ 898:	xor    %ecx,%ecx
+ 89a:	vmovdqa %xmm0,(%rsp)
+ 89f:	call   8a4 <matmul_ikj+0x44>
+ 8a4:	mov    0x28(%rsp),%rax
+ 8a9:	sub    %fs:0x28,%rax
+ 8b2:	jne    8b9 <matmul_ikj+0x59>
+ 8b4:	add    $0x38,%rsp
+ 8b8:	ret
+ 8b9:	call   8be <matmul_ikj+0x5e>
+ 8be:	xchg   %ax,%ax
+
+00000000000008c0 <matmul_naive_ijk>:
+ 8c0:	endbr64
+ 8c4:	test   %ecx,%ecx
+ 8c6:	jle    9e8 <matmul_naive_ijk+0x128>
+ 8cc:	push   %r15
+ 8ce:	mov    %rdi,%r9
+ 8d1:	mov    %rsi,%r8
+ 8d4:	push   %r14
+ 8d6:	push   %r13
+ 8d8:	mov    %rdx,%r13
+ 8db:	push   %r12
+ 8dd:	mov    %ecx,%r12d
+ 8e0:	movslq %ecx,%rcx
+ 8e3:	mov    %r12d,%edx
+ 8e6:	mov    %rcx,%r11
+ 8e9:	mov    %r12d,%r15d
+ 8ec:	mov    %r12d,%r14d
+ 8ef:	shr    $1,%edx
+ 8f1:	lea    0x0(,%rcx,8),%rax
+ 8f9:	shl    $0x4,%r11
+ 8fd:	and    $0xfffffffe,%r15d
+ 901:	push   %rbp
+ 902:	shl    $0x4,%rdx
+ 906:	mov    %rdi,%rbp
+ 909:	and    $0x1,%r14d
+ 90d:	xor    %edi,%edi
+ 90f:	push   %rbx
+ 910:	mov    %rdx,-0x10(%rsp)
+ 915:	xor    %edx,%edx
+ 917:	nopw   0x0(%rax,%rax,1)
+ 920:	mov    -0x10(%rsp),%rsi
+ 925:	mov    %rax,-0x20(%rsp)
+ 92a:	mov    %r8,%rbx
+ 92d:	mov    %edx,-0x14(%rsp)
+ 931:	lea    0x0(%rbp,%rsi,1),%r10
+ 936:	xor    %esi,%esi
+ 938:	nopl   0x0(%rax,%rax,1)
+ 940:	cmp    $0x1,%r12d
+ 944:	je     9e0 <matmul_naive_ijk+0x120>
+ 94a:	mov    %rbp,%rdx
+ 94d:	mov    %rbx,%rax
+ 950:	vxorpd %xmm1,%xmm1,%xmm1
+ 954:	nopl   0x0(%rax)
+ 958:	vmovsd (%rax),%xmm0
+ 95c:	add    $0x10,%rdx
+ 960:	vmovhpd (%rax,%rcx,8),%xmm0,%xmm0
+ 965:	add    %r11,%rax
+ 968:	vmulpd -0x10(%rdx),%xmm0,%xmm0
+ 96d:	vaddsd %xmm1,%xmm0,%xmm1
+ 971:	vunpckhpd %xmm0,%xmm0,%xmm0
+ 975:	vaddsd %xmm1,%xmm0,%xmm1
+ 979:	cmp    %rdx,%r10
+ 97c:	jne    958 <matmul_naive_ijk+0x98>
+ 97e:	movslq %r15d,%rax
+ 981:	test   %r14d,%r14d
+ 984:	je     99f <matmul_naive_ijk+0xdf>
+ 986:	mov    %rcx,%rdx
+ 989:	imul   %rax,%rdx
+ 98d:	add    %rdi,%rax
+ 990:	add    %rsi,%rdx
+ 993:	vmovsd (%r8,%rdx,8),%xmm3
+ 999:	vfmadd231sd (%r9,%rax,8),%xmm3,%xmm1
+ 99f:	vmovsd %xmm1,0x0(%r13,%rsi,8)
+ 9a6:	inc    %rsi
+ 9a9:	add    $0x8,%rbx
+ 9ad:	cmp    %rsi,%rcx
+ 9b0:	jne    940 <matmul_naive_ijk+0x80>
+ 9b2:	mov    -0x14(%rsp),%edx
+ 9b6:	mov    -0x20(%rsp),%rax
+ 9bb:	add    %rcx,%rdi
+ 9be:	inc    %edx
+ 9c0:	add    %rax,%r13
+ 9c3:	add    %rax,%rbp
+ 9c6:	cmp    %edx,%r12d
+ 9c9:	jne    920 <matmul_naive_ijk+0x60>
+ 9cf:	pop    %rbx
+ 9d0:	pop    %rbp
+ 9d1:	pop    %r12
+ 9d3:	pop    %r13
+ 9d5:	pop    %r14
+ 9d7:	pop    %r15
+ 9d9:	ret
+ 9da:	nopw   0x0(%rax,%rax,1)
+ 9e0:	xor    %eax,%eax
+ 9e2:	vxorpd %xmm1,%xmm1,%xmm1
+ 9e6:	jmp    986 <matmul_naive_ijk+0xc6>
+ 9e8:	ret
+ 9e9:	nopl   0x0(%rax)
+
+00000000000009f0 <matmul_max_threads>:
+ 9f0:	endbr64
+ 9f4:	jmp    9f9 <matmul_max_threads+0x9>
+ 9f9:	nopl   0x0(%rax)
+
+0000000000000a00 <matmul_is_openmp>:
+ a00:	endbr64
+ a04:	mov    $0x1,%eax
+ a09:	ret

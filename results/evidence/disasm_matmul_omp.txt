@@ -1,0 +1,397 @@
+
+/tmp/tmp.aLoBaQku6Z/omp.o:     formato del fichero elf64-x86-64
+
+
+Desensamblado de la sección .text:
+
+0000000000000000 <tile_update>:
+   0:	push   %r15
+   2:	push   %r14
+   4:	push   %r13
+   6:	push   %r12
+   8:	push   %rbp
+   9:	mov    %rdi,%rbp
+   c:	push   %rbx
+   d:	mov    %rsi,%rbx
+  10:	mov    0x38(%rsp),%r10d
+  15:	mov    0x40(%rsp),%r11d
+  1a:	mov    0x48(%rsp),%esi
+  1e:	mov    0x50(%rsp),%edi
+  22:	cmp    %r9d,%r8d
+  25:	jge    d9 <tile_update+0xd9>
+  2b:	movslq %ecx,%r13
+  2e:	movslq %r8d,%r14
+  31:	mov    %r11d,%eax
+  34:	movslq %r10d,%r15
+  37:	imul   %r13,%r14
+  3b:	sub    %r10d,%eax
+  3e:	mov    %rdx,%r12
+  41:	lea    (%r15,%rax,1),%rdx
+  45:	neg    %rax
+  48:	lea    0x0(,%r13,8),%rcx
+  50:	add    %r14,%rdx
+  53:	lea    0x0(%rbp,%rdx,8),%rdx
+  58:	movslq %esi,%rbp
+  5b:	add    %rbp,%r14
+  5e:	lea    (%r12,%r14,8),%r12
+  62:	lea    0x0(,%rax,8),%r14
+  6a:	mov    %r13,%rax
+  6d:	imul   %r15,%rax
+  71:	add    %rbp,%rax
+  74:	mov    %edi,%ebp
+  76:	sub    %esi,%ebp
+  78:	lea    (%rbx,%rax,8),%r15
+  7c:	shl    $0x3,%rbp
+  80:	lea    (%rdx,%r14,1),%r13
+  84:	mov    %r15,%rbx
+  87:	cmp    %r11d,%r10d
+  8a:	jge    ca <tile_update+0xca>
+  8c:	nopl   0x0(%rax)
+  90:	movsd  0x0(%r13),%xmm1
+  96:	xor    %eax,%eax
+  98:	cmp    %edi,%esi
+  9a:	jge    be <tile_update+0xbe>
+  9c:	nopl   0x0(%rax)
+  a0:	movsd  (%rbx,%rax,1),%xmm0
+  a5:	mulsd  %xmm1,%xmm0
+  a9:	addsd  (%r12,%rax,1),%xmm0
+  af:	movsd  %xmm0,(%r12,%rax,1)
+  b5:	add    $0x8,%rax
+  b9:	cmp    %rax,%rbp
+  bc:	jne    a0 <tile_update+0xa0>
+  be:	add    $0x8,%r13
+  c2:	add    %rcx,%rbx
+  c5:	cmp    %rdx,%r13
+  c8:	jne    90 <tile_update+0x90>
+  ca:	add    $0x1,%r8d
+  ce:	add    %rcx,%rdx
+  d1:	add    %rcx,%r12
+  d4:	cmp    %r8d,%r9d
+  d7:	jne    80 <tile_update+0x80>
+  d9:	pop    %rbx
+  da:	pop    %rbp
+  db:	pop    %r12
+  dd:	pop    %r13
+  df:	pop    %r14
+  e1:	pop    %r15
+  e3:	ret
+  e4:	data16 cs nopw 0x0(%rax,%rax,1)
+  ef:	nop
+
+00000000000000f0 <matmul_blocked._omp_fn.0>:
+  f0:	endbr64
+  f4:	push   %r15
+  f6:	push   %r14
+  f8:	push   %r13
+  fa:	push   %r12
+  fc:	push   %rbp
+  fd:	push   %rbx
+  fe:	sub    $0x38,%rsp
+ 102:	mov    0x10(%rdi),%r15
+ 106:	mov    0x8(%rdi),%rcx
+ 10a:	mov    (%rdi),%rax
+ 10d:	mov    0x18(%rdi),%r14d
+ 111:	mov    0x1c(%rdi),%r12d
+ 115:	mov    %rcx,0x18(%rsp)
+ 11a:	mov    %r15,0x10(%rsp)
+ 11f:	mov    %rax,0x20(%rsp)
+ 124:	call   129 <matmul_blocked._omp_fn.0+0x39>
+ 129:	mov    %eax,%ebx
+ 12b:	call   130 <matmul_blocked._omp_fn.0+0x40>
+ 130:	movslq %r14d,%r8
+ 133:	movslq %ebx,%rdi
+ 136:	imul   %r8,%rdi
+ 13a:	movslq %eax,%r9
+ 13d:	mov    %rdi,%rax
+ 140:	cqto
+ 142:	idiv   %r9
+ 145:	mov    %rax,%rbp
+ 148:	lea    (%r8,%rdi,1),%rax
+ 14c:	cqto
+ 14e:	idiv   %r9
+ 151:	cmp    %eax,%ebp
+ 153:	jge    243 <matmul_blocked._omp_fn.0+0x153>
+ 159:	lea    0x0(,%r8,8),%rbx
+ 161:	movslq %ebp,%rdi
+ 164:	mov    %eax,%r13d
+ 167:	imul   %rbx,%rdi
+ 16b:	add    %r15,%rdi
+ 16e:	mov    %ebp,%r15d
+ 171:	nopl   0x0(%rax)
+ 178:	mov    %rbx,%rdx
+ 17b:	xor    %esi,%esi
+ 17d:	add    $0x1,%ebp
+ 180:	call   185 <matmul_blocked._omp_fn.0+0x95>
+ 185:	mov    %rax,%rdi
+ 188:	add    %rbx,%rdi
+ 18b:	cmp    %ebp,%r13d
+ 18e:	jne    178 <matmul_blocked._omp_fn.0+0x88>
+ 190:	mov    %r15d,%ecx
+ 193:	lea    (%r12,%rcx,1),%eax
+ 197:	test   %r14d,%r14d
+ 19a:	jle    252 <matmul_blocked._omp_fn.0+0x162>
+ 1a0:	mov    %ecx,0xc(%rsp)
+ 1a4:	mov    %ebp,%esi
+ 1a6:	mov    %eax,%edx
+ 1a8:	mov    %r14d,%ebp
+ 1ab:	nopl   0x0(%rax,%rax,1)
+ 1b0:	mov    %esi,0x28(%rsp)
+ 1b4:	cmp    %edx,%esi
+ 1b6:	mov    %edx,%r9d
+ 1b9:	mov    %r12d,%r13d
+ 1bc:	mov    %edx,0x2c(%rsp)
+ 1c0:	cmovle %esi,%r9d
+ 1c4:	mov    %ebp,%r15d
+ 1c7:	xor    %r14d,%r14d
+ 1ca:	nopw   0x0(%rax,%rax,1)
+ 1d0:	mov    %r14d,%r12d
+ 1d3:	add    %r13d,%r14d
+ 1d6:	cmp    %r14d,%r15d
+ 1d9:	mov    %r14d,%ebp
+ 1dc:	cmovle %r15d,%ebp
+ 1e0:	xor    %ebx,%ebx
+ 1e2:	nopw   0x0(%rax,%rax,1)
+ 1e8:	mov    %ebx,%eax
+ 1ea:	add    %r13d,%ebx
+ 1ed:	mov    %r15d,%ecx
+ 1f0:	cmp    %ebx,%r15d
+ 1f3:	mov    %ebx,%edx
+ 1f5:	cmovle %r15d,%edx
+ 1f9:	push   %rdx
+ 1fa:	push   %rax
+ 1fb:	push   %rbp
+ 1fc:	push   %r12
+ 1fe:	mov    0x2c(%rsp),%r8d
+ 203:	mov    0x30(%rsp),%rdx
+ 208:	mov    0x38(%rsp),%rsi
+ 20d:	mov    0x40(%rsp),%rdi
+ 212:	call   0 <tile_update>
+ 217:	add    $0x20,%rsp
+ 21b:	cmp    %ebx,%r15d
+ 21e:	jg     1e8 <matmul_blocked._omp_fn.0+0xf8>
+ 220:	cmp    %r14d,%r15d
+ 223:	jg     1d0 <matmul_blocked._omp_fn.0+0xe0>
+ 225:	mov    0x28(%rsp),%esi
+ 229:	mov    0x2c(%rsp),%edx
+ 22d:	mov    %r13d,%r12d
+ 230:	mov    %r15d,%ebp
+ 233:	cmp    %edx,%esi
+ 235:	jle    243 <matmul_blocked._omp_fn.0+0x153>
+ 237:	mov    %edx,0xc(%rsp)
+ 23b:	add    %r13d,%edx
+ 23e:	jmp    1b0 <matmul_blocked._omp_fn.0+0xc0>
+ 243:	add    $0x38,%rsp
+ 247:	pop    %rbx
+ 248:	pop    %rbp
+ 249:	pop    %r12
+ 24b:	pop    %r13
+ 24d:	pop    %r14
+ 24f:	pop    %r15
+ 251:	ret
+ 252:	cmp    %eax,%ebp
+ 254:	jle    243 <matmul_blocked._omp_fn.0+0x153>
+ 256:	mov    %eax,%ecx
+ 258:	jmp    193 <matmul_blocked._omp_fn.0+0xa3>
+ 25d:	nopl   (%rax)
+
+0000000000000260 <matmul_ikj._omp_fn.0>:
+ 260:	endbr64
+ 264:	push   %r15
+ 266:	push   %r14
+ 268:	push   %r13
+ 26a:	push   %r12
+ 26c:	mov    %rdi,%r12
+ 26f:	push   %rbp
+ 270:	push   %rbx
+ 271:	sub    $0x28,%rsp
+ 275:	mov    0x18(%rdi),%ebp
+ 278:	call   27d <matmul_ikj._omp_fn.0+0x1d>
+ 27d:	mov    %eax,%ebx
+ 27f:	call   284 <matmul_ikj._omp_fn.0+0x24>
+ 284:	mov    %eax,%ecx
+ 286:	mov    %ebp,%eax
+ 288:	cltd
+ 289:	idiv   %ebx
+ 28b:	cmp    %edx,%ecx
+ 28d:	jl     3a1 <matmul_ikj._omp_fn.0+0x141>
+ 293:	imul   %eax,%ecx
+ 296:	lea    (%rcx,%rdx,1),%r15d
+ 29a:	lea    (%rax,%r15,1),%r9d
+ 29e:	cmp    %r9d,%r15d
+ 2a1:	jge    37a <matmul_ikj._omp_fn.0+0x11a>
+ 2a7:	mov    0x8(%r12),%rax
+ 2ac:	movslq %ebp,%r10
+ 2af:	movslq %r15d,%r8
+ 2b2:	mov    0x10(%r12),%rbx
+ 2b7:	imul   %r10,%r8
+ 2bb:	mov    %ebp,0x10(%rsp)
+ 2bf:	mov    %r10,%r13
+ 2c2:	lea    0x0(,%r10,8),%r14
+ 2ca:	mov    %rax,0x18(%rsp)
+ 2cf:	mov    (%r12),%rax
+ 2d3:	mov    %r14,%r12
+ 2d6:	mov    %rbx,%r14
+ 2d9:	mov    %r9d,0x14(%rsp)
+ 2de:	mov    %rax,0x8(%rsp)
+ 2e3:	mov    %r8,%rbx
+ 2e6:	cs nopw 0x0(%rax,%rax,1)
+ 2f0:	mov    0x8(%rsp),%rax
+ 2f5:	lea    0x0(,%rbx,8),%rbp
+ 2fd:	mov    %r12,%rdx
+ 300:	xor    %esi,%esi
+ 302:	lea    (%rax,%rbp,1),%rcx
+ 306:	mov    %rcx,%rdi
+ 309:	call   30e <matmul_ikj._omp_fn.0+0xae>
+ 30e:	mov    %rax,%rcx
+ 311:	mov    0x10(%rsp),%eax
+ 315:	test   %eax,%eax
+ 317:	jle    389 <matmul_ikj._omp_fn.0+0x129>
+ 319:	lea    0x0(%r13,%rbx,1),%r10
+ 31e:	mov    0x18(%rsp),%rdx
+ 323:	lea    (%r14,%rbp,1),%rsi
+ 327:	lea    (%r14,%r10,8),%rdi
+ 32b:	nopl   0x0(%rax,%rax,1)
+ 330:	movsd  (%rsi),%xmm1
+ 334:	xor    %eax,%eax
+ 336:	cs nopw 0x0(%rax,%rax,1)
+ 340:	movsd  (%rdx,%rax,1),%xmm0
+ 345:	mulsd  %xmm1,%xmm0
+ 349:	addsd  (%rcx,%rax,1),%xmm0
+ 34e:	movsd  %xmm0,(%rcx,%rax,1)
+ 353:	add    $0x8,%rax
+ 357:	cmp    %rax,%r12
+ 35a:	jne    340 <matmul_ikj._omp_fn.0+0xe0>
+ 35c:	add    $0x8,%rsi
+ 360:	add    %r12,%rdx
+ 363:	cmp    %rsi,%rdi
+ 366:	jne    330 <matmul_ikj._omp_fn.0+0xd0>
+ 368:	add    $0x1,%r15d
+ 36c:	mov    %r10,%rbx
+ 36f:	cmp    %r15d,0x14(%rsp)
+ 374:	jne    2f0 <matmul_ikj._omp_fn.0+0x90>
+ 37a:	add    $0x28,%rsp
+ 37e:	pop    %rbx
+ 37f:	pop    %rbp
+ 380:	pop    %r12
+ 382:	pop    %r13
+ 384:	pop    %r14
+ 386:	pop    %r15
+ 388:	ret
+ 389:	lea    (%rbx,%r13,1),%r10
+ 38d:	add    $0x1,%r15d
+ 391:	mov    %r10,%rbx
+ 394:	cmp    %r15d,0x14(%rsp)
+ 399:	jne    2f0 <matmul_ikj._omp_fn.0+0x90>
+ 39f:	jmp    37a <matmul_ikj._omp_fn.0+0x11a>
+ 3a1:	add    $0x1,%eax
+ 3a4:	xor    %edx,%edx
+ 3a6:	jmp    293 <matmul_ikj._omp_fn.0+0x33>
+ 3ab:	nopl   0x0(%rax,%rax,1)
+
+00000000000003b0 <matmul_blocked>:
+ 3b0:	endbr64
+ 3b4:	sub    $0x38,%rsp
+ 3b8:	mov    %fs:0x28,%rax
+ 3c1:	mov    %rax,0x28(%rsp)
+ 3c6:	xor    %eax,%eax
+ 3c8:	test   %r8d,%r8d
+ 3cb:	mov    $0x100,%eax
+ 3d0:	mov    %ecx,0x18(%rsp)
+ 3d4:	cmovle %eax,%r8d
+ 3d8:	mov    %rdx,0x10(%rsp)
+ 3dd:	xor    %ecx,%ecx
+ 3df:	xor    %edx,%edx
+ 3e1:	mov    %rsi,0x8(%rsp)
+ 3e6:	mov    %rsp,%rsi
+ 3e9:	mov    %rdi,(%rsp)
+ 3ed:	lea    -0x304(%rip),%rdi        # f0 <matmul_blocked._omp_fn.0>
+ 3f4:	mov    %r8d,0x1c(%rsp)
+ 3f9:	call   3fe <matmul_blocked+0x4e>
+ 3fe:	mov    0x28(%rsp),%rax
+ 403:	sub    %fs:0x28,%rax
+ 40c:	jne    413 <matmul_blocked+0x63>
+ 40e:	add    $0x38,%rsp
+ 412:	ret
+ 413:	call   418 <matmul_blocked+0x68>
+ 418:	nopl   0x0(%rax,%rax,1)
+
+0000000000000420 <matmul_ikj>:
+ 420:	endbr64
+ 424:	sub    $0x38,%rsp
+ 428:	mov    %fs:0x28,%rax
+ 431:	mov    %rax,0x28(%rsp)
+ 436:	xor    %eax,%eax
+ 438:	mov    %rdi,0x10(%rsp)
+ 43d:	lea    -0x1e4(%rip),%rdi        # 260 <matmul_ikj._omp_fn.0>
+ 444:	mov    %rsi,0x8(%rsp)
+ 449:	mov    %rsp,%rsi
+ 44c:	mov    %rdx,(%rsp)
+ 450:	xor    %edx,%edx
+ 452:	mov    %ecx,0x18(%rsp)
+ 456:	xor    %ecx,%ecx
+ 458:	call   45d <matmul_ikj+0x3d>
+ 45d:	mov    0x28(%rsp),%rax
+ 462:	sub    %fs:0x28,%rax
+ 46b:	jne    472 <matmul_ikj+0x52>
+ 46d:	add    $0x38,%rsp
+ 471:	ret
+ 472:	call   477 <matmul_ikj+0x57>
+ 477:	nopw   0x0(%rax,%rax,1)
+
+0000000000000480 <matmul_naive_ijk>:
+ 480:	endbr64
+ 484:	test   %ecx,%ecx
+ 486:	jle    509 <matmul_naive_ijk+0x89>
+ 48c:	movslq %ecx,%r11
+ 48f:	push   %r12
+ 491:	mov    %ecx,%r12d
+ 494:	mov    %rdi,%r9
+ 497:	lea    0x0(,%r11,8),%rcx
+ 49f:	push   %rbp
+ 4a0:	mov    %rdx,%r10
+ 4a3:	xor    %ebp,%ebp
+ 4a5:	push   %rbx
+ 4a6:	mov    %rsi,%rbx
+ 4a9:	lea    (%rdi,%rcx,1),%rsi
+ 4ad:	nopl   (%rax)
+ 4b0:	mov    %rbx,%r8
+ 4b3:	xor    %edi,%edi
+ 4b5:	nopl   (%rax)
+ 4b8:	mov    %r8,%rdx
+ 4bb:	mov    %r9,%rax
+ 4be:	pxor   %xmm1,%xmm1
+ 4c2:	nopw   0x0(%rax,%rax,1)
+ 4c8:	movsd  (%rax),%xmm0
+ 4cc:	mulsd  (%rdx),%xmm0
+ 4d0:	add    $0x8,%rax
+ 4d4:	add    %rcx,%rdx
+ 4d7:	addsd  %xmm0,%xmm1
+ 4db:	cmp    %rsi,%rax
+ 4de:	jne    4c8 <matmul_naive_ijk+0x48>
+ 4e0:	movsd  %xmm1,(%r10,%rdi,8)
+ 4e6:	add    $0x1,%rdi
+ 4ea:	add    $0x8,%r8
+ 4ee:	cmp    %r11,%rdi
+ 4f1:	jne    4b8 <matmul_naive_ijk+0x38>
+ 4f3:	add    $0x1,%ebp
+ 4f6:	add    %rcx,%r10
+ 4f9:	add    %rcx,%r9
+ 4fc:	add    %rcx,%rsi
+ 4ff:	cmp    %ebp,%r12d
+ 502:	jne    4b0 <matmul_naive_ijk+0x30>
+ 504:	pop    %rbx
+ 505:	pop    %rbp
+ 506:	pop    %r12
+ 508:	ret
+ 509:	ret
+ 50a:	nopw   0x0(%rax,%rax,1)
+
+0000000000000510 <matmul_max_threads>:
+ 510:	endbr64
+ 514:	jmp    519 <matmul_max_threads+0x9>
+ 519:	nopl   0x0(%rax)
+
+0000000000000520 <matmul_is_openmp>:
+ 520:	endbr64
+ 524:	mov    $0x1,%eax
+ 529:	ret

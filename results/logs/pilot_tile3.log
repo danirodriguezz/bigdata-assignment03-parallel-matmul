@@ -1,0 +1,72 @@
+[run_measured] measured run 0: status=ok wall=0.289s peak_rss=7636 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=0.087s peak_rss=8044 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=0.320s peak_rss=7636 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=0.077s peak_rss=8040 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=0.290s peak_rss=7636 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=0.077s peak_rss=8044 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=2.402s peak_rss=26068 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=0.592s peak_rss=26476 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=2.490s peak_rss=26068 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=0.582s peak_rss=26376 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=2.339s peak_rss=26068 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=0.582s peak_rss=26476 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=22.062s peak_rss=99796 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=4.692s peak_rss=100100 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=19.961s peak_rss=99792 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=4.865s peak_rss=100156 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=17.798s peak_rss=99796 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=4.468s peak_rss=100104 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=0.310s peak_rss=7632 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=0.077s peak_rss=8076 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=0.371s peak_rss=7636 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=0.088s peak_rss=8044 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=0.383s peak_rss=7636 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=0.088s peak_rss=7980 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=2.890s peak_rss=26068 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=0.562s peak_rss=26476 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=2.471s peak_rss=26068 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=0.602s peak_rss=26420 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=2.744s peak_rss=26068 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=0.694s peak_rss=26416 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=23.050s peak_rss=99796 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=4.722s peak_rss=100200 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=19.867s peak_rss=99796 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=4.894s peak_rss=100148 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=17.520s peak_rss=99796 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv
+[run_measured] measured run 0: status=ok wall=4.629s peak_rss=100204 KiB
+[run_measured] wrote 4 rows to results/raw/pilot_tile3.csv

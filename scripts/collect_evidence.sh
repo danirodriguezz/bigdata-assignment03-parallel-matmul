@@ -61,15 +61,32 @@ flock ~/.cache/bigdata_bench.lock env OMP_NUM_THREADS=6 OMP_PLACES=cores OMP_PRO
     --warmup 0 --reps 1 2>&1 | grep -E "OMP_|GOMP" >> "$AFF"
 
 # ---- 4. ThreadSanitizer ---------------------------------------------------------------------
+# The full test program is far too slow under TSan (bit-identity loop over p = 1..24), so TSan is
+# run on the benchmark harness itself: both kernels, n = 300 (not a multiple of the tile), p = 2, 6, 12.
 TS="$EV/tsan.txt"
 {
-  echo "ThreadSanitizer build: gcc -fsanitize=thread -fopenmp -g -O1 tests/test_matmul.c src/c/matmul.c"
+  echo "ThreadSanitizer build: gcc -std=c11 -fsanitize=thread -fopenmp -g -O1 src/c/matmul.c src/c/bench_main.c"
   echo "Caveat: the system libgomp is not instrumented for TSan, so its internal synchronisation"
   echo "(barriers) is invisible to TSan; reports inside libgomp would be false positives."
-  if gcc -std=c11 -fsanitize=thread -fopenmp -g -O1 -Isrc/c tests/test_matmul.c src/c/matmul.c -o "$TMP/tsan" -lm 2>&1; then
-    flock ~/.cache/bigdata_bench.lock env OMP_PROC_BIND=false TSAN_OPTIONS="halt_on_error=0" \
-        setarch "$(uname -m)" -R "$TMP/tsan" 2>&1 | tail -40
-    echo "exit status: ${PIPESTATUS[0]}"
+  if gcc -std=c11 -fsanitize=thread -fopenmp -g -O1 -DVARIANT='"tsan"' src/c/matmul.c src/c/bench_main.c -o "$TMP/tsan" -lm 2>&1; then
+    head -c $((300*300*8)) data/inputs/n512_s42_A.bin > "$TMP/A300.bin"
+    head -c $((300*300*8)) data/inputs/n512_s42_B.bin > "$TMP/B300.bin"
+    for k in blocked ikj; do for p in 2 6 12; do
+      echo "== kernel=$k p=$p n=300 bs=64"
+      flock ~/.cache/bigdata_bench.lock env OMP_NUM_THREADS=$p OMP_PROC_BIND=false TSAN_OPTIONS="halt_on_error=0" \
+          setarch "$(uname -m)" -R "$TMP/tsan" --n 300 --a "$TMP/A300.bin" --b "$TMP/B300.bin" \
+          --kernel $k --bs 64 --warmup 0 --reps 1 2>&1 | grep -E "WARNING|SUMMARY|checksum" | sed -E 's/.*("checksum": [^,]*).*/\1/'
+      echo "exit status: ${PIPESTATUS[0]}"
+    done; done
+    # Full report of one run, to classify the warnings: which source lines and which memory
+    # (stack addresses 0x7ff... = OpenMP shared-variable block / locals; heap = matrices A, B, C).
+    OMP_NUM_THREADS=2 OMP_PROC_BIND=false setarch "$(uname -m)" -R "$TMP/tsan" --n 300 --a "$TMP/A300.bin" \
+        --b "$TMP/B300.bin" --kernel blocked --bs 64 --warmup 0 --reps 1 > /dev/null 2> "$EV/tsan_full_blocked_p2.txt"
+    echo "== classification of the full report (blocked, p=2): accessed addresses"
+    grep -oE "(Read|Write) of size [0-9]+ at 0x[0-9a-f]+" "$EV/tsan_full_blocked_p2.txt" | awk '{print $NF}' \
+        | sed -E 's/^0x7ff.*/stack/; s/^0x[0-9a-f]+$/non-stack/' | sort | uniq -c
+    echo "== reports whose access is inside tile_update (the only code that writes C during the product):"
+    grep -cE "#0 tile_update" "$EV/tsan_full_blocked_p2.txt" || true
   else
     echo "TSan build failed"
   fi

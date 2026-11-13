@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\caption{Speedup $S(p)=T_{seq}/T_p$ of the blocked kernel (medians of the measured repetitions; $k$ per cell in \cref{tab:full1,tab:full2}). For $n=512$ the 95\% bootstrap confidence interval of $S$ and the efficiency $E=S/p$ are also given. $p>6$ uses both hardware threads of a core (SMT); $p>12$ is oversubscribed.}
+\label{tab:speedup}
+\small
+\begin{tabular}{@{}rlrrcr@{}}
+\toprule
+$p$ & region & $n=256$ & $n=512$ & 95\% CI ($n=512$) & $E$ ($n=512$) \\
+\midrule
+1 & physical & 0.84 & 0.91 & [nan, nan] & 0.91 \\
+2 & physical & 1.46 & 1.92 & [nan, nan] & 0.96 \\
+6 & physical & 2.90 & 4.58 & [nan, nan] & 0.76 \\
+\midrule
+12 & SMT & 3.28 & 5.34 & [nan, nan] & 0.44 \\
+\midrule
+24 & oversub. & 3.37 & 3.72 & [nan, nan] & 0.16 \\
+\midrule
+\multicolumn{2}{@{}l}{$T_{seq}$ [s] (median)} & 0.0093 & 0.0783 & & \\
+\bottomrule
+\end{tabular}
+\end{table*}

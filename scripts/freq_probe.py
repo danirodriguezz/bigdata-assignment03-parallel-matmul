@@ -72,7 +72,8 @@ def main():
     stdout = proc.stdout.read()
     extra = {}
     if samples:
-        q = statistics.quantiles(samples, n=10) if len(samples) >= 10 else [min(samples)] * 9
+        # deciles; with fewer than 10 samples fall back to min/max (short runs)
+        q = statistics.quantiles(samples, n=10) if len(samples) >= 10 else [min(samples), max(samples)]
         extra = {"freq_busy_mhz_median": statistics.median(samples), "freq_busy_mhz_p10": q[0],
                  "freq_busy_mhz_p90": q[-1], "busy_cpus_median": statistics.median(busy_counts),
                  "freq_samples": len(samples)}

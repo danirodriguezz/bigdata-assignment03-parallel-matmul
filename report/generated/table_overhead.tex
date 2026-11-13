@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\caption{Overhead of the parallel binary run with one thread: ratio of medians $T_{par}(1)/T_{seq}$ with 95\% bootstrap CI; times are medians [IQR] in seconds over $k$ repetitions each.}
+\label{tab:overhead}
+\small
+\begin{tabular}{@{}lrllcr@{}}
+\toprule
+Kernel & $n$ & $T_{seq}$ [IQR] & $T_{par}(1)$ [IQR] & ratio [95\% CI] & $k$ \\
+\midrule
+blocked & 256 & 0.0093 [0.0000] & 0.0111 [0.0000] & 1.191 [nan, nan] & 1 \\
+blocked & 512 & 0.0783 [0.0000] & 0.0863 [0.0000] & 1.102 [nan, nan] & 1 \\
+ikj & 256 & 0.0111 [0.0000] & 0.0076 [0.0000] & 0.686 [nan, nan] & 1 \\
+\bottomrule
+\end{tabular}
+\end{table}

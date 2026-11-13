@@ -25,7 +25,7 @@ from gen_inputs import generate, paths  # noqa: E402
 N, SEED = 203, 7  # small dedicated test input (seed differs from the benchmark seed)
 
 
-def run(binary, a, b, out, threads=None, kernel="blocked", bs=64):
+def run(binary, a, b, out, threads=None, kernel="blocked", bs=256):
     env = dict(os.environ, OMP_PROC_BIND="false", OMP_DYNAMIC="false")
     if threads is not None:
         env["OMP_NUM_THREADS"] = str(threads)

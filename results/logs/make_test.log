@@ -1,0 +1,87 @@
+test_matmul: build seq, OpenMP=0, max threads=1
+  blocked random n=   3 bs=  2  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 6.661e-16)
+  blocked random n= 100 bs= 64  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 2.220e-14)
+  blocked random n= 129 bs=  7  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 2.864e-14)
+  blocked random n= 257 bs= 64  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 5.707e-14)
+  blocked random n= 300 bs=256  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 6.661e-14)
+  ikj     random n=   3 bs=  2  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 6.661e-16)
+  ikj     random n= 100 bs= 64  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 2.220e-14)
+  ikj     random n= 129 bs=  7  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 2.864e-14)
+  ikj     random n= 257 bs= 64  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 5.707e-14)
+  ikj     random n= 300 bs=256  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 6.661e-14)
+test_matmul: 112 checks, 0 failures -> PASSED
+test_matmul: build omp, OpenMP=1, max threads=12
+  blocked random n=   3 bs=  2  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 6.661e-16)
+  blocked random n= 100 bs= 64  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 2.220e-14)
+  blocked random n= 129 bs=  7  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 2.864e-14)
+  blocked random n= 257 bs= 64  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 5.707e-14)
+  blocked random n= 300 bs=256  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 6.661e-14)
+  ikj     random n=   3 bs=  2  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 6.661e-16)
+  ikj     random n= 100 bs= 64  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 2.220e-14)
+  ikj     random n= 129 bs=  7  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 2.864e-14)
+  ikj     random n= 257 bs= 64  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 5.707e-14)
+  ikj     random n= 300 bs=256  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 6.661e-14)
+test_matmul: 200 checks, 0 failures -> PASSED
+test_matmul: build omp_scalar, OpenMP=1, max threads=12
+  blocked random n=   3 bs=  2  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 6.661e-16)
+  blocked random n= 100 bs= 64  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 2.220e-14)
+  blocked random n= 129 bs=  7  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 2.864e-14)
+  blocked random n= 257 bs= 64  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 5.707e-14)
+  blocked random n= 300 bs=256  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 6.661e-14)
+  ikj     random n=   3 bs=  2  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 6.661e-16)
+  ikj     random n= 100 bs= 64  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 2.220e-14)
+  ikj     random n= 129 bs=  7  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 2.864e-14)
+  ikj     random n= 257 bs= 64  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 5.707e-14)
+  ikj     random n= 300 bs=256  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 6.661e-14)
+test_matmul: 200 checks, 0 failures -> PASSED
+test_matmul: build omp_avx2, OpenMP=1, max threads=12
+  blocked random n=   3 bs=  2  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 6.661e-16)
+  blocked random n= 100 bs= 64  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 2.220e-14)
+  blocked random n= 129 bs=  7  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 2.864e-14)
+  blocked random n= 257 bs= 64  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 5.707e-14)
+  blocked random n= 300 bs=256  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 6.661e-14)
+  ikj     random n=   3 bs=  2  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 6.661e-16)
+  ikj     random n= 100 bs= 64  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 2.220e-14)
+  ikj     random n= 129 bs=  7  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 2.864e-14)
+  ikj     random n= 257 bs= 64  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 5.707e-14)
+  ikj     random n= 300 bs=256  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 6.661e-14)
+test_matmul: 200 checks, 0 failures -> PASSED
+test_matmul: build omp_fma, OpenMP=1, max threads=12
+  blocked random n=   3 bs=  2  max |err|/(|A||B|) = 0.000e+00  (2*gamma_n = 6.661e-16)
+  blocked random n= 100 bs= 64  max |err|/(|A||B|) = 1.886e-16  (2*gamma_n = 2.220e-14)
+  blocked random n= 129 bs=  7  max |err|/(|A||B|) = 1.809e-16  (2*gamma_n = 2.864e-14)
+  blocked random n= 257 bs= 64  max |err|/(|A||B|) = 1.679e-16  (2*gamma_n = 5.707e-14)
+  blocked random n= 300 bs=256  max |err|/(|A||B|) = 1.795e-16  (2*gamma_n = 6.661e-14)
+  ikj     random n=   3 bs=  2  max |err|/(|A||B|) = 1.260e-16  (2*gamma_n = 6.661e-16)
+  ikj     random n= 100 bs= 64  max |err|/(|A||B|) = 1.910e-16  (2*gamma_n = 2.220e-14)
+  ikj     random n= 129 bs=  7  max |err|/(|A||B|) = 1.605e-16  (2*gamma_n = 2.864e-14)
+  ikj     random n= 257 bs= 64  max |err|/(|A||B|) = 1.744e-16  (2*gamma_n = 5.707e-14)
+  ikj     random n= 300 bs=256  max |err|/(|A||B|) = 1.830e-16  (2*gamma_n = 6.661e-14)
+test_matmul: 200 checks, 0 failures -> PASSED
+.venv/bin/python tests/test_vs_numpy.py
+PASS blocked matmul_seq         p=None max|err|/bound=6.406e-03 bit-identical-to-seq=True
+PASS blocked matmul_omp         p=1    max|err|/bound=6.406e-03 bit-identical-to-seq=True
+PASS blocked matmul_omp         p=2    max|err|/bound=6.406e-03 bit-identical-to-seq=True
+PASS blocked matmul_omp         p=6    max|err|/bound=6.406e-03 bit-identical-to-seq=True
+PASS blocked matmul_omp         p=7    max|err|/bound=6.406e-03 bit-identical-to-seq=True
+PASS blocked matmul_omp         p=12   max|err|/bound=6.406e-03 bit-identical-to-seq=True
+PASS blocked matmul_omp         p=24   max|err|/bound=6.406e-03 bit-identical-to-seq=True
+PASS blocked matmul_omp_scalar  p=6    max|err|/bound=6.406e-03 bit-identical-to-seq=True
+PASS blocked matmul_omp_avx2    p=1    max|err|/bound=6.406e-03 bit-identical-to-seq=True
+PASS blocked matmul_omp_avx2    p=6    max|err|/bound=6.406e-03 bit-identical-to-seq=True
+PASS blocked matmul_omp_fma     p=1    max|err|/bound=4.004e-03 bit-identical-to-seq=False
+PASS blocked matmul_omp_fma     p=6    max|err|/bound=4.004e-03 bit-identical-to-seq=False
+PASS ikj     matmul_seq         p=None max|err|/bound=6.406e-03 bit-identical-to-seq=True
+PASS ikj     matmul_omp         p=1    max|err|/bound=6.406e-03 bit-identical-to-seq=True
+PASS ikj     matmul_omp         p=2    max|err|/bound=6.406e-03 bit-identical-to-seq=True
+PASS ikj     matmul_omp         p=6    max|err|/bound=6.406e-03 bit-identical-to-seq=True
+PASS ikj     matmul_omp         p=7    max|err|/bound=6.406e-03 bit-identical-to-seq=True
+PASS ikj     matmul_omp         p=12   max|err|/bound=6.406e-03 bit-identical-to-seq=True
+PASS ikj     matmul_omp         p=24   max|err|/bound=6.406e-03 bit-identical-to-seq=True
+PASS ikj     matmul_omp_scalar  p=6    max|err|/bound=6.406e-03 bit-identical-to-seq=True
+PASS ikj     matmul_omp_avx2    p=1    max|err|/bound=6.406e-03 bit-identical-to-seq=True
+PASS ikj     matmul_omp_avx2    p=6    max|err|/bound=6.406e-03 bit-identical-to-seq=True
+PASS ikj     matmul_omp_fma     p=1    max|err|/bound=4.004e-03 bit-identical-to-seq=False
+PASS ikj     matmul_omp_fma     p=6    max|err|/bound=4.004e-03 bit-identical-to-seq=False
+test_vs_numpy: PASSED
+exit 0
