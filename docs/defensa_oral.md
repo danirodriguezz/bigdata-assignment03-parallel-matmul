@@ -15,7 +15,7 @@ Extras: kernel sin bloques (ikj) y vectorización SIMD a p fijo (extensión opci
 - **Baseline equivalente**: el baseline secuencial es *el mismo fichero* `src/c/matmul.c` compilado **sin**
   `-fopenmp`. Los `#pragma omp` se ignoran y las macros `THREAD_ID()`/`TEAM_SIZE()` devuelven 0 y 1. Mismo
   algoritmo, mismo orden de bucles, mismo tamaño de bloque (b = 256), mismo tipo (float64), mismo layout
-  (row-major), mismos flags (`-O2`) y mismas entradas. Lo único distinto es el runtime de OpenMP.
+  (row-major), mismos flags (`-O2 -falign-loops=32`) y mismas entradas. Lo único distinto es el runtime de OpenMP.
   `ldd bin/matmul_seq` demuestra que ni siquiera enlaza libgomp.
 - **Mismo núcleo**: el secuencial se fija con `taskset -c 0,6` al núcleo físico 0, que es el "place 0" de
   OpenMP. Así T_par(1)/T_seq mide solo la sobrecarga del runtime.
@@ -55,7 +55,30 @@ Extras: kernel sin bloques (ikj) y vectorización SIMD a p fijo (extensión opci
   falsos positivos conocidos. El argumento fuerte es el de filas disjuntas + bit-identidad.
 
 ## 5. Resultados clave (rellenar con numbers.tex)
-RESULTADOS
+Todos de run 3 (todas las variantes con `-falign-loops=32`). Medianas; IC 95 % bootstrap.
+
+1. **Paralelizar compensa en todos los tamaños**, incluso n = 256 (kernel de 9 ms). Con 6 hilos (uno por núcleo
+   físico): S(6) = 4,68–4,99 para n ≥ 512 (E ≈ 0,78–0,83); en n = 3072: T_seq = 16,7 s → T_6 = 3,49 s,
+   S(6) = 4,79 [3,93; 5,80]. 6 hilos queda como mucho un 7 % por debajo de la mejor configuración en cada n.
+2. **La eficiencia ≈ 0,8 se explica por la frecuencia**: 3770 MHz con 1 hilo → 2900 MHz con 6 (f(6)/f(1) = 0,77).
+   Cota "solo frecuencia" 6·0,77 = 4,61; speedup relativo medido T_par(1)/T_6 = 4,54 (n = 2048) y 4,72 (n = 3072).
+   → por ciclo, el código paralelo escala casi perfecto. (Frecuencia de cpufreq en ejecuciones aparte, no contadores.)
+3. **SMT y sobresuscripción no aportan**: S(12)/S(6) = 0,97–1,03; S(24)/S(12) = 0,85–1,07. **Bajón en p = 8**
+   (S(8)/S(6) = 0,74–0,83) por reparto desigual hilos/núcleo (2,2,1,1,1,1) + barrera; cpu_util = 6,56 de 8.
+   Modelo simple T_p/T_6 ≈ m·6/p (m = hilos en el núcleo más cargado) predice 0,67 / 0,83 / 1 para p = 8/10/12
+   y S(16)/S(24) ≈ 0,89: acierta el orden, exagera algo la pérdida.
+4. **Sobrecarga a 1 hilo no medible** tras alinear: T_par(1)/T_seq entre −7,2 % y +2,3 % (IC contiene 1 salvo n = 256,
+   donde el paralelo es *más rápido*). Sin alinear (runs 1 y 2): +19 % a +27 % → artefacto de colocación de código.
+5. **Memoria**: RSS ≈ almacenamiento de las 3 matrices (n = 3072: 217,5 MiB seq vs 216 MiB teórico); OpenMP
+   +0,3 MiB (libgomp) y prácticamente nada por hilo (≤ 0,14 MiB entre p).
+6. **ikj vs bloques**: en speedup el ikj escala igual o mejor (S(6) = 5,16 vs 4,68 en n = 2048) porque su baseline es
+   más lento; en GFLOP/s el de bloques gana (16,6 vs 12,3) y el ikj se hunde con p = 24 (8,0 GFLOP/s).
+7. **Vectorización** (a p fijo): AVX2 ×2,27–2,30 con p = 1 y ×1,98–2,15 con p = 6; FMA algo más con p = 1
+   (×2,46–2,52), indistinguible con p = 6. Mejor: AVX2+FMA, p = 6, n = 2048 → 36,9 GFLOP/s ≈ 10× el escalar
+   secuencial (3,4 GFLOP/s).
+8. **Dos días**: rondas 1–2 el 13/11 (Linux 7.0.0-42), rondas 3–5 el 16/11 (7.0.0-43, más carga de fondo:
+   0,23 → 0,92 CPUs ajenas). El secuencial fue 10–21 % más lento el día 2, pero como cada ronda contiene todas las
+   configuraciones, el speedup por ronda (pareado) difiere del agregado solo un 2,3 % de mediana (máx. 10,4 %).
 
 ## 6. Limitaciones
 - Una sola máquina (portátil) y un solo compilador (gcc 13, libgomp).
@@ -94,7 +117,10 @@ secuencial. Mirando el desensamblado de los binarios enlazados (`results/evidenc
 lentos son justo aquellos cuyo bucle interno cruza una frontera de línea de caché de 64 bytes; su dirección depende
 del tamaño de código que no tiene nada que ver (p. ej. `bench_main.c`). Con `-falign-loops=32` (bucle de 30 bytes
 alineado a 32 → nunca cruza 64 B) la diferencia desaparece; repetí todo el benchmark con ese flag en todas las
-variantes. Los datos de run 1 se conservan sin tocar. Es el clásico "producing wrong data without doing anything
+variantes. Los datos de run 1 se conservan sin tocar. **Run 2** iba a ser la ejecución alineada, pero `make build` no
+recompiló (los binarios no dependían del Makefile; las filas registran los flags antiguos): es una **réplica
+independiente** de run 1 con el mismo efecto (+21 a +27 % en el kernel por bloques), lo que refuerza que es reproducible. Arreglado el Makefile,
+**run 3** (binarios con `-falign-loops=32`, verificado en `build_flags` de cada fila) da todos los resultados. Es el clásico "producing wrong data without doing anything
 obviously wrong" (Mytkowicz et al. 2009). El mecanismo exacto del front-end es conjetura (sin contadores hardware).
 
 **¿Por qué cae el speedup en p = 8 y vuelve a subir en p = 12?**
@@ -102,18 +128,21 @@ Con `OMP_PLACES=cores` y `close`, con 8 hilos los núcleos 0 y 1 tienen 2 hilos 
 El reparto de filas es igual para todos los hilos, así que los 4 hilos que comparten núcleo van más lentos y el
 resto espera en la barrera final: desequilibrio de carga. Con 12 hilos todos los núcleos tienen 2 hilos → vuelve a
 estar equilibrado y el tiempo ≈ p = 6 (el SMT casi no aporta a este kernel escalar). Lo mismo con 16 (desequilibrado)
-vs 24 (equilibrado). `cpu_util` lo confirma: con p = 8 la CPU usada es ~6,3, no 8.
+vs 24 (equilibrado). `cpu_util` lo confirma: con p = 8 la CPU usada es 6,56, no 8.
 
 **¿Por qué la eficiencia con 6 hilos no es 1?**
-Principalmente por la frecuencia: con 1 núcleo activo el turbo llega a ~3,8 GHz y con 6 núcleos ~3,05 GHz
-(freq_probe). Si solo limitase la frecuencia, S(6) ≈ 6 · f(6)/f(1). Ver los números en la sección 5.
+Principalmente por la frecuencia: con 1 núcleo activo ~3,77 GHz y con 6 núcleos ~2,90 GHz (freq_probe).
+Si solo limitase la frecuencia, S(6) ≈ 6 · 0,77 = 4,61, y el speedup relativo medido es 4,54–4,72.
 
 **¿Hay speedup superlineal?**
-No en este estudio (E(p) < 1 en todos los casos). Si apareciera habría que comprobar caché agregada (p · L2),
-frecuencia y si el baseline está penalizado (como pasó en run 1 a la inversa).
+En los valores agregados no (0 casos con S > p). Por ronda sí: 25 de 125 celdas (p = 2–6) tienen S > p (máx.
+E = 1,21 en n = 256, p = 2). Lo investigué: en esas rondas el proceso *secuencial* fue ~20 % más lento que el paralelo
+a 1 hilo de la misma ronda, coincidiendo con picos de actividad ajena (p. ej. 2,3–2,5 CPUs ajenas en n = 256). El
+speedup relativo T_par(1)/T_p supera p solo en 3 de esas 25 celdas y por poco → es ruido del baseline, no
+superlinealidad real.
 
 **¿Cómo sabes que la vectorización ocurre?**
-Tres evidencias: (1) informe del compilador `-fopt-info-vec-optimized` (bucle `c[j] += aik*b[j]`, matmul.c:41,
+Tres evidencias: (1) informe del compilador `-fopt-info-vec-optimized` (bucle `c[j] += aik*b[j]`, matmul.c:40,
 "loop vectorized using 32 byte vectors"); (2) desensamblado: la variante escalar solo tiene `mulsd/addsd`, la AVX2
 tiene `vmulpd/vaddpd` sobre registros `%ymm` y la FMA `vfmadd...pd`; (3) el tiempo baja ~2× a p fijo.
 `-O2` sin `-fno-tree-vectorize` genera *el mismo* `.text` que con él (gcc 13 a -O2 usa el modelo de coste
@@ -133,7 +162,14 @@ pérdida máxima y coincide con el elegido en el Assignment 2.
 
 **¿Qué es `other_busy_cpus`?**
 CPU consumida por *otros* procesos durante cada repetición (de /proc/stat). Sirve para detectar interferencias
-(navegador, otros agentes). El análisis de sensibilidad excluye repeticiones con > 1 CPU ajena.
+(navegador, otros agentes). El análisis de sensibilidad 1 excluye repeticiones con > 1 CPU ajena (poco fiable en n grande: deja k = 1–2);
+el 2 (mejor) calcula S dentro de cada ronda y toma la mediana de las 5 rondas.
+
+**¿Por qué las rondas 3–5 son de otro día? ¿No invalida eso los resultados?**
+Pausé la ejecución el 13/11 (apagado del portátil) y la reanudé el 16/11 con `--resume`. Los tiempos absolutos suben
+(kernel nuevo, más carga de fondo), pero cada ronda contiene todas las configuraciones en orden aleatorio, así que el
+cociente seq/par se mide en las mismas condiciones. El análisis pareado por ronda lo confirma (diferencia mediana 2,3 %).
+Lo declaro en Resultados y Limitaciones; el coste es que los IC en n grande son anchos.
 
 **¿Qué cambiarías con más tiempo?**
 Contadores hardware (fallos de caché, ancho de banda), fijar la frecuencia (desactivar turbo) para separar el

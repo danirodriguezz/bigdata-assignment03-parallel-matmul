@@ -33,6 +33,8 @@
 | `raw/vectorisation.csv` | `omp_scalar_blocked`, `omp_avx2_blocked`, `omp_fma_blocked` at p = 1 and 6 |
 | `raw/freq_probe.csv` | separate runs with the cpufreq sampler (`scripts/freq_probe.py`); used only for frequency evidence |
 | `raw/pilot_*.csv` | pilot runs (tile size, pinning diagnostic, pipeline smoke test); not used in the report's results except where stated (tile-size choice) |
+| `raw/run1_default_alignment/`, `raw/run2_default_alignment_replicate/` | archived runs without loop alignment (same schema); used only for the code-placement table |
+| `environment.md`, `environment_2026-11-13.md` | environment captures of the two days of the main run |
 | `evidence/` | vectorisation reports, disassembly, linkage, affinity display, ThreadSanitizer output, test logs |
 | `logs/` | stdout/stderr of the benchmark driver |
 

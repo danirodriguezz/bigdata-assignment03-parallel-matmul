@@ -47,7 +47,19 @@ Big Data, Academic Year 2026--2027}}
 
 % ------------------------------------------------------------------ Abstract
 \begin{abstract}
-ABSTRACT
+This study asks how the number of OpenMP threads affects the performance of a cache-blocked dense
+matrix multiplication on a six-core, twelve-thread laptop processor (Intel Core i7-9750H), and when parallel
+execution pays off. The parallel version is compared with an equivalent sequential baseline (the same C source and
+compiler flags without OpenMP) for $p=1$--24 threads and $n=256$--\NLargest, with five randomised rounds, medians and
+bootstrap confidence intervals. Parallel execution is faster at every tested size; with one thread per physical core the
+speedup is \SSixNTwentyFortyEight--\SSixNTenTwentyFour{} for $n\ge512$ (efficiency about 0.8; \SLargeSix{}, 95\% CI
+[\SLargeLoSix, \SLargeHiSix], at $n=\NLargest$), and the measured drop of the
+turbo frequency from \FreqOne{} to \FreqSix\,MHz accounts for almost all of the missing efficiency. The second hardware
+thread of each core and oversubscription bring no gain, and an uneven number of threads per core causes a dip of up to a
+quarter at eight threads. Once a code-placement artefact (a hot loop straddling a cache line, which made the one-thread
+OpenMP binary about 20\% slower) was removed by loop alignment, the OpenMP runtime had no measurable one-thread overhead.
+AVX2 vectorisation adds a factor of about 2.3 on one core and 2.0--2.2 on six. The conclusions hold for this machine,
+compiler and kernel.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -147,11 +159,12 @@ stored row-major and contiguous, $C=AB$ overwriting $C$. No external numerical l
 \textbf{Equivalent sequential baseline.} The baseline is the \emph{same} source compiled without
 \texttt{-fopenmp} (\texttt{bin/matmul\_seq}): the OpenMP directives are ignored and the team-size
 helpers return a one-thread team, so algorithm, loop order, tile size, layout, numeric type, compiler
-flags (\texttt{-O2}) and inputs are identical; only the OpenMP runtime differs. The sequential binary
+flags (\texttt{-O2 -falign-loops=32}, see \cref{sec:protocol}) and inputs are identical; only the
+OpenMP runtime differs. The sequential binary
 does not link \texttt{libgomp} (\texttt{results/evidence/linkage.txt}). For consistency with
 Assignment~2, its single-threaded blocked kernel uses the same loop nest and tile size.
 
-\textbf{Parallel version} (\texttt{bin/matmul\_omp}, \texttt{-O2 -fopenmp}). One
+\textbf{Parallel version} (\texttt{bin/matmul\_omp}, \texttt{-O2 -fopenmp -falign-loops=32}). One
 \texttt{omp parallel} region per call; thread $t$ of a team of $p$ owns the contiguous rows
 $[\lfloor nt/p\rfloor,\lfloor n(t+1)/p\rfloor)$ of $C$, zeroes them and runs the blocked loops over
 them. The partition balances the work to within one row, writes are disjoint, $A$ and $B$ are only
@@ -162,7 +175,8 @@ operations, the parallel result is bit-identical to the sequential one for every
 
 \textbf{Vectorisation variants} (same source, OpenMP builds, only flags differ): \emph{scalar}
 \texttt{-O2 -fno-tree-vectorize}; \emph{AVX2} \texttt{-O3 -march=native}; \emph{AVX2+FMA}
-\texttt{-O3 -march=native -ffp-contract=fast}. All builds use \texttt{-std=c11}; in this ISO mode gcc
+\texttt{-O3 -march=native -ffp-contract=fast}. All builds use \texttt{-std=c11 -falign-loops=32}; in
+this ISO mode gcc
 does not contract $a\cdot b+c$ into fused multiply-adds (FMA) unless \texttt{-ffp-contract=fast} is
 given~\cite{gccopt13}, so the AVX2 build performs the same rounding as the scalar one and FMA is
 studied as a separate variant.
@@ -189,7 +203,7 @@ threads are disabled (\texttt{OPENBLAS\_NUM\_THREADS=MKL\_NUM\_THREADS=1}; no BL
 
 \begin{table}[t]
 \centering
-\caption{Execution environment (captured by \texttt{capture\_env.sh} on 2026-11-13).}
+\caption{Execution environment (captured by \texttt{capture\_env.sh} on 2026-11-13 and 2026-11-16).}
 \label{tab:env}
 \footnotesize
 \setlength{\tabcolsep}{3pt}
@@ -201,7 +215,7 @@ CPU & Intel Core i7-9750H, 1 socket, 6 cores / 12 logical CPUs (SMT), base 2.6\,
       4.5\,GHz~\cite{intel9750h}; AVX2, FMA \\
 Caches & L1d 32\,KiB and L2 256\,KiB per core; L3 12\,MiB shared \\
 Memory & 15.5\,GiB DDR4, 1 NUMA node \\
-OS & Ubuntu 24.04.5 LTS, Linux 7.0.0-42; \texttt{intel\_pstate} governor \texttt{powersave},
+OS & Ubuntu 24.04.5 LTS, Linux 7.0.0-42 (rounds 1--2) and 7.0.0-43 (rounds 3--5); \texttt{intel\_pstate} governor \texttt{powersave},
      turbo enabled, laptop on AC power \\
 Compiler & gcc 13.3.0, \texttt{-std=c11}; OpenMP runtime libgomp (gcc 13) \\
 Analysis & Python 3.12.3, NumPy 2.5.4, pandas 3.1.0, Matplotlib 3.11.2 \\
@@ -234,7 +248,7 @@ positives of that setting and are not evidence of a race in the kernel.
 
 \subsection{Measurement protocol and budgets}
 \label{sec:protocol}
-\textbf{Timer and boundary.} \texttt{clock\_gettime(CLOCK\_MONOTONIC)} around exactly one kernel call
+\textbf{Timer and boundary.} \texttt{clock\_gettime} with \texttt{CLOCK\_MONOTONIC} around exactly one kernel call
 (\emph{kernel} boundary): zeroing $C$, the product and, for OpenMP, the fork/join of that call's team.
 The thread team is created before timing by a probe region, $C$ is touched before timing, and the
 checksum of $C$ is computed after each repetition (outside the timer) so that the result is consumed.
@@ -271,6 +285,23 @@ fastest at $n\le1024$ by at most 5--8\%, while $b=256$ was clearly fastest at $n
 Assignment~2) was fixed for all experiments, so that the sequential baseline is not handicapped at
 large $n$, which would inflate the speedups.
 
+\textbf{Code placement and the three runs.} The first complete benchmark (run~1, gcc's default loop
+alignment) showed the OpenMP binary with $p=1$ about 20\% \emph{slower} than the sequential baseline for
+the blocked kernel at every $n$, whereas the \texttt{omp\_scalar} build, whose kernel machine code is
+identical, matched the baseline, and the parallel $ikj$ kernel with $p=1$ was 8--16\% \emph{faster} than
+its sequential counterpart. Instead of reporting this as OpenMP overhead, the linked binaries were
+disassembled (\texttt{results/evidence/loop\_placement.csv}): the slow binaries are exactly those whose
+hot inner loop straddles a 64-byte cache-line boundary, a position that depends on the size of unrelated
+code in the same executable. Code layout is a known source of measurement bias~\cite{mytkowicz2009}.
+All builds were therefore recompiled with \texttt{-falign-loops=32}~\cite{gccopt13}, after which no inner
+loop crosses a 64-byte boundary and a check under the lock gave equal times for the sequential and
+one-thread binaries (\texttt{results/logs/align32\_check.log}). A second full run intended as the aligned
+run used stale binaries (the binaries did not depend on the \texttt{Makefile}; its rows record the old
+flags), so it is kept as an independent \emph{replicate} of run~1. The main results come from run~3, with
+every build aligned; runs~1 and~2 are kept unchanged in \texttt{results/raw/run*/} and are used only in
+\cref{tab:align}. The micro-architectural mechanism of the slowdown is not established (no hardware
+counters) and is a conjecture.
+
 \textbf{Sizes and budgets.} Main sweep: blocked kernel, $n\in\{256,512,1024,2048,3072\}$, all 11 thread
 counts plus the baseline. $ikj$: $n\in\{1024,2048\}$, same thread counts. Vectorisation:
 $n\in\{1024,2048\}$, $p\in\{1,6\}$. Budgets agreed before the runs: at most 600\,s per process,
@@ -280,17 +311,279 @@ A configuration that fails is recorded with its status and never assigned a time
 % ------------------------------------------------------------------ Results
 \section{Results}
 \label{sec:results}
-RESULTS
+All results in this section come from run~3 (every build with \texttt{-falign-loops=32}): \NumRowsMeasured{}
+measured repetitions in \NumProcessRuns{} process runs. Every configuration up to the largest attempted size,
+$n=\NLargest$, completed within the budgets (\NumFailedRows{} failed or timed-out runs), with \NumThreadMismatch{}
+thread-count mismatches, and \MachineMinutes{}\,min of process time. Times are medians over $k$ repetitions
+with the IQR as variability (complete list with $k$ and memory in \cref{tab:full1,tab:full2} of the
+appendix).
+
+\textbf{Measurement conditions.} The run was paused after round~2 and rounds 3--5 were measured three days
+later (2026-11-16) with the same binaries but after a kernel update (Linux 7.0.0-42 $\to$ 7.0.0-43, both
+captures in \texttt{results/environment*.md}) and with more background activity: the median foreign load
+during repetitions longer than 0.5\,s was \BusyDayOne{} busy CPUs on the first day and \BusyDayTwo{} on the
+second. The sequential baseline was \SeqDaySlowMinPct--\SeqDaySlowMaxPct\% slower on the second day,
+depending on $n$. Because every round contains every configuration, this shift affects $T_{seq}$ and $T_p$
+alike and mainly widens the confidence intervals of the pooled speedups. Computing $S(p)$ within each round
+and taking the median over the five rounds changes it by \PairedMedRelDiffPct\% (median over all $(n,p)$;
+at most \PairedMaxRelDiffPct\%; \texttt{results/summary/speedup\_paired\_rounds.csv}). For example, $S(6)$ at
+$n=\NLargest$ is \SLargeSix{} pooled and \SPairedSix{} as the median of rounds (range
+\SPairedMinSix--\SPairedMaxSix).
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{speedup_efficiency.pdf}
+\caption{(a) Speedup $S(p)=T_{seq}/T_p$ and (b) efficiency $E(p)=S(p)/p$ of the blocked kernel versus the
+number of OpenMP threads, for each matrix size (ratio of medians; error bars: 95\% bootstrap CI). Grey band:
+$7\le p\le12$, two threads per physical core (SMT); hatched: $p>12$, more threads than logical CPUs
+(oversubscribed). Crosses: speedup expected if scaling were limited only by the measured drop of the core
+frequency, $\min(p,6)\,f(p)/f(1)$ (\cref{fig:freq}). Affinity: \texttt{OMP\_PLACES=cores},
+\texttt{OMP\_PROC\_BIND=close}.}
+\label{fig:speedup}
+\end{figure*}
+
+\input{generated/table_speedup.tex}
+
+\textbf{Thread scaling (RQ).} \Cref{fig:speedup,tab:speedup} show the main result. Up to the six physical
+cores the speedup grows with every added thread for all sizes. With two threads $S$ is
+\STwoNFiveTwelve--\STwoNThirtySeventyTwo{} for $n\ge512$ ($E\approx0.99$), and with six threads it reaches
+\SSixNTwentyFortyEight--\SSixNTenTwentyFour{} for $n\ge512$ ($E=\ESixNTwentyFortyEight$--\ESixNTenTwentyFour).
+At $n=\NLargest$, $T_p$ falls from \TLargeOne\,s ($p=1$) to \TLargeSix\,s ($p=6$), against $T_{seq}=\TseqLarge$\,s
+(IQR \TseqLargeIqr\,s, $k=\KseqLarge$), i.e.\ $S(6)=\SLargeSix$ [\SLargeLoSix, \SLargeHiSix]. The smallest size
+scales best: at $n=256$ ($T_{seq}=\TseqNTwoFiftySix$\,s) $S(6)=\SSixNTwoFiftySix$, $E=\ESixNTwoFiftySix$.
+Using the second hardware thread of every core gives no further speedup: $S(12)/S(6)$ is
+\SmtGainMin--\SmtGainMax{} across sizes. Between these points the curve is not monotonic: with $p=8$ the
+speedup drops to \EightDipMin--\EightDipMax{} times the $p=6$ value for every $n$, and the median CPU
+utilisation of the process at $n=\NLargest$ is \CpuUtilEight{} CPUs for 8 threads (\CpuUtilSix{} for 6,
+\CpuUtilTwelve{} for 12). Oversubscription does not help: $S(16)/S(12)$ is
+\OversubSixteenMin--\OversubSixteenMax{} and $S(24)/S(12)$ is \OversubMin--\OversubMax; the losses occur at the
+two largest sizes ($S(24)=\STwentyFourNThirtySeventyTwo$ at $n=\NLargest$) and the small gains at $n\le1024$ are
+within the confidence intervals. The best speedup at $n=\NLargest$ is \SBestLarge{} with $p=\PBestLarge$. Absolute times for every configuration are listed in
+\cref{tab:full1,tab:full2}.
+
+\textbf{Per-round values above $p$.} No pooled speedup exceeds $p$ (\NumSuperlinearPooled{} of the cells with
+$p\ge2$), but \NumSuperlinearRounds{} of the \NumRoundCells{} per-round values with $2\le p\le6$ do (maximum
+$E=\MaxRoundEff$ at \MaxRoundEffCell). Inspection of the raw rows shows that in these rounds the
+\emph{sequential} process ran slower than the parallel binary with one thread of the same round (by about 20\% at
+$n\le1024$), and those sequential runs were often accompanied by foreign activity (e.g.\ at $n=256$, 2.3--2.5
+busy foreign CPUs during the sequential runs of rounds 3 and 5 versus about 0.15 during the $p=1$ runs). The
+relative speedup $T_{par}(1)/T_p$ of the same binary in the same round exceeds $p$ in only \NumSuperlinearRel{}
+of these \NumSuperlinearRounds{} cells, by a small margin. The apparent superlinearity therefore comes from
+noisy single baseline measurements, not from the parallel code (\cref{sec:discussion}).
+
+\textbf{Overhead of the parallel binary with one thread.} \Cref{tab:overhead} compares the OpenMP binary with
+$p=1$ against the sequential baseline on the same core. For the blocked kernel the ratio
+$T_{par}(1)/T_{seq}$ differs from~1 by \OverheadMinPct\% to \OverheadMaxPct\%, and the 95\% CI
+contains~1 for every $n$ except 256, where the parallel binary is faster (the baseline at $n=256$ was hit by the
+interference bursts described above). At $n=\NLargest$ the ratio is \OverheadLarge{}
+[\OverheadLargeLo, \OverheadLargeHi]. For the $ikj$ kernel the difference is \OverheadIkjMinPct\% to
+\OverheadIkjMaxPct\%. In runs~1 and~2, without loop alignment, the same comparison gave a consistent
+penalty of \DefaultOverheadMinPct\% to \DefaultOverheadMaxPct\% for the blocked kernel and a difference of
+\DefaultIkjMinPct\% to \DefaultIkjMaxPct\% (an advantage) for $ikj$ (\cref{tab:align}),
+which disappeared once only the code placement was changed.
+
+\input{generated/table_overhead.tex}
+\input{generated/table_alignment.tex}
+
+\textbf{Frequency.} \Cref{fig:freq} shows the effective frequency of the busy CPUs during the
+\texttt{freq\_probe} runs ($n=2048$). It falls from \FreqOne\,MHz with one thread to \FreqSix\,MHz with six
+($f(6)/f(1)=\FreqRatioSix$) and \FreqTwelve\,MHz with twelve. If the only limit to scaling were this
+frequency drop, the speedup with six threads would be $6\,f(6)/f(1)=\FreqBoundSix$; the measured relative
+speedup of the parallel binary, $T_{par}(1)/T_6$, is \SRelSixNTwentyFortyEight{} at $n=2048$ and
+\SRelSixNThirtySeventyTwo{} at $n=\NLargest$.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{frequency.pdf}
+\caption{Effective frequency of the busy CPUs (kernel \texttt{cpufreq} estimate sampled every 0.1\,s; median and
+10th--90th percentile over 2 rounds $\times$ 2 process runs) while the blocked kernel runs with $p$ threads,
+$n=2048$. Base frequency 2.6\,GHz, maximum turbo 4.5\,GHz~\cite{intel9750h}.}
+\label{fig:freq}
+\end{figure}
+
+\textbf{Blocked vs.\ un-tiled kernel.} \Cref{fig:kernels} compares the two kernels in throughput
+($2n^3/T_p$). With one thread the blocked kernel delivers \GflopsBlockedOneNTwentyFortyEight{} and the $ikj$
+kernel \GflopsIkjOneNTwentyFortyEight\,GFLOP/s at $n=2048$. Both scale up to six threads; in speedup relative
+to its own baseline the $ikj$ kernel scales as well as the blocked one ($S(6)=\SIkjSixNTwentyFortyEight$
+[\SIkjLoSixNTwentyFortyEight, \SIkjHiSixNTwentyFortyEight] vs.\ \SBlockedSixNTwentyFortyEight{} at $n=2048$),
+but its throughput stays lower (\GflopsIkjSixNTwentyFortyEight{} vs.\ \GflopsBlockedSixNTwentyFortyEight\,GFLOP/s).
+At $n=1024$ the two kernels are closer (\GflopsIkjSixNTenTwentyFour{} vs.\ \GflopsBlockedSixNTenTwentyFour\,GFLOP/s at
+$p=6$). The clearest difference is under oversubscription at $n=2048$: the $ikj$ kernel drops to
+\GflopsIkjTwentyFourNTwentyFortyEight\,GFLOP/s with $p=24$ ($S=\SIkjTwentyFourNTwentyFortyEight$), whereas the
+blocked kernel keeps \GflopsBlockedTwentyFourNTwentyFortyEight\,GFLOP/s.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{kernels_gflops.pdf}
+\caption{Throughput $2n^3/T_p$ (median) of the blocked ($b=256$) and un-tiled $ikj$ kernels versus thread count,
+$n=1024$ and $2048$. The $ikj$ operands do not fit in the 12\,MiB L3 cache at $n=2048$ (32\,MiB each).}
+\label{fig:kernels}
+\end{figure}
+
+\textbf{Memory.} The peak RSS is dominated by the three matrices (\cref{fig:memory}): at $n=\NLargest$ it is
+\RssSeqNThirtySeventyTwo\,MiB for the sequential baseline and at most \RssMaxNThirtySeventyTwo\,MiB for any
+thread count, against \ArrayMibNThirtySeventyTwo\,MiB of array storage. The OpenMP binary needs
+\RssOmpOffsetMinMib--\RssOmpOffsetMaxMib\,MiB more than the sequential one already with $p=1$ (it loads
+\texttt{libgomp}), and across all thread counts its peak RSS varies by at most \RssSpreadMaxMib\,MiB at any $n$:
+the parallel version needs no extra copies of the data.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{memory.pdf}
+\caption{Median peak resident set size (GNU \texttt{time}) per process versus thread count ($p=0$: sequential
+baseline). Dotted lines: storage of $A$, $B$ and $C$, $3\cdot8n^2$ bytes.}
+\label{fig:memory}
+\end{figure}
+
+\textbf{Vectorisation (optional extension).} \emph{Evidence.} The compiler report of the AVX2 build lists 7
+vectorised loops, among them the inner $j$ loop of both kernels (``loop vectorized using 32 byte vectors'',
+\texttt{matmul.c} lines 40 and 97), and its
+disassembly contains packed \texttt{vmulpd}/\texttt{vaddpd} instructions on 256-bit \texttt{ymm} registers in the
+kernel loops. The FMA build contains \texttt{vfmadd...pd} instructions instead. The scalar build and the default
+\texttt{-O2} build contain only scalar \texttt{mulsd}/\texttt{addsd} instructions and have identical machine
+code, so the main sweep measures scalar code (files \texttt{vectorisation\_evidence.csv},
+\texttt{vec\_report\_*.txt} and \texttt{disasm\_excerpt\_*.txt} in \texttt{results/evidence/}). \emph{Effect.} \Cref{tab:vec,fig:vec} compare the three builds at a fixed thread
+count. With one thread AVX2 is \VecAvxPOneNTenTwentyFour{} and \VecAvxPOneNTwentyFortyEight{} times faster than the
+scalar build ($n=1024$, 2048) and AVX2+FMA \VecFmaPOneNTenTwentyFour{} and \VecFmaPOneNTwentyFortyEight{}
+times. With six threads the SIMD speedup is \VecAvxPSixNTenTwentyFour{} and \VecAvxPSixNTwentyFortyEight{} (AVX2),
+\VecFmaPSixNTenTwentyFour{} and \VecFmaPSixNTwentyFortyEight{} (FMA). Read the other way, the thread speedup
+$T(1)/T(6)$ of the same binary is \VecThrScalarNTenTwentyFour/\VecThrScalarNTwentyFortyEight{} for the scalar build
+and \VecThrAvxNTenTwentyFour/\VecThrAvxNTwentyFortyEight{} for AVX2. The fastest configuration measured, AVX2+FMA
+with six threads at $n=2048$, reaches \VecGflopsFmaPSixNTwentyFortyEight\,GFLOP/s.
+
+\input{generated/table_vectorisation.tex}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\columnwidth]{vectorisation.pdf}
+\caption{Throughput of the scalar (\texttt{-O2 -fno-tree-vectorize}), AVX2 (\texttt{-O3 -march=native}) and
+AVX2+FMA (\texttt{+ -ffp-contract=fast}) builds of the blocked kernel at fixed thread count $p=1$ and $p=6$
+(median; error bars: IQR).}
+\label{fig:vec}
+\end{figure}
 
 % ------------------------------------------------------------------ Discussion
 \section{Discussion}
 \label{sec:discussion}
-DISCUSSION
+\textbf{Answer to the research question.} On this laptop the OpenMP version of the blocked kernel is faster
+than its equivalent sequential baseline for every tested size, from $n=256$ (a 9\,ms kernel) to $n=\NLargest$,
+and every additional thread up to the number of physical cores reduces the runtime. Six threads, one per
+physical core, give $S(6)\approx\SSixNTwentyFortyEight$--\SSixNTenTwentyFour{} for $n\ge512$ and are within
+\SixVsBestMinPct\% of the best configuration at every $n$. Threads beyond the physical cores, whether as SMT
+siblings or as oversubscription, add at most a few percent in the best case and cost up to a quarter of the speedup
+in the worst (the $p=8$ dip). Parallel execution
+therefore helps as soon as each thread has at least a few milliseconds of work, and the useful thread count is the
+number of physical cores, not the number of logical CPUs.
+
+\textbf{Why the efficiency at six threads is about 0.8 (H1).} The loss is not caused by the parallel code: the
+work is split evenly, there is no synchronisation inside the kernel, and $T_{par}(1)\approx T_{seq}$. It is
+explained, within the precision of the measurements, by the processor's frequency: the busy cores run at
+\FreqSix\,MHz with six threads but at \FreqOne\,MHz with one, so the same instructions take
+$1/\FreqRatioSix$ times longer per core. The resulting bound, $6\,f(6)/f(1)=\FreqBoundSix$, is close to the measured
+relative speedups (\SRelSixNTwentyFortyEight{} and \SRelSixNThirtySeventyTwo{} at $n=2048$ and \NLargest), and
+the crosses in \cref{fig:speedup} follow the measured curve up to $p=6$. In other words, the parallel version does
+almost the same amount of work per clock cycle on every core as the single thread does on one. The efficiency is
+also nearly independent of $n$ between 512 and \NLargest, which does not point to a memory-bandwidth limit for the
+blocked kernel. This explanation rests on the kernel's \texttt{cpufreq} estimate measured in separate runs at
+$n=2048$, not on hardware counters, so it is strong circumstantial evidence rather than a direct measurement of
+cycles. H1 is supported.
+
+\textbf{SMT and the dip at eight threads (H2).} Two threads on the same core give the same throughput as one
+($S(12)/S(6)=\SmtGainMin$--\SmtGainMax). A plausible explanation, not verified without counters, is that the scalar
+inner loop already keeps the core's load/store resources busy with one thread, so the sibling thread only takes
+turns, while the frequency drops slightly more (\FreqTwelve\,MHz at $p=12$). The non-monotonic curve between 6 and 12
+follows from combining the static, equal row partition with the binding. Thread $t$ is placed on core $t\bmod6$
+(\texttt{affinity\_display.txt}), so with $p=8$ cores 0 and 1 run two threads each and the other four run one, and
+with $p=16$ the cores run (3,3,3,3,2,2) threads. Every thread has the same number of rows, so the region ends when
+the most loaded core finishes, while the threads alone on a core wait at the implicit barrier, which is visible as a
+CPU utilisation of only \CpuUtilEight{} for 8 threads. If $m$ is the largest number of threads on one core and an
+SMT pair is no faster than one thread, $T_p/T_6\approx m\cdot6/p$. This simple model predicts
+$S(8)/S(6)\approx0.67$, $S(10)/S(6)\approx0.83$, $S(12)/S(6)\approx1$ and $S(16)/S(24)\approx0.89$. It
+reproduces the ordering of the measurements (the dip at $p=8$, the recovery at 10 and 12, and $p=16$ below $p=24$ at
+four of the five sizes) but overestimates the losses (measured $S(8)/S(6)=\EightDipMin$--\EightDipMax), so it
+captures the main mechanism but not all of it. A dynamic schedule or a different binding would likely remove the
+dip, but this was not tested. H2 is supported.
+
+\textbf{Oversubscription (H3).} With more threads than logical CPUs, the operating system time-slices threads that
+are bound to the same core. This brings no additional execution resources, so no gain is possible. The measured
+losses are largest at $n=\NLargest$ ($S(24)=\STwentyFourNThirtySeventyTwo$ vs.\ $S(12)=\STwelveNThirtySeventyTwo$),
+which may be due to time-sliced threads evicting each other's tiles from the shared core caches (conjecture). H3 is
+supported.
+
+\textbf{Small matrices (H4).} H4 is refuted: $n=256$ shows the \emph{highest} efficiency. At $n=256$ even the
+six-thread kernel runs for about 1.7\,ms, which is long compared with the creation of one parallel region by an
+already existing team. Part of the advantage is an artefact of the baseline: $T_{seq}$ at $n=256$ was inflated by the
+interference bursts (\cref{sec:results}), and the relative speedup of the same binary,
+$T_{par}(1)/T_6=\SRelSixNTwoFiftySix$, is much closer to that at $n=512$ (\SRelSixNFiveTwelve) than the pooled
+$S(6)=\SSixNTwoFiftySix$ is. We have no measurement that explains the remaining difference; a smaller per-thread working
+set that stays in the private caches is a possible explanation.
+
+\textbf{Overhead with one thread (H5) and code placement.} After aligning the loops, the parallel binary with one
+thread matches the sequential baseline within the confidence intervals at all sizes except $n=256$, where it is
+faster, so the cost of the OpenMP runtime (one parallel region per call and the thread-team logic) is not measurable at
+these problem sizes. H5 is supported. The more important lesson came from run~1. A 20\% difference that looked like
+OpenMP overhead was caused by where the linker placed the inner loop, and it reversed sign for the other kernel. It was
+reproduced in an independent replicate (run~2) and disappeared when only the alignment flag changed. Had it been
+accepted, every speedup against the baseline would have been understated by about 20\%. This agrees with Mytkowicz et al.~\cite{mytkowicz2009}: an innocuous
+change to the code layout can bias a comparison more than the factor under study, and an equivalent baseline must be
+equivalent in machine code, not only in source code. Which front-end resource is responsible could not be determined
+without counters.
+
+\textbf{Blocked vs.\ un-tiled kernel (H6).} H6 is only partly supported. Measured as speedup, the $ikj$ kernel scales as
+well as the blocked one up to 12 threads, because its sequential baseline is itself slower: a kernel that is
+inefficient on one core leaves more room for parallel speedup. Measured as throughput, which is what a user cares about,
+the blocked kernel stays ahead at $n=2048$, and the $ikj$ kernel collapses under oversubscription. A possible
+explanation (conjecture) is that all threads sweep $B$ in the same order at roughly the same time, so a row of $B$ fetched
+from memory by one thread is often reused by the others from the shared L3. This reuse would make the memory-bound kernel
+scale better than the roofline argument~\cite{williams2009} alone suggests, and it would be lost when time-slicing makes the
+threads drift apart.
+
+\textbf{Vectorisation (H7).} The SIMD and thread effects are separated by design: SIMD speedups are measured at a fixed
+$p$, thread speedups with a fixed binary. AVX2 makes the kernel about 2.3 times faster on one core, below the factor of 4
+suggested by four doubles per register, which indicates that the vectorised loop is limited by moving data rather than by
+arithmetic (the update performs two loads and one store per multiply--add). With six threads the SIMD gain is smaller
+(\VecAvxPSixNTenTwentyFour{} and \VecAvxPSixNTwentyFortyEight), and, equivalently, the thread speedup of the AVX2 binary
+(\VecThrAvxNTenTwentyFour, \VecThrAvxNTwentyFortyEight) is smaller than that of the scalar binary
+(\VecThrScalarNTenTwentyFour, \VecThrScalarNTwentyFortyEight). This matches the prediction that a faster kernel gets closer
+to a shared limit (L3 or memory bandwidth), but the confidence intervals overlap, so H7 is only weakly supported. Fused
+multiply--adds add a small further gain at $p=1$ and none that can be distinguished at $p=6$. Combining both techniques,
+the best configuration is about ten times faster than the scalar single-threaded kernel
+(\VecGflopsFmaPSixNTwentyFortyEight{} vs.\ \VecGflopsScalarPOneNTwentyFortyEight\,GFLOP/s at $n=2048$). This is still far
+from what a library with register-blocked micro-kernels achieves~\cite{goto2008}, which is outside the scope of this study.
+
+\textbf{Limitations.} (i)~One machine, one compiler and one OpenMP runtime; the numbers do not transfer to other
+processors, in particular to those without a strong turbo-frequency dependence on the number of active cores.
+(ii)~No hardware performance counters: the frequency comes from \texttt{cpufreq} estimates in separate runs, and the
+mechanisms proposed for SMT, the code-placement effect and the $ikj$ behaviour are conjectures. (iii)~The main run spans two
+days, two kernel versions and different background load (a browser and other agents shared the laptop). The randomised,
+complete rounds protect the ratios, and the paired analysis shows that the conclusions do not depend on the day, but the
+confidence intervals at large $n$ are wide and $k=5$ at $n=\NLargest$. (iv)~A single affinity policy and a static schedule
+were tested; the SMT dip shows that this choice matters. (v)~The vectorisation extension covers two sizes and two thread
+counts. (vi)~The \texttt{powersave} governor and laptop cooling are part of the measured system.
 
 % ------------------------------------------------------------------ Conclusions
 \section{Conclusions}
 \label{sec:conclusions}
-CONCLUSIONS
+Within the tested scope (one laptop with an Intel Core i7-9750H, gcc~13 with libgomp, float64 matrices with
+$n=256$--\NLargest, compact binding to cores and a static row partition) the study establishes the following.
+\begin{enumerate}
+\item The OpenMP parallelisation of the blocked kernel pays off at every tested size, including a 9\,ms kernel at
+  $n=256$. The best thread count is the number of physical cores: $S(6)=\SSixNTwentyFortyEight$--\SSixNTenTwentyFour{} for
+  $n\ge512$, and at most \SixVsBestMinPct\% below the best configuration at every $n$.
+\item The efficiency of about 0.8 at six threads is explained by the lower frequency of six active cores
+  ($f(6)/f(1)=\FreqRatioSix$), not by the parallel code, whose one-thread overhead is not measurable once the loops are
+  aligned.
+\item SMT gives no speedup for this kernel, oversubscription gives none either, and thread counts that load the cores
+  unevenly (8, 16) are slower than balanced ones (6, 12, 24) because of the static partition and the barrier.
+\item AVX2 vectorisation and threads combine to about ten times the scalar single-thread throughput; the SIMD gain is
+  slightly smaller with six threads than with one.
+\item An equivalent baseline must be checked down to the machine code: a code-placement artefact of 20\% appeared in two
+  independent runs and would otherwise have been reported as OpenMP overhead.
+\end{enumerate}
+What remains unresolved: the micro-architectural causes proposed for the SMT result, the code-placement effect and the
+behaviour of the un-tiled kernel need hardware counters to be confirmed; dynamic scheduling or a different binding policy
+might remove the dip at eight threads; and the higher efficiency at $n=256$ is only partly explained. Assignment~4 will
+reuse the parallel version (\texttt{matmul\_blocked()} in \texttt{src/c/matmul.c}, built with \texttt{-fopenmp}) as the shared-memory reference for its comparison.
 
 % ------------------------------------------------------------------ Materials + AI statement
 \section*{Reproducibility Materials}
@@ -300,14 +593,29 @@ Repository: \url{https://github.com/danirodriguezz/bigdata-assignment03-parallel
 configuration (\texttt{configs/experiment.json}), input generator and checksums, the experiment
 driver and \texttt{run\_measured.py}, all raw CSVs (\texttt{results/raw/}), logs, evidence files
 (vectorisation report, disassembly, affinity, TSan), the analysis script and this report's sources.
-\texttt{make test inputs bench} reproduces the measurements (about one hour on this machine) and
+\texttt{make test inputs bench} reproduces the measurements (about \MachineMinutes{} minutes of process time plus waiting for the benchmark lock) and
 \texttt{make analysis report} regenerates every table, figure and number from the raw data.
 
 \section*{Use of Generative AI}
-AISTATEMENT
+I used Claude Code (Anthropic; model Claude Opus 5.5) as an assistant throughout this assignment: to plan the
+experimental design, draft and debug the C kernels, the test program, the experiment driver and the analysis scripts, to
+inspect the disassembly that revealed the code-placement artefact, and to draft and revise the text of this report. I
+reviewed, compiled and ran all of the code myself, every measurement comes from runs on my own laptop recorded in
+\texttt{results/raw/}, every number in the text is generated from those files by \texttt{analysis/make\_all.py}, and I
+checked every reference against its publisher or official page. I take responsibility for the code, the data and the
+conclusions.
 
 % ------------------------------------------------------------------ References
 \bibliographystyle{IEEEtran}
 \bibliography{references}
+
+% ------------------------------------------------------------------ Appendix
+\section*{Appendix: Complete Measurements}
+\Cref{tab:full1,tab:full2} list every timing configuration of the main run (run~3) with its median, IQR, number of
+measured repetitions and peak memory. Raw rows: \texttt{scaling.csv}, \texttt{scaling\_ikj.csv} and
+\texttt{vectorisation.csv} in \texttt{results/raw/}; summary: \texttt{results/summary/summary.csv}.
+
+\input{generated/table_full1.tex}
+\input{generated/table_full2.tex}
 
 \end{document}

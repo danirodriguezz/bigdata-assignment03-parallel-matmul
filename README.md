@@ -11,13 +11,15 @@ execution pay off? Optional extension: SIMD vectorisation (scalar vs AVX2 vs AVX
 
 ## 1. Environment used for the reported results
 Full capture in `results/environment.md`. Intel Core i7-9750H (6 cores / 12 logical CPUs, L3 12 MiB, AVX2+FMA),
-15.5 GiB RAM, Ubuntu 24.04.5 (Linux 7.0.0-42), governor `powersave` with turbo enabled, laptop on AC power.
+15.5 GiB RAM, Ubuntu 24.04.5, governor `powersave` with turbo enabled, laptop on AC power. The main run (run 3)
+spans two days: rounds 1–2 on 2026-11-13 (Linux 7.0.0-42, capture `results/environment_2026-11-13.md`) and
+rounds 3–5 on 2026-11-16 (Linux 7.0.0-43, `results/environment.md`), same binaries.
 Core k = logical CPUs {k, k+6}.
 
 ## 2. Dependencies
 | Tool | Version | Notes |
 |---|---|---|
-| gcc | 13.3.0 | `-std=c11`; variants: seq `-O2`, omp `-O2 -fopenmp`, omp_scalar `-O2 -fno-tree-vectorize -fopenmp`, omp_avx2 `-O3 -march=native -fopenmp`, omp_fma `-O3 -march=native -ffp-contract=fast -fopenmp` |
+| gcc | 13.3.0 | `-std=c11`; variants: seq `-O2`, omp `-O2 -fopenmp`, omp_scalar `-O2 -fno-tree-vectorize -fopenmp`, omp_avx2 `-O3 -march=native -fopenmp`, omp_fma `-O3 -march=native -ffp-contract=fast -fopenmp`; **all with `-falign-loops=32`** (see §4) |
 | OpenMP runtime | libgomp (gcc 13) | |
 | GNU time, taskset, flock | system | used by `run_measured.py` |
 | Python | 3.12.3 | venv `.venv`; packages pinned in `requirements-lock.txt` (NumPy, pandas, Matplotlib, SciPy) |
@@ -31,7 +33,7 @@ make inputs     # shared inputs A, B for n = 256..3072 (NumPy PCG64, seed 42, U[
 make env        # results/environment.md
 make evidence   # vectorisation report + disassembly counts, affinity display, linkage, ThreadSanitizer
 make pilot      # optional smoke test (< 1 min) -> results/raw/pilot_*.csv
-make bench      # full experiments (~30 min of machine time on the machine above) -> results/raw/*.csv
+make bench      # full experiments (~22 min of process time + lock waits; ~25–35 min wall) -> results/raw/*.csv
 make analysis   # results/raw -> results/summary, report/figures, report/generated (tables + numbers.tex)
 make report     # PDF -> deliverables/Assignment03_RodriguezAlonso_Report.pdf
 make package    # materials zip from the committed git tree
@@ -52,6 +54,11 @@ which serialises benchmarks with the machine-wide lock `~/.cache/bigdata_bench.l
   `data/inputs/checksums.sha256` and the JSON sidecars are.
 - Raw results: `results/raw/*.csv` — schema in `results/README.md`. Main files: `scaling.csv` (blocked
   kernel, thread sweep), `scaling_ikj.csv`, `vectorisation.csv`, `freq_probe.csv`; pilots `pilot_*.csv`.
+- Run history: run 1 (`results/raw/run1_default_alignment/`, gcc default loop alignment) and run 2
+  (`results/raw/run2_default_alignment_replicate/`, same binaries as run 1 by mistake → independent replicate)
+  showed a ~20 % code-placement artefact (hot loop straddling a 64-byte line, `results/evidence/loop_placement.csv`).
+  All builds now use `-falign-loops=32`; run 3 (files directly in `results/raw/`) gives every reported result.
+  Runs 1–2 are used only for the alignment table. Details: `docs/DECISIONS.md`.
 - Evidence (non-timing): `results/evidence/` (vectorisation report, disassembly, affinity, linkage, TSan).
 - Logs: `results/logs/` (tests, pilots, benchmark driver).
 

@@ -11,7 +11,9 @@ Statistics (stated in the report):
   * Overhead ratio T_par(1) / T_seq with the same bootstrap.
   * Exclusion rule: none for the main results (all rows kept). Sensitivity analysis: the same
     speedups recomputed without repetitions with other_busy_cpus > 1.0 (interference by other
-    processes on the shared laptop).
+    processes on the shared laptop). Sensitivity analysis 2 (paired_rounds): S computed within
+    each round of the randomised design (median over rounds, min-max), which removes the effect
+    of the main run being measured on two different days.
 Usage: python analysis/make_all.py [--prefix pilot_]
 """
 import argparse
@@ -125,6 +127,83 @@ def overhead(timed):
                                 "T_par1_iqr_s": q(t1, .75) - q(t1, .25), "k_seq": len(tb), "k_par1": len(t1),
                                 "ratio": np.median(t1) / np.median(tb), "ci_low": lo, "ci_high": hi})
     return pd.DataFrame(ov_rows)
+
+
+def paired_rounds(timed, sp, num):
+    """Sensitivity analysis 2: speedup computed WITHIN each round (block) of the randomised design.
+
+    Every round contains every configuration once, so the sequential baseline and the parallel
+    runs of the same round were measured under the same machine conditions. Rounds 1-2 of the main
+    run were measured on 2026-11-13 and rounds 3-5 on 2026-11-16 (the run was paused), with more
+    background activity on the second day. S_r(p) = median_r(T_seq) / median_r(T_p) removes this
+    between-day effect from the ratio; we report the median over the rounds and the min-max range.
+    """
+    sub = timed[timed["experiment"] == "scaling"].copy()
+    sub["p"] = np.where(sub["method"].str.startswith("seq"), 0, sub["threads"]).astype(int)
+    med = sub.groupby(["n", "p", "round"])["time_s"].median().unstack("round")
+    rows = []
+    for n in sorted(sub["n"].unique()):
+        m = med.loc[n]
+        if 0 not in m.index:
+            continue
+        for p in m.index:
+            if p == 0:
+                continue
+            s_r = (m.loc[0] / m.loc[p]).dropna()
+            rows.append({"n": int(n), "threads": int(p), "rounds": len(s_r), "S_round_median": s_r.median(),
+                         "S_round_min": s_r.min(), "S_round_max": s_r.max()})
+    pr = pd.DataFrame(rows).merge(sp[["n", "threads", "speedup"]], on=["n", "threads"])
+    pr["rel_diff"] = pr["S_round_median"] / pr["speedup"] - 1
+    pr.to_csv(SUM / "speedup_paired_rounds.csv", index=False)
+    num.add("PairedMaxRelDiffPct", f"{100 * pr['rel_diff'].abs().max():.1f}",
+            "max |median-of-rounds S / pooled S - 1| over all (n,p)")
+    num.add("PairedMedRelDiffPct", f"{100 * pr['rel_diff'].abs().median():.1f}")
+    nmax = int(pr["n"].max())
+    for p in (6, 12):
+        r = pr[(pr["n"] == nmax) & (pr["threads"] == p)].iloc[0]
+        w = word(p)
+        num.add(f"SPaired{w}", f"{r['S_round_median']:.2f}")
+        num.add(f"SPairedMin{w}", f"{r['S_round_min']:.2f}")
+        num.add(f"SPairedMax{w}", f"{r['S_round_max']:.2f}")
+    # superlinear rounds (S_r > p) -- reported, not hidden
+    sup, cells = [], 0
+    for n in sorted(sub["n"].unique()):
+        m = med.loc[n]
+        for p in m.index:
+            if p < 2 or p > PHYS:
+                continue
+            s_r = (m.loc[0] / m.loc[p]).dropna()
+            rel_r = m.loc[1] / m.loc[p]  # relative speedup of the same binary, same round
+            cells += len(s_r)
+            sup += [(int(n), int(p), int(r), s / p, rel_r[r] > p) for r, s in s_r.items() if s > p]
+    num.add("NumSuperlinearRounds", len(sup), "(n, 2<=p<=6, round) cells with per-round S > p")
+    num.add("NumRoundCells", cells)
+    sp2 = sp[sp["threads"] >= 2]
+    num.add("NumSuperlinearPooled", int((sp2["speedup"] > sp2["threads"]).sum()))
+    num.add("NumSuperlinearRel", sum(t[4] for t in sup), "of those, cells where T_par(1)/T_p > p too")
+    if sup:
+        n_, p_, r_, e_, _ = max(sup, key=lambda t: t[3])
+        num.add("MaxRoundEff", f"{e_:.2f}")
+        num.add("MaxRoundEffCell", f"$n={n_}$, $p={p_}$, round {r_}")
+        num.add("SuperlinearSizes", ", ".join(str(v) for v in sorted({t[0] for t in sup})))
+
+    # between-day effect: same configuration, day 2 vs day 1
+    sub["day"] = sub["timestamp"].dt.date.astype(str)
+    days = sorted(sub["day"].unique())
+    if len(days) == 2:
+        long_ = timed[timed["time_s"] >= 0.5].copy()
+        long_["day"] = long_["timestamp"].dt.date.astype(str)
+        busy = long_.groupby("day")["other_busy_cpus"].median()
+        num.add("BusyDayOne", f"{busy[days[0]]:.2f}")
+        num.add("BusyDayTwo", f"{busy[days[1]]:.2f}")
+        seq = sub[sub["method"] == "seq_blocked"].groupby(["n", "day"])["time_s"].median().unstack("day")
+        slow = (seq[days[1]] / seq[days[0]] - 1).dropna()
+        slow.rename("seq_day2_vs_day1").to_csv(SUM / "day_effect_seq.csv")
+        num.add("SeqDaySlowMinPct", f"{100 * slow.min():.0f}")
+        num.add("SeqDaySlowMaxPct", f"{100 * slow.max():.0f}")
+        rounds_day = sub.groupby("round")["day"].agg(lambda s: "/".join(sorted(s.unique())))
+        rounds_day.to_csv(SUM / "rounds_per_day.csv")
+    return pr
 
 
 def alignment_artifact(ov3, num):
@@ -247,7 +326,7 @@ def color_n(n):
 
 def fig_speedup_eff(sp, path, fq=None):
     ps.apply_style()
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(ps.TEXT_WIDTH_IN, 2.5))
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(ps.TEXT_WIDTH_IN, 2.75))
     pmax = sp["threads"].max()
     for ax in (a1, a2):
         shade_regions(ax, pmax)
@@ -276,10 +355,13 @@ def fig_speedup_eff(sp, path, fq=None):
     a2.set_ylim(0, 1.15)
     a1.text(9, 0.3, "SMT", ha="center", fontsize=7, color="0.3")
     a1.text(19, 0.3, "oversubscribed", ha="center", fontsize=7, color="0.3")
-    a1.legend(loc="upper left", ncol=2, fontsize=6.5)
+    # one legend above both panels, so that no data point is hidden
+    handles, labels = a1.get_legend_handles_labels()
+    fig.legend(handles, labels, loc="upper center", ncol=8, fontsize=6.5, frameon=False,
+               bbox_to_anchor=(0.5, 1.0), handletextpad=0.4, columnspacing=1.0)
     a1.set_title("(a) speedup", fontsize=8)
     a2.set_title("(b) efficiency", fontsize=8)
-    fig.tight_layout()
+    fig.tight_layout(rect=(0, 0, 1, 0.91))
     ps.savefig(fig, path)
 
 
@@ -321,7 +403,7 @@ def fig_kernels(sp_all, path):
     ax.set_xticks([1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 24])
     ax.set_xlim(0.5, pmax + 1)
     ax.set_ylabel("Throughput $2n^3/T_p$ [GFLOP/s]")
-    ax.legend(fontsize=6.5, loc="upper left")
+    ax.legend(fontsize=6.5, loc="lower right", framealpha=0.95)
     ps.savefig(fig, path)
 
 
@@ -377,7 +459,9 @@ def fig_memory(sm, path):
     ax.set_xlabel("Threads $p$ (0 = sequential baseline)")
     ax.set_ylabel("Peak RSS [MiB] (GNU time)")
     ax.set_xticks([0, 1, 2, 4, 6, 8, 12, 16, 24])
-    ax.legend(fontsize=6.5, ncol=3, loc="upper left", bbox_to_anchor=(0, 1.02))
+    lo, hi = ax.get_ylim()
+    ax.set_ylim(lo, hi * 12)  # head-room for the legend above the n = 3072 line
+    ax.legend(fontsize=6.5, ncol=3, loc="upper left")
     ps.savefig(fig, path)
 
 
@@ -445,6 +529,8 @@ def main():
         num.add("SensMaxRelDiffPct", f"{100 * cmp_['rel_diff'].abs().max():.1f}",
                 "max |relative change| of S(p) when contaminated reps are excluded")
 
+    paired_rounds(timed, sp, num)
+
     nmax = int(sp["n"].max())
     num.add("NLargest", nmax)
     big = sp[sp["n"] == nmax].set_index("threads")
@@ -473,12 +559,23 @@ def main():
         num.add(f"SBestN{w}", f"{g['speedup'].max():.2f}")
         num.add(f"PBestN{w}", int(g["speedup"].idxmax()))
         num.add(f"TseqN{w}", fmt_s(g["T_seq_median_s"].iloc[0]))
+    # ratios between thread-count regions (all n): SMT gain, p = 8 dip, oversubscription
+    piv = sp.pivot(index="n", columns="threads", values="speedup")
+    six_vs_best = piv[6] / piv.max(axis=1)
+    num.add("SixVsBestMinPct", f"{100 * (1 - six_vs_best.min()):.0f}", "max shortfall of S(6) vs best S over n")
+    for name, a, b in (("SmtGain", 12, 6), ("EightDip", 8, 6), ("Oversub", 24, 12), ("OversubSixteen", 16, 12)):
+        r = piv[a] / piv[b]
+        num.add(f"{name}Min", f"{r.min():.2f}", f"min over n of S({a})/S({b})")
+        num.add(f"{name}Max", f"{r.max():.2f}", f"max over n of S({a})/S({b})")
     for n, g in sp_ikj.groupby("n"):
         g = g.set_index("threads")
         w = word(int(n))
-        for p in (6, 12):
+        for p in (6, 12, 24):
             if p in g.index:
                 num.add(f"SIkj{word(p)}N{w}", f"{g.loc[p, 'speedup']:.2f}")
+                num.add(f"SIkjLo{word(p)}N{w}", f"{g.loc[p, 'speedup_ci_low']:.2f}")
+                num.add(f"SIkjHi{word(p)}N{w}", f"{g.loc[p, 'speedup_ci_high']:.2f}")
+                num.add(f"GflopsIkj{word(p)}N{w}", f"{g.loc[p, 'gflops_p']:.1f}")
         num.add(f"SIkjBestN{w}", f"{g['speedup'].max():.2f}")
         num.add(f"PIkjBestN{w}", int(g["speedup"].idxmax()))
         num.add(f"GflopsIkjBestN{w}", f"{g['gflops_p'].max():.1f}")
@@ -487,6 +584,9 @@ def main():
         if len(gb):
             num.add(f"GflopsBlockedBestN{w}", f"{gb['gflops_p'].max():.1f}")
             num.add(f"GflopsBlockedOneN{w}", f"{gb.loc[1, 'gflops_p']:.2f}")
+            for p in (6, 24):
+                num.add(f"GflopsBlocked{word(p)}N{w}", f"{gb.loc[p, 'gflops_p']:.1f}")
+                num.add(f"SBlocked{word(p)}N{w}", f"{gb.loc[p, 'speedup']:.2f}")
             num.add(f"GflopsIkjOneN{w}", f"{g.loc[1, 'gflops_p']:.2f}")
 
     # ---- overhead of the parallel binary with one thread ---------------------------------------
@@ -589,6 +689,13 @@ def main():
         num.add(f"RssSeqN{w}", f"{g.loc[g['threads'] == 0, 'median_peak_rss_mib'].iloc[0]:.1f}")
         num.add(f"RssMaxN{w}", f"{g['median_peak_rss_mib'].max():.1f}")
         num.add(f"ArrayMibN{w}", f"{3 * 8 * n * n / 2 ** 20:.1f}")
+    omp_rss = sm[sm["threads"] > 0].groupby("n")["median_peak_rss_mib"]
+    seq_rss = sm[sm["threads"] == 0].groupby("n")["median_peak_rss_mib"].median()
+    num.add("RssSpreadMaxMib", f"{(omp_rss.max() - omp_rss.min()).max():.2f}",
+            "max over n of (max - min) peak RSS across thread counts")
+    off = omp_rss.min() - seq_rss
+    num.add("RssOmpOffsetMinMib", f"{off.min():.2f}")
+    num.add("RssOmpOffsetMaxMib", f"{off.max():.2f}")
 
     # ---- figures ------------------------------------------------------------------------------
     fig_speedup_eff(sp, FIG / "speedup_efficiency", fq)
@@ -637,13 +744,13 @@ def write_overhead_table(ov, path):
     lines = [r"\begin{table}[t]", r"\centering",
              r"\caption{Overhead of the parallel binary run with one thread: ratio of medians "
              r"$T_{par}(1)/T_{seq}$ with 95\% bootstrap CI; times are medians [IQR] in seconds over $k$ "
-             r"repetitions each.}", r"\label{tab:overhead}", r"\small",
+             r"repetitions each.}", r"\label{tab:overhead}", r"\footnotesize", r"\setlength{\tabcolsep}{2.5pt}",
              r"\begin{tabular}{@{}lrllcr@{}}", r"\toprule",
              r"Kernel & $n$ & $T_{seq}$ [IQR] & $T_{par}(1)$ [IQR] & ratio [95\% CI] & $k$ \\", r"\midrule"]
     for _, r in ov.iterrows():
         lines.append(f"{r['kernel']} & {r['n']} & {fmt_s(r['T_seq_median_s'])} [{fmt_s(r['T_seq_iqr_s'])}] & "
                      f"{fmt_s(r['T_par1_median_s'])} [{fmt_s(r['T_par1_iqr_s'])}] & "
-                     f"{r['ratio']:.3f} [{r['ci_low']:.3f}, {r['ci_high']:.3f}] & {min(r['k_seq'], r['k_par1'])} \\\\")
+                     f"{r['ratio']:.2f} [{r['ci_low']:.2f}, {r['ci_high']:.2f}] & {min(r['k_seq'], r['k_par1'])} \\\\")
     lines += [r"\bottomrule", r"\end{tabular}", r"\end{table}"]
     path.write_text("\n".join(lines) + "\n")
 

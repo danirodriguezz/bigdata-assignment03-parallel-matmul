@@ -17,9 +17,10 @@ HDR     := src/c/matmul.h
 #   omp_avx2   : vectorisation extension, -O3 + AVX2 (ISO C mode => no FMA contraction)
 #   omp_fma    : vectorisation extension, -O3 + AVX2 + FMA contraction allowed
 # LAYOUT: align every loop to a 32-byte boundary. Without it the position of the hot inner loop
-# depends on the size of the surrounding code, and the loop straddled a 32-byte boundary in some
-# binaries but not in others (~20% slower, run 1: results/raw/run1_default_alignment/). The
-# i7-9750H front end fetches/caches decoded instructions in 32-byte windows. See docs/DECISIONS.md.
+# depends on the size of the surrounding code, and the loop straddled a 64-byte cache-line boundary
+# in some binaries but not in others (~20% slower, run 1: results/raw/run1_default_alignment/;
+# results/evidence/loop_placement.csv). With 32-byte alignment no hot loop (<= 30 bytes) crosses a
+# 64-byte line. The front-end mechanism is a conjecture (no hardware counters). See docs/DECISIONS.md.
 LAYOUT           := -falign-loops=32
 FLAGS_seq        := -O2 $(LAYOUT)
 FLAGS_omp        := -O2 -fopenmp $(LAYOUT)

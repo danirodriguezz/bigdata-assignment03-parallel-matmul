@@ -1,6 +1,6 @@
 # Execution environment
 
-Captured: 2026-11-13T11:28:26+00:00 on host `daniel-Creator-15M-A9SD`
+Captured: 2026-11-16T11:36:05+00:00 on host `daniel-Creator-15M-A9SD`
 
 ## CPU (lscpu)
 
@@ -11,7 +11,7 @@ Model name:                              Intel(R) Core(TM) i7-9750H CPU @ 2.60GH
 Thread(s) per core:                      2
 Core(s) per socket:                      6
 Socket(s):                               1
-CPU(s) scaling MHz:                      74%
+CPU(s) scaling MHz:                      85%
 CPU max MHz:                             4500.0000
 CPU min MHz:                             800.0000
 L1d cache:                               192 KiB (6 instances)
@@ -35,14 +35,14 @@ AC power online (1=plugged): 1
 
 ```
                total       usado       libre  compartido   búf/caché  disponible
-Mem:            15Gi       4,3Gi       5,2Gi       407Mi       6,7Gi        11Gi
+Mem:            15Gi       4,4Gi       7,5Gi       479Mi       4,3Gi        11Gi
 Inter:         7,6Gi          0B       7,6Gi
 ```
 
 ## Operating system
 
 ```
-Linux daniel-Creator-15M-A9SD 7.0.0-42-generic #42~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Oct 19 14:43:01 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+Linux daniel-Creator-15M-A9SD 7.0.0-43-generic #43~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Sat Oct 31 06:52:47 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
 PRETTY_NAME="Ubuntu 24.04.5 LTS"
 VERSION_ID="24.04"
 ```
@@ -92,7 +92,7 @@ dbus-python==1.3.2
 decorator==5.1.1
 defer==1.0.6
 distro==1.9.0
-distro-info==1.7+build1
+distro-info==1.7+ubuntu0.1
 fonttools==4.46.0
 fs==2.4.16
 GDAL==3.8.4
@@ -173,5 +173,5 @@ xkit==0.0.0
 ## Load at capture time
 
 ```
- 11:28:27 up 48 min,  1 user,  load average: 0,76, 2,14, 2,95
+ 11:36:06 up 58 min,  1 user,  load average: 0,78, 2,11, 2,76
 ```
