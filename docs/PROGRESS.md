@@ -16,7 +16,5 @@
 Machine time used: pilots ~6 + run1 22 + run2 22 + run3 22 ≈ 72 min (budget 90 min).
 
 ## Pending — needs Daniel
-1. Confirm the "Use of Generative AI" statement in `report/main.tex` (and README §7).
-2. Create the GitHub repo `bigdata-assignment03-parallel-matmul` (user danirodriguezz) and push:
-   `git remote add origin git@github.com:danirodriguezz/bigdata-assignment03-parallel-matmul.git && git push -u origin main`
-3. The official submission window (9–13 Nov 2026) has passed: check late-submission rules with the lecturer.
+1. AI statement: confirmed (2026-11-16). GitHub: pending — Daniel runs `gh repo create ... --push` (see chat).
+2. The official submission window (9–13 Nov 2026) has passed: check late-submission rules with the lecturer.
