@@ -83,7 +83,7 @@ Reviewer stance: critical. ✅ = satisfied (where), ❌ = not satisfied (fix / r
 - ✅ Reused materials: A2 path + commit `9c21829` (no code copied; same loop nest and tile size).
 - ✅ `deliverables/Assignment03_RodriguezAlonso_Report.pdf` and `..._Materials.zip` built by `make package` from the
   committed tree (`git archive`: excludes `.venv`, `bin/`, input `.bin` files).
-- ✅ Git: everything committed; public repo https://github.com/danirodriguezz/bigdata-assignment03-parallel-matmul to be created and pushed by Daniel (agent push blocked by the project rule "never push").
+- ✅ Git: everything committed; public repo https://github.com/danirodriguezz/bigdata-assignment03-parallel-matmul created and pushed by Daniel on 2026-11-16 (remote main = a6443a3).
 
 ## G. Oral defence
 - ✅ `docs/defensa_oral.md` (Spanish): RQ, fairness, code walkthrough, correctness, 8 key results with numbers,
